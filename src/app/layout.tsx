@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Poppins } from 'next/font/google'
+import { Libre_Baskerville } from 'next/font/google'
 import { Navbar } from './components/Navbar'
 import { MenuProvider } from './context/menu-context'
 
-const poppins = Poppins({
+const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: "swap"
+  weight: ['400', '700'],
+  display: 'swap',
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={libreBaskerville.className}>
         <MenuProvider>
           <Navbar />
           {children}

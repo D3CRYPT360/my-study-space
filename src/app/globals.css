@@ -1,15 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background:   #FBEEDA;
-  --foreground: #FBEEDA;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #FBEEDA;
-    --foreground: #FBEEDA;
-  }
+  --background: #FBEEDA;
+  --foreground: #000000;
 }
 
 @keyframes fadeIn {
@@ -24,5 +17,5 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
 }
