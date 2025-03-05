@@ -3,6 +3,9 @@
 :root {
   --background: #FBEEDA;
   --foreground: #000000;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-libre-baskerville: 'Libre Baskerville', serif;
+  --font-baskervville-italic: 'Libre Baskerville', serif;
 }
 
 @keyframes fadeIn {
@@ -17,5 +20,21 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: inherit;
+}
+
+/* Set default font family */
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+/* Class for Libre Baskerville text */
+.font-libre {
+  font-family: var(--font-libre-baskerville), serif;
+}
+
+.baskervville-regular-italic {
+  font-family: var(--font-baskervville-italic), serif;
+  font-weight: 400;
+  font-style: italic;
+  -webkit-text-stroke: 1.1px;
 }
