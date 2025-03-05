@@ -64,14 +64,14 @@ export const Navbar = () => {
             {/* Buttons (Visible on Large Screens) */}
             <div className="hidden lg:flex items-center gap-4">
               <Link href="/register" className={`${buttonStyles.base} ${buttonStyles.primary}`}>
-                <span className="transition-transform duration-300 group-hover:scale-110">Register</span>
+                <span className="px-5 transition-transform duration-300 group-hover:scale-110">Register</span>
               </Link>
               <Link 
                 href="/login" 
                 className={`${buttonStyles.base} ${buttonStyles.secondary}`}
               >
-                <span className="absolute inset-0 w-full h-full bg-[#F9633B] transform translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"></span>
-                <span className="relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">Log in</span>
+                <span className="left-1/2 absolute inset-14 size-5 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full -translate-1/2"></span>
+                <span className="px-5 relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">Log in</span>
               </Link>
             </div>
 

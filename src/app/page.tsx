@@ -132,7 +132,7 @@ export default function Home() {
 
           {selectedGrade && (
             <div className="mt-8 flex flex-col lg:flex-row gap-10">
-              <div className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8 place-items-center">
+              <div className="w-lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8" style={{width: "auto"}}>
                 {subjects.map(({ name, bgClass, icon }) => (
                   <button
                     key={name}
