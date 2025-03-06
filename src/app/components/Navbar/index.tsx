@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react"; // Icons for mobile menu
 import { useMenu } from "@/app/context/menu-context";
 import { useState, useEffect } from 'react';
 import { buttonStyles } from '@/app/styles/button';
+import { LoginButton, RegisterButton } from '../common/AuthButtons';
 
 // Navigation link data
 const navLinks = [
@@ -35,7 +36,7 @@ export const Navbar = () => {
     <nav className="fixed top-6 left-0 right-0 z-50">
       <div className="mx-auto max-w-[1400px]">
         <div 
-          className={`h-[116px] rounded-[30px] transition-all duration-300 ${
+          className={`sm:h-[70px] md:h-[116px] h-[90px] rounded-[30px] transition-all duration-300 ${
             scrolled ? 'backdrop-blur-md bg-gradient-to-r from-[rgba(244,212,170,0.95)] via-[rgba(255,252,248,0.95)] to-[rgba(225,238,239,0.95)]' : 'bg-gradient-to-r from-[rgba(244,212,170,0.9)] via-[rgba(255,252,248,0.9)] to-[rgba(225,238,239,0.9)]'
           }`}
           style={{
@@ -45,7 +46,7 @@ export const Navbar = () => {
           <div className="flex justify-between items-center h-full px-6 lg:px-10">
             {/* Logo */}
             <div>
-              <Image src="/logo.webp" alt="My Study Space" width={200} height={40} priority />
+              <Image src="/logo.webp" alt="My Study Space" width={200} height={40} priority className="md:w-[200px] w-[150px]" />
             </div>
 
             {/* Desktop Navigation */}
@@ -61,24 +62,24 @@ export const Navbar = () => {
               ))}
             </div>
 
-            {/* Buttons (Visible on Large Screens) */}
+            {/* Desktop Auth Buttons */}
             <div className="hidden lg:flex items-center gap-4">
-              <Link href="/register" className={`${buttonStyles.base} ${buttonStyles.primary}`}>
-                <span className="px-5 transition-transform duration-300 group-hover:scale-110">Register</span>
-              </Link>
-              <Link 
-                href="/login" 
-                className={`${buttonStyles.base} ${buttonStyles.secondary}`}
-              >
-                <span className="left-1/2 absolute inset-14 size-5 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full -translate-1/2"></span>
-                <span className="px-5 relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">Log in</span>
-              </Link>
+              <RegisterButton />
+              <LoginButton />
             </div>
 
-            {/* Mobile Menu Button */}
-            <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden z-20">
-              {isOpen ? <X size={28} color="#351E1C" /> : <Menu size={28} color="#351E1C" />}
-            </button>
+            {/* Mobile Auth Buttons and Menu */}
+            <div className="flex lg:hidden items-center gap-2">
+              <Link href="/login" className={`${buttonStyles.base} ${buttonStyles.secondary} !px-3 !py-1 text-sm`}>
+                <span className="relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">Log in</span>
+              </Link>
+              <Link href="/register" className={`${buttonStyles.base} ${buttonStyles.primary} !px-3 !py-1 text-sm`}>
+                <span className="transition-transform duration-300 group-hover:scale-110">Register</span>
+              </Link>
+              <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden z-20 ml-2">
+                {isOpen ? <X size={28} color="#351E1C" /> : <Menu size={28} color="#351E1C" />}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -95,16 +96,6 @@ export const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link href="/register" className={`${buttonStyles.base} ${buttonStyles.primary} w-40`}>
-              <span className="transition-transform duration-300 group-hover:scale-110">Register</span>
-            </Link>
-            <Link 
-              href="/login" 
-              className={`${buttonStyles.base} ${buttonStyles.secondary} w-40`}
-            >
-              <span className="absolute inset-0 w-full h-full bg-[#F9633B] transform translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 "></span>
-              <span className="relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">Log in</span>
-            </Link>
           </div>
         )}
       </div>
