@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useMenu } from './context/menu-context';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import timetableData from '@/data/timetable.json';
 
 
@@ -108,12 +108,44 @@ export default function Home() {
   const { isOpen } = useMenu();
   const [selectedGrade, setSelectedGrade] = useState<Grade | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<keyof GradeSubjects>('Mathematics');
+  const [expandedSubjects, setExpandedSubjects] = useState<Set<keyof GradeSubjects>>(new Set());
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    // Initial check
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
+  const toggleSubjectExpansion = (subject: keyof GradeSubjects) => {
+    const newExpandedSubjects = new Set(expandedSubjects);
+    if (newExpandedSubjects.has(subject)) {
+      newExpandedSubjects.delete(subject);
+    } else {
+      newExpandedSubjects.add(subject);
+    }
+    setExpandedSubjects(newExpandedSubjects);
+    setSelectedSubject(subject);
+  };
+
+  const isSubjectExpanded = (subject: keyof GradeSubjects) => {
+    return expandedSubjects.has(subject);
+  };
 
   return (
     <main className="min-h-screen">
-      <div className={`relative mt-[191px] mx-auto max-w-full sm:max-w-[1400px] transition-all duration-300 ${isOpen ? 'lg:mt-[140px] mt-[400px]' : 'mt-[140px]'}`}>        
+      <div className={`relative mt-[191px] mx-auto max-w-full sm:max-w-[1400px] px-[30px] transition-all duration-300 ${isOpen ? 'lg:mt-[140px] mt-[400px]' : 'mt-[140px]'}`}>        
         <Image 
-          src="/banner.jpg" 
+          src="/Registration now open - banner_Desktop.jpg" 
           alt="Banner" 
           width={1400} 
           height={550} 
@@ -121,7 +153,7 @@ export default function Home() {
           className="hidden md:block object-cover rounded-[30px] w-full h-auto" 
         />
         <Image 
-          src="/mobile.jpg" 
+          src="/Registration now open - banner_Mobile.jpg" 
           alt="Mobile Banner" 
           width={1400} 
           height={550} 
@@ -135,7 +167,7 @@ export default function Home() {
               {grades.map((grade) => (
                 <button
                   key={grade}
-                  onClick={() => { setSelectedGrade(grade); setSelectedSubject('Mathematics'); }}
+                  onClick={() => { setSelectedGrade(grade); setSelectedSubject('Mathematics'); setExpandedSubjects(new Set()); }}
                   className={`relative overflow-hidden group cursor-pointer px-4 py-1 font-medium text-base leading-[25px] font-['Poppins'] rounded-[15px] border transition-colors ${selectedGrade === grade ? 'bg-[#F9633B] text-white border-[#F9633B]' : 'text-[#F9633B] border-[#F9633B]'} ml-2 sm:ml-[20px] md:mt-[30px] first:ml-0 sm:first:ml-[20px]`}
                 >
                   <span className="left-1/2 absolute inset-12 size-5 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full -translate-1/2"></span>
@@ -149,28 +181,68 @@ export default function Home() {
 
           {selectedGrade && (
             <div className="mt-8 flex flex-col lg:flex-row gap-10">
-              <div className="w-lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8" style={{width: "auto"}}>
+              <div className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8" style={{width: "auto"}}>
                 {subjects.map(({ name, bgClass, icon }) => (
-                  <button
-                    key={name}
-                    onClick={() => setSelectedSubject(name)}
-                    className={`flex items-center gap-3 px-6 rounded-[12px] transition-colors w-[316px] h-[73px] ${
-                      selectedSubject === name ? bgClass : 'bg-[#E1EEEF]'
-                    }`}
-                  >
-                    <div className={selectedSubject === name ? 'brightness-0 invert' : ''}>
-                      <Image src={icon} alt={name} width={45} height={45} />
-                    </div>
-                    <span className={`text-[30px] leading-[26px] font-medium ${selectedSubject === name ? 'text-white' : 'text-[#351E1C]'}`}>
-                      {name}
-                    </span>
-                  </button>
+                  <div key={name} className="flex flex-col">
+                    <button
+                      onClick={() => {
+                        if (isMobile) {
+                          // For mobile, toggle dropdown
+                          toggleSubjectExpansion(name);
+                        } else {
+                          // For desktop, just select the subject
+                          setSelectedSubject(name);
+                        }
+                      }}
+                      className={`flex items-center justify-between px-6 
+                        ${isSubjectExpanded(name) ? 'rounded-t-[12px] rounded-b-none' : 'rounded-[12px]'} 
+                        transition-colors w-full lg:w-[316px] h-[73px] 
+                        ${isMobile ? 'bg-[#E1EEEF]' : (selectedSubject === name ? bgClass : 'bg-[#E1EEEF]')}`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className={!isMobile && selectedSubject === name ? 'brightness-0 invert' : ''}>
+                          <Image src={icon} alt={name} width={45} height={45} />
+                        </div>
+                        <span className={`text-[30px] leading-[26px] font-medium 
+                          ${!isMobile && selectedSubject === name ? 'text-white' : 'text-[#351E1C]'}`}>
+                          {name}
+                        </span>
+                      </div>
+                      
+                      {/* Dropdown arrow for mobile only */}
+                      <div className="lg:hidden">
+                        <svg 
+                          width="24" 
+                          height="24" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          xmlns="http://www.w3.org/2000/svg"
+                          className={`transition-transform duration-300 ${isSubjectExpanded(name) ? 'rotate-180' : ''}`}
+                        >
+                          <path 
+                            d="M7 10L12 15L17 10" 
+                            stroke="#351E1C" 
+                            strokeWidth="2" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                    </button>
+                    
+                    {/* Mobile dropdown content */}
+                    {isSubjectExpanded(name) && (
+                      <div className="lg:hidden w-full bg-[#E1EEEF] rounded-b-[12px] p-6">
+                        {selectedGrade && <Schedule grade={selectedGrade} subject={name} />}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
 
               <div className="hidden lg:block w-[2px] h-[270px] bg-[#E1EEEF]" />
 
-              <div className="w-full lg:w-1/4 px-4 lg:px-0 mt-8 lg:mt-0">
+              <div className="hidden lg:block w-full lg:w-1/4 px-4 lg:px-0 mt-8 lg:mt-0">
                 <Schedule grade={selectedGrade} subject={selectedSubject} />
               </div>
             </div>
@@ -184,7 +256,7 @@ export default function Home() {
               <span className="font-normal">Our</span>
               <span className="baskervville-regular-italic">Teachers</span>
             </h2>
-            <a href="#" className="text-right text-[16px] leading-[25px] font-medium font-poppins text-[#F9633B]">
+            <a href="#" className="hidden md:block text-right text-[16px] leading-[25px] font-medium font-poppins text-[#F9633B]">
               See all Teachers {'>'}
             </a>
           </div>
