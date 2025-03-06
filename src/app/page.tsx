@@ -112,8 +112,22 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <div className={`relative mt-[191px] mx-auto max-w-full sm:max-w-[1400px] transition-all duration-300 ${isOpen ? 'lg:mt-[140px] mt-[400px]' : 'mt-[140px]'}`}>        
-        <Image src="/banner.jpg" alt="Banner" width={1400} height={550} priority className="object-cover rounded-[30px] w-full h-auto" />
-
+        <Image 
+          src="/banner.jpg" 
+          alt="Banner" 
+          width={1400} 
+          height={550} 
+          priority 
+          className="hidden md:block object-cover rounded-[30px] w-full h-auto" 
+        />
+        <Image 
+          src="/mobile.jpg" 
+          alt="Mobile Banner" 
+          width={1400} 
+          height={550} 
+          priority 
+          className="md:hidden block object-cover rounded-[30px] w-full h-auto" 
+        />
         <div className={`mt-15 w-full bg-[#FFFCF8] rounded-[30px] px-4 sm:px-6 md:px-10 py-8 transition-all duration-300 ${selectedGrade ? 'min-h-[600px] sm:min-h-[700px] lg:min-h-[501px]' : 'h-auto md:h-[169px]'}`}>          
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-0">
             <h2 className="text-[#351E1C] font-['Libre_Baskerville'] text-4xl md:text-[60px] leading-tight md:mt-[20px]">Subjects</h2>

@@ -70,10 +70,10 @@ export const Navbar = () => {
 
             {/* Mobile Auth Buttons and Menu */}
             <div className="flex lg:hidden items-center gap-2">
-              <Link href="/login" className={`${buttonStyles.base} ${buttonStyles.secondary} !px-3 !py-1 text-sm`}>
+              <Link href="https://app.mystudyspace.mv/auth2Login" className={`${buttonStyles.base} ${buttonStyles.secondary} !px-3 !py-1 text-sm`} target="_blank" rel="noopener noreferrer">
                 <span className="relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">Log in</span>
               </Link>
-              <Link href="/register" className={`${buttonStyles.base} ${buttonStyles.primary} !px-3 !py-1 text-sm`}>
+              <Link href="https://app.mystudyspace.mv/auth2CreateProfileUpdate" className={`${buttonStyles.base} ${buttonStyles.primary} !px-3 !py-1 text-sm`} target="_blank" rel="noopener noreferrer">
                 <span className="transition-transform duration-300 group-hover:scale-110">Register</span>
               </Link>
               <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden z-20 ml-2">
