@@ -112,32 +112,17 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <div className={`relative mt-[191px] mx-auto max-w-full sm:max-w-[1400px] transition-all duration-300 ${isOpen ? 'lg:mt-[140px] mt-[400px]' : 'mt-[140px]'}`}>        
-        <Image 
-          src="/banner.jpg" 
-          alt="Banner" 
-          width={1400} 
-          height={550} 
-          priority 
-          className="hidden md:block object-cover rounded-[30px] w-full h-auto" 
-        />
-        <Image 
-          src="/mobile.jpg" 
-          alt="Mobile Banner" 
-          width={1400} 
-          height={550} 
-          priority 
-          className="md:hidden block object-cover rounded-[30px] w-full h-auto" 
-        />
+        <Image src="/banner.jpg" alt="Banner" width={1400} height={550} priority className="object-cover rounded-[30px] w-full h-auto" />
+
         <div className={`mt-15 w-full bg-[#FFFCF8] rounded-[30px] px-4 sm:px-6 md:px-10 py-8 transition-all duration-300 ${selectedGrade ? 'min-h-[600px] sm:min-h-[700px] lg:min-h-[501px]' : 'h-auto md:h-[169px]'}`}>          
-          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-0">
-            <h2 className="text-[#351E1C] font-['Libre_Baskerville'] text-4xl md:text-[60px] leading-tight" style={{ marginTop: '20px' }}>Subjects</h2>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-0">
+            <h2 className="text-[#351E1C] font-['Libre_Baskerville'] text-4xl md:text-[60px] leading-tight md:mt-[20px]">Subjects</h2>
             <div className="flex items-center">
               {grades.map((grade) => (
                 <button
                   key={grade}
                   onClick={() => { setSelectedGrade(grade); setSelectedSubject('Mathematics'); }}
-                  className={`relative overflow-hidden group cursor-pointer px-4 py-1 font-medium text-base leading-[25px] font-['Poppins'] rounded-[15px] border transition-colors ${selectedGrade === grade ? 'bg-[#F9633B] text-white border-[#F9633B]' : 'text-[#F9633B] border-[#F9633B]'}`}
-                  style={{ marginTop: '30px', marginLeft: '20px' }}
+                  className={`relative overflow-hidden group cursor-pointer px-4 py-1 font-medium text-base leading-[25px] font-['Poppins'] rounded-[15px] border transition-colors ${selectedGrade === grade ? 'bg-[#F9633B] text-white border-[#F9633B]' : 'text-[#F9633B] border-[#F9633B]'} ml-2 sm:ml-[20px] md:mt-[30px] first:ml-0 sm:first:ml-[20px]`}
                 >
                   <span className="left-1/2 absolute inset-12 size-5 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full -translate-1/2"></span>
                   <span className="px-5 relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">
