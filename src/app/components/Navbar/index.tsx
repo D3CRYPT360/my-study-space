@@ -66,7 +66,6 @@ export const Navbar = () => {
               background: "linear-gradient(45deg, rgba(244, 212, 170, 0.9) 30%, rgba(255, 252, 248, 0.9) 90%, rgba(225, 238, 239, 0.9) 100%)",
             }}
           >
-  
             <div className="flex justify-between items-center h-full px-4 sm:px-6 md:px-10">
               {/* Logo */}
               <div>

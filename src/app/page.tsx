@@ -20,7 +20,7 @@ interface SubjectData {
 }
 
 interface GradeSubjects {
-  Mathematics: SubjectData;
+  Maths: SubjectData;
   Chemistry: SubjectData;
   Biology: SubjectData;
   Physics: SubjectData;
@@ -40,7 +40,7 @@ interface SubjectButton {
 }
 
 const subjects: SubjectButton[] = [
-  { name: 'Mathematics', bgClass: 'bg-[#22b573]', icon: '/maths.svg' },
+  { name: 'Maths', bgClass: 'bg-[#22b573]', icon: '/maths.svg' },
   { name: 'Chemistry', bgClass: 'bg-[#F9633B]', icon: '/chem.svg' },
   { name: 'Biology', bgClass: 'bg-[#7945DD]', icon: '/bio.svg' },
   { name: 'Physics', bgClass: 'bg-[#67B2ED]', icon: '/physics.svg' },
@@ -107,7 +107,7 @@ const Schedule = ({ grade, subject }: { grade: Grade; subject: keyof GradeSubjec
 export default function Home() {
   const { isOpen } = useMenu();
   const [selectedGrade, setSelectedGrade] = useState<Grade | null>(null);
-  const [selectedSubject, setSelectedSubject] = useState<keyof GradeSubjects>('Mathematics');
+  const [selectedSubject, setSelectedSubject] = useState<keyof GradeSubjects>('Maths');
   const [expandedSubjects, setExpandedSubjects] = useState<Set<keyof GradeSubjects>>(new Set());
   const [isMobile, setIsMobile] = useState(false);
 
@@ -177,7 +177,7 @@ export default function Home() {
                     {grades.map((grade) => (
                       <button
                         key={grade}
-                        onClick={() => { setSelectedGrade(grade); setSelectedSubject('Mathematics'); setExpandedSubjects(new Set()); }}
+                        onClick={() => { setSelectedGrade(grade); setSelectedSubject('Maths'); setExpandedSubjects(new Set()); }}
                         className={`relative overflow-hidden group cursor-pointer px-4 py-1 font-medium text-base leading-[25px] font-['Poppins'] rounded-[15px] border transition-colors ${selectedGrade === grade ? 'bg-[#F9633B] text-white border-[#F9633B]' : 'text-[#F9633B] border-[#F9633B]'} ml-2 sm:ml-[20px] md:mt-[30px] first:ml-0 sm:first:ml-[20px]`}
                       >
                         <span className="left-1/2 absolute inset-12 size-5 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full -translate-1/2"></span>
@@ -211,7 +211,7 @@ export default function Home() {
                           >
                             <div className="flex items-center gap-3">
                               <div className={!isMobile && selectedSubject === name ? 'brightness-0 invert' : ''}>
-                                <Image src={icon} alt={name} width={45} height={45} />
+                              <Image src={icon} alt={name} width={45} height={45} className="w-[60px] h-[60px] md:w-[45px] md:h-[45px]" />
                               </div>
                               <span className={`text-[30px] leading-[26px] font-medium 
                                 ${!isMobile && selectedSubject === name ? 'text-white' : 'text-[#351E1C]'}`}>

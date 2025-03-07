@@ -1,7 +1,7 @@
 {
     "grades": {
       "9": {
-        "Mathematics": {
+        "Maths": {
           "teacher": "Mahil Sir",
           "schedule": [
             {
@@ -68,7 +68,7 @@
         }
       },
       "10": {
-        "Mathematics": {
+        "Maths": {
           "teacher": "Mahil Sir",
           "schedule": [
             {
