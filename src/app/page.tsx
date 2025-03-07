@@ -147,7 +147,7 @@ export default function Home() {
         <div className={`relative mx-4 sm:mx-6 md:mx-10 lg:mx-0 transition-all duration-300 ${
           isOpen 
             ? 'mt-[400px]' 
-            : 'mt-[70pt] md:mt-[150pt]'
+            : 'mt-[100px] md:mt-[150pt]'
         }`}>        
           {/* Mobile Banner */}
           <Image 

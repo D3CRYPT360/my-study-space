@@ -32,17 +32,17 @@ export const Navbar = () => {
   }, [scrolled]);
 
   return (
-    <nav className="fixed top-6 left-0 right-0 z-[1000]">
+    <nav className="fixed top-4 sm:top-6 left-0 right-0 z-[1000]">
       <div className="max-w-[1400px] mx-auto">
-        <div className="mx-[30px] sm:mx-6 md:mx-10 lg:mx-0 relative">
+        <div className="mx-4 sm:mx-6 md:mx-10 lg:mx-0 relative">
           {/* Mobile Menu - Behind navbar */}
             
           <div
-            className={`lg:hidden fixed inset-x-[30px] sm:inset-x-6 md:inset-x-10 lg:inset-x-0 top-0 transition-all duration-300 z-[5] ${
+            className={`lg:hidden fixed inset-x-4 sm:inset-x-6 md:inset-x-10 lg:inset-x-0 top-0 transition-all duration-300 z-[5] ${
               isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
             }`}
           >
-            <div className="bg-white rounded-b-[30px] shadow-lg mt-[90px] md:mt-[116px] px-4">
+            <div className="bg-white rounded-b-[30px] shadow-lg mt-[90px] md:mt-[116px] px-4 sm:px-6 md:px-10">
               <div className="flex flex-col items-center text-center py-6">
                 {navLinks.map((link) => (
                   <Link
@@ -59,11 +59,14 @@ export const Navbar = () => {
 
           {/* Navbar - Above menu */}
           <div 
-            className={`relative z-[999] md:h-[116px] h-[70pt] w-full rounded-[30px] transition-all duration-300 ${
+            className={`relative z-[999] md:h-[116px] h-[80px] w-full rounded-[30px] transition-all duration-300 ${
               scrolled ? 'backdrop-blur-md bg-gradient-to-r from-[rgba(244,212,170,0.95)] via-[rgba(255,252,248,0.95)] to-[rgba(225,238,239,0.95)]' : 'bg-gradient-to-r from-[rgba(244,212,170,0.9)] via-[rgba(255,252,248,0.9)] to-[rgba(225,238,239,0.9)]'
             }`}
             style={{
               background: "linear-gradient(45deg, rgba(244, 212, 170, 0.9) 30%, rgba(255, 252, 248, 0.9) 90%, rgba(225, 238, 239, 0.9) 100%)",
+              margin: "0 auto",
+              maxWidth: "100%",
+              width: "100%"
             }}
           >
             <div className="flex justify-between items-center h-full px-4 sm:px-6 md:px-10">
