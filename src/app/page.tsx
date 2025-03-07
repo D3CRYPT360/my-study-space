@@ -264,7 +264,7 @@ export default function Home() {
           {/* Our Teachers Section */}
           <div className="mt-15 w-full bg-[#FFFCF8] rounded-[30px] px-4 sm:px-6 md:px-10 py-8">
             <div className="flex justify-between items-center">
-              <h2 className="flex font-libre text-[60px] leading-[74px] text-[#351E1C]">
+              <h2 className="flex font-libre text-[40px] md:text-[60px] leading-[50px] md:leading-[74px] text-[#351E1C]">
                 <span className="font-normal">Our</span>
                 <span className="baskervville-regular-italic">Teachers</span>
               </h2>
