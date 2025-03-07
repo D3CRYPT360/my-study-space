@@ -143,8 +143,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <div className="max-w-[1400px] mx-auto">
-        <div className={`relative mx-4 sm:mx-6 md:mx-10 lg:mx-0 transition-all duration-300 ${
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`relative transition-all duration-300 ${
           isOpen 
             ? 'mt-[400px]' 
             : 'mt-[100px] md:mt-[150pt]'
@@ -170,7 +170,7 @@ export default function Home() {
           />
           <div className="bg-[#FFFCF8] rounded-[30px] mt-15">
             <div className={`py-8 transition-all duration-300 ${selectedGrade ? 'min-h-[600px] sm:min-h-[700px] lg:min-h-[501px]' : 'h-auto md:h-[169px]'}`}>          
-              <div className="px-[30px] sm:px-6 md:px-10">
+              <div className="px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-0">
                   <h2 className="text-[#351E1C] font-['Libre_Baskerville'] text-[32px] md:text-[60px] leading-tight md:mt-[20px]">Subjects</h2>
                   <div className="flex items-center">
@@ -262,7 +262,7 @@ export default function Home() {
           </div>
 
           {/* Our Teachers Section */}
-          <div className="mt-15 w-full bg-[#FFFCF8] rounded-[30px] px-4 sm:px-6 md:px-10 py-8">
+          <div className="mt-15 w-full bg-[#FFFCF8] rounded-[30px] px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center">
               <h2 className="flex font-libre text-[40px] md:text-[60px] leading-[50px] md:leading-[74px] text-[#351E1C]">
                 <span className="font-normal">Our</span>
