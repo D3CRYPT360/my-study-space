@@ -33,14 +33,14 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed top-6 left-0 right-0 z-[1000]">
-      <div className="mx-[30px] lg:mx-auto max-w-[1345px] relative">
+      <div className="mx-0 lg:mx-auto max-w-[1345px] relative">
         {/* Mobile Menu - Behind navbar */}
         <div
          className={`lg:hidden fixed inset-0 transition-all duration-300 z-[5] ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none' 
         }`}
       >
-        <div className="mx-[30px] lg:mx-auto max-w-[1345px]">
+        <div className="mx-0 lg:mx-auto max-w-[1345px]">
           <div className="bg-white rounded-b-[30px] shadow-lg mt-[90px] md:mt-[116px]">
             <div className="flex flex-col items-center text-center py-8 pt-[80px] md:pt-[116px]">
               <Link href="/timetables" className="font-medium font-poppins text-[22px] text-[#351E1C] mb-4">
@@ -115,7 +115,7 @@ export const Navbar = () => {
             </div>
 
             {/* Mobile Auth Buttons and Menu */}
-            <div className="flex lg:hidden items-center gap-1">
+            <div className="flex lg:hidden items-center gap-4 ml-auto">
               <Link 
                 href="https://app.mystudyspace.mv/auth2CreateProfileUpdate" 
                 className={`${buttonStyles.base} ${buttonStyles.primary} w-[110px] h-[38px] md:w-[128pt] md:h-[40pt] flex items-center justify-center rounded-[15px]`} 

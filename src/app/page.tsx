@@ -143,7 +143,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <div className={`relative mt-[191px] mx-auto max-w-full sm:max-w-[1400px] px-[30px] transition-all duration-300 ${isOpen ? 'lg:mt-[140px] mt-[400px]' : 'mt-[140px]'}`}>        
+      <div className={`relative mt-[191px] mx-auto max-w-full sm:max-w-[1400px] px-0 transition-all duration-300 ${isOpen ? 'lg:mt-[140px] mt-[400px]' : 'mt-[140px]'}`}>        
         <Image 
           src="/Registration now open - banner_Desktop.jpg" 
           alt="Banner" 
@@ -251,65 +251,76 @@ export default function Home() {
 
         {/* Our Teachers Section */}
         <div className="mt-15 w-full bg-[#FFFCF8] rounded-[30px] px-4 sm:px-6 md:px-10 py-8">
-          <div className="flex justify-between items-center">
-            <h2 className="flex font-libre text-[60px] leading-[74px] text-[#351E1C]">
-              <span className="font-normal">Our</span>
-              <span className="baskervville-regular-italic">Teachers</span>
-            </h2>
-            <a href="#" className="hidden md:block text-right text-[16px] leading-[25px] font-medium font-poppins text-[#F9633B]">
-              See all Teachers {'>'}
-            </a>
-          </div>
+  <div className="flex justify-between items-center">
+    <h2 className="flex font-libre text-[60px] leading-[74px] text-[#351E1C]">
+      <span className="font-normal">Our</span>
+      <span className="baskervville-regular-italic">Teachers</span>
+    </h2>
+    <a href="#" className="hidden md:block text-right text-[16px] leading-[25px] font-medium font-poppins text-[#F9633B]">
+      See all Teachers {'>'}
+    </a>
+  </div>
 
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
-            {teachers.map((teacher) => (
-              <div key={teacher.name} className="relative pt-[100px] flex flex-col items-center">
-                <Image 
-                  src={teacher.image} 
-                  alt={`${teacher.name} ${teacher.title}`} 
-                  width={413} 
-                  height={400}
-                  className="absolute -top-[30px] left-1/2 -translate-x-1/2 z-10 rounded-[50px]"
-                />
-                <div 
-                  className="relative w-[413px] h-[411px] rounded-[50px] overflow-hidden mb-4"
-                  style={{
-                    backgroundImage: 'url("/our teachers_background.png")',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: '150%'
-                  }}
-                />
-                <div className="absolute top-[470px] left-1/2 -translate-x-1/2 z-20">
-                  <div 
-                    className="w-[316px] h-[73px] bg-[#F2C686] rounded-[12px] flex items-center justify-center shadow-lg"
-                  >
-                    <p className="flex items-center text-[50px] leading-[26px] text-[#351E1C] whitespace-nowrap">
-                      <span className="font-libre">{teacher.name}</span>
-                      <span className="mx-1">&nbsp;</span>
-                      <span className="baskervville-regular-italic">{teacher.title}</span>
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-15 w-[316px] h-[73px] bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 mb-3">
-                  <Image
-                    src={teacher.subjectIcon}
-                    alt={teacher.subject}
-                    width={40}
-                    height={40}
-                  />
-                  <span className="text-[#351E1C] text-[30px] font-medium font-poppins">
-                    {teacher.subject}
-                  </span>
-                </div>
-                <div className="text-center text-[#351E1C] text-[16px] font-medium font-poppins">
-                  {teacher.experience} <br></br>
-                  Experience.
-                </div>
-              </div>
-            ))}
+  <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+    {teachers.map((teacher) => (
+      <div key={teacher.name} className="relative flex flex-col items-center w-full max-w-[320px] sm:max-w-[350px]">
+        {/* Teacher container with portrait and background */}
+        <div className="relative w-full">
+          {/* Background container */}
+          <div 
+            className="w-full rounded-[50px] absolute top-[25%] left-0"
+            style={{
+              backgroundImage: 'url("/our teachers_background.png")',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              height: '65%'
+            }}
+          />
+          
+          {/* Teacher portrait */}
+          <Image 
+            src={teacher.image} 
+            alt={`${teacher.name} ${teacher.title}`} 
+            width={350} 
+            height={400}
+            className="w-full h-auto object-cover rounded-[50px] relative z-10"
+          />
+          
+          {/* Name tag positioned at the bottom of the portrait */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-40 w-[80%] translate-y-1/3">
+            <div className="w-full bg-[#F2C686] rounded-[12px] flex items-center justify-center py-2 px-4 shadow-lg">
+              <p className="flex items-center text-[28px] sm:text-[32px] leading-[1.2] text-[#351E1C] whitespace-nowrap">
+                <span className="font-libre">{teacher.name}</span>
+                <span className="mx-1">&nbsp;</span>
+                <span className="baskervville-regular-italic">{teacher.title}</span>
+              </p>
+            </div>
           </div>
         </div>
+        
+        {/* Subject information */}
+        <div className="w-full bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 py-3 mb-3 mt-6">
+          <Image
+            src={teacher.subjectIcon}
+            alt={teacher.subject}
+            width={40}
+            height={40}
+          />
+          <span className="text-[#351E1C] text-[24px] font-medium font-poppins">
+            {teacher.subject}
+          </span>
+        </div>
+        
+        {/* Experience information */}
+        <div className="text-center text-[#351E1C] text-[16px] font-medium font-poppins">
+          {teacher.experience} <br />
+          Years of Teaching Experience.
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
       </div>
     </main>
   );
