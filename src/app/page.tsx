@@ -286,7 +286,7 @@ export default function Home() {
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'cover',
-                        height: '65%'
+                        height: '75%'
                       }}
                     />
                     
@@ -327,7 +327,7 @@ export default function Home() {
                   {/* Experience information */}
                   <div className="text-center text-[#351E1C] text-[16px] font-medium font-poppins">
                     {teacher.experience} <br />
-                    Years of Teaching Experience.
+                    Experience.
                   </div>
                 </div>
               ))}
