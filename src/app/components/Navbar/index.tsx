@@ -5,14 +5,11 @@ import Link from "next/link";
 import { useMenu } from "@/app/context/menu-context";
 import { useState, useEffect } from 'react';
 import { buttonStyles } from '@/app/styles/button';
-import { LoginButton, RegisterButton } from '../common/AuthButtons';
 
 // Navigation link data
 const navLinks = [
-  { href: "/about-us", label: "About us" },
   { href: "/timetables", label: "Timetables" },
   { href: "/teachers", label: "Teachers" },
-  { href: "/faqs", label: "FAQs" },
 ];
 
 export const Navbar = () => {
@@ -42,17 +39,31 @@ export const Navbar = () => {
               isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
             }`}
           >
-            <div className="bg-white rounded-b-[30px] shadow-lg mt-[84px] md:mt-[116px] px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col items-center text-center py-6">
+            <div className="bg-white/90 backdrop-blur-sm rounded-b-[30px] shadow-lg mt-[70px] md:mt-[106px] px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col items-stretch text-center pt-8 pb-10">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="font-medium font-poppins text-lg md:text-[22px] text-[#351E1C] mb-4 hover:text-[#F9633B] transition-colors"
+                    className="text-[#351E1C] font-medium text-[16px] leading-[25px] py-5"
                   >
                     {link.label}
                   </Link>
                 ))}
+                <div className="flex flex-col gap-5 mt-10">
+                  <Link 
+                    href="https://app.mystudyspace.mv/auth2CreateProfileUpdate" 
+                    className={`${buttonStyles.base} ${buttonStyles.primary} h-[55px] flex items-center justify-center rounded-[15px]`} 
+                  >
+                    Register
+                  </Link>
+                  <Link 
+                    href="https://app.mystudyspace.mv/auth2Login" 
+                    className={`${buttonStyles.base} ${buttonStyles.secondary} h-[55px] flex items-center justify-center rounded-[15px]`}
+                  >
+                    Login
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -70,11 +81,11 @@ export const Navbar = () => {
           >
             <div className="flex justify-between items-center h-full px-4 sm:px-6 lg:px-8">
               {/* Logo */}
-              <div>
+              <Link href="/" className="block">
                 <Image 
-                  src="/Logos_Logo 1 - Orange.png" 
+                  src="/Logos_Logomark - Orange.svg" 
                   alt="My Study Space" 
-                  width={137.48} 
+                  width={40} 
                   height={40} 
                   priority 
                   className="md:hidden"
@@ -85,34 +96,22 @@ export const Navbar = () => {
                   width={200} 
                   height={40} 
                   priority 
-                  className="hidden md:block" 
+                  className="hidden md:block"
                 />
-              </div>
+              </Link>
 
-              {/* Desktop Navigation */}
-              <div className="hidden lg:flex items-center gap-8">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="font-medium font-poppins text-base leading-[25px] text-[#351E1C] transition-opacity hover:opacity-80"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Mobile Auth Buttons and Menu */}
-              <div className="flex lg:hidden items-center gap-6 ml-auto">
+              {/* Mobile Register Button and Menu Button */}
+              <div className="flex lg:hidden items-center gap-3">
                 <Link 
                   href="https://app.mystudyspace.mv/auth2CreateProfileUpdate" 
-                  className={`${buttonStyles.base} ${buttonStyles.primary} w-[110px] h-[38px] md:w-[128pt] md:h-[40pt] flex items-center justify-center rounded-[15px]`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  className={`${buttonStyles.base} ${buttonStyles.primary} h-[38px] px-4 flex items-center justify-center rounded-[15px]`} 
                 >
-                  <span className="transition-transform duration-300 group-hover:scale-110 text-center text-[15px] md:text-base">Register</span>
+                  Register
                 </Link>
-                <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden z-20 flex items-center justify-center relative w-[40pt] h-[40pt]">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="z-20 flex items-center justify-center relative w-[40pt] h-[40pt]"
+                >
                   <div className="w-7 h-5 relative">
                     <span className={`absolute h-[3px] w-full rounded-[20px] bg-[#707070] transform transition-all duration-300 ${isOpen ? '-rotate-45 top-2' : 'rotate-0 top-0'}`}></span>
                     <span className={`absolute h-[3px] w-full rounded-[20px] bg-[#707070] transform transition-all duration-300 top-2 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
@@ -121,10 +120,36 @@ export const Navbar = () => {
                 </button>
               </div>
 
+              {/* Desktop Navigation */}
+              <div className="hidden lg:flex items-center gap-[50px]">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-[#351E1C] font-medium text-[16px] leading-[25px]"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
               {/* Desktop Auth Buttons */}
-              <div className="hidden lg:flex items-center gap-4">
-                <RegisterButton />
-                <LoginButton />
+              <div className="hidden lg:flex items-center gap-6">
+                <Link 
+                  href="https://app.mystudyspace.mv/auth2CreateProfileUpdate" 
+                  className={`${buttonStyles.base} ${buttonStyles.primary} w-[128px] h-[40px] flex items-center justify-center rounded-[15px]`} 
+                >
+                  Register
+                </Link>
+                <Link 
+                  href="https://app.mystudyspace.mv/auth2Login" 
+                  className={`relative overflow-hidden group ${buttonStyles.base} ${buttonStyles.secondary} w-[128px] h-[40px] flex items-center justify-center rounded-[15px]`}
+                >
+                  <span className="absolute inset-12 size-2 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full left-1/2 -translate-1/2"></span>
+                  <span className="px-5 relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">
+                    Login
+                  </span>
+                </Link>
               </div>
             </div>
           </div>
