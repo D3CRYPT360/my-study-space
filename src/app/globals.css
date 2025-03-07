@@ -17,9 +17,58 @@
   }
 }
 
+/* Add responsive text utilities */
+@layer utilities {
+  .text-responsive {
+    font-size: clamp(0.875rem, 1.5vw + 0.5rem, 1.25rem);
+  }
+  
+  .heading-responsive {
+    font-size: clamp(1.5rem, 3vw + 0.75rem, 3rem);
+  }
+}
+
+/* Add responsive button styles */
+.grade-button {
+  padding: clamp(0.5rem, 1vw + 0.25rem, 1rem);
+  font-size: clamp(0.875rem, 1.2vw + 0.5rem, 1rem);
+  max-width: 150px;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .grade-button {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Update base styles */
 body {
   color: var(--foreground);
   background: var(--background);
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+/* Add responsive container */
+.container-responsive {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    padding: 0 2.5rem;
+  }
 }
 
 /* Set default font family */

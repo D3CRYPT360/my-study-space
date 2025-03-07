@@ -36,35 +36,23 @@ export const Navbar = () => {
       <div className="max-w-[1400px] mx-auto">
         <div className="mx-[30px] sm:mx-6 md:mx-10 lg:mx-0 relative">
           {/* Mobile Menu - Behind navbar */}
+            
           <div
-           className={`lg:hidden fixed inset-x-[30px] sm:inset-x-6 md:inset-x-10 lg:inset-x-0 top-0 transition-all duration-300 z-[5] ${
-            isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none' 
-          }`}
+            className={`lg:hidden fixed inset-x-[30px] sm:inset-x-6 md:inset-x-10 lg:inset-x-0 top-0 transition-all duration-300 z-[5] ${
+              isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+            }`}
           >
-            <div className="bg-white rounded-b-[30px] shadow-lg mt-[90px] md:mt-[116px]">
-              <div className="flex flex-col items-center text-center py-8 pt-[80px] md:pt-[116px]">
-                <Link href="/timetables" className="font-medium font-poppins text-[22px] text-[#351E1C] mb-4">
-                  Timetables
-                </Link>
-                <Link href="/teachers" className="font-medium font-poppins text-[22px] text-[#351E1C] mb-8">
-                  Teachers
-                </Link>
-                <Link 
-                  href="https://app.mystudyspace.mv/auth2CreateProfileUpdate"
-                  className={`${buttonStyles.base} ${buttonStyles.primary} w-[128pt] h-[40pt] flex items-center justify-center rounded-[15px] mb-4`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="text-[15px]">Register</span>
-                </Link>
-                <Link 
-                  href="https://app.mystudyspace.mv/auth2Login"
-                  className="font-poppins text-[#F9633B] text-[15px] border border-[#F9633B] rounded-[15px] w-[128pt] h-[40pt] flex items-center justify-center"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Log in
-                </Link>
+            <div className="bg-white rounded-b-[30px] shadow-lg mt-[90px] md:mt-[116px] px-4">
+              <div className="flex flex-col items-center text-center py-6">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="font-medium font-poppins text-lg md:text-[22px] text-[#351E1C] mb-4 hover:text-[#F9633B] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -78,7 +66,8 @@ export const Navbar = () => {
               background: "linear-gradient(45deg, rgba(244, 212, 170, 0.9) 30%, rgba(255, 252, 248, 0.9) 90%, rgba(225, 238, 239, 0.9) 100%)",
             }}
           >
-            <div className="flex justify-between items-center h-full px-[30px] sm:px-6 md:px-10">
+  
+            <div className="flex justify-between items-center h-full px-4 sm:px-6 md:px-10">
               {/* Logo */}
               <div>
                 <Image 

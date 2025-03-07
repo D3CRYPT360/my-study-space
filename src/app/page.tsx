@@ -144,22 +144,29 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <div className="max-w-[1400px] mx-auto">
-        <div className={`relative mt-[191px] mx-[30px] sm:mx-6 md:mx-10 lg:mx-0 transition-all duration-300 ${isOpen ? 'lg:mt-[140px] mt-[400px]' : 'mt-[140px]'}`}>        
-          <Image 
-            src="/Registration now open - banner_Desktop.jpg" 
-            alt="Banner" 
-            width={1400} 
-            height={550} 
-            priority 
-            className="hidden md:block object-cover rounded-[30px] w-full h-auto" 
-          />
+        <div className={`relative mx-4 sm:mx-6 md:mx-10 lg:mx-0 transition-all duration-300 ${
+          isOpen 
+            ? 'mt-[400px]' 
+            : 'mt-[70pt] md:mt-[150pt]'
+        }`}>        
+          {/* Mobile Banner */}
           <Image 
             src="/Registration now open - banner_Mobile.jpg" 
             alt="Mobile Banner" 
             width={1400} 
             height={550} 
             priority 
-            className="md:hidden block object-cover rounded-[30px] w-full h-auto" 
+            className="md:hidden block object-cover rounded-[20px] sm:rounded-[30px] w-full h-auto" 
+          />
+          
+          {/* Desktop Banner */}
+          <Image 
+            src="/Registration now open - banner_Desktop.jpg" 
+            alt="Desktop Banner" 
+            width={1400} 
+            height={550} 
+            priority 
+            className="hidden md:block object-cover rounded-[30px] w-full h-auto mb-" 
           />
           <div className="bg-[#FFFCF8] rounded-[30px] mt-15">
             <div className={`py-8 transition-all duration-300 ${selectedGrade ? 'min-h-[600px] sm:min-h-[700px] lg:min-h-[501px]' : 'h-auto md:h-[169px]'}`}>          
@@ -268,7 +275,7 @@ export default function Home() {
 
             <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
               {teachers.map((teacher) => (
-                <div key={teacher.name} className="relative flex flex-col items-center w-full max-w-[320px] sm:max-w-[350px]">
+                <div key={teacher.name} className="relative flex flex-col items-center w-full max-w-[280px] sm:max-w-[320px] md:max-w-[350px]">
                   {/* Teacher container with portrait and background */}
                   <div className="relative w-full">
                     {/* Background container */}
@@ -294,8 +301,8 @@ export default function Home() {
                     
                     {/* Name tag positioned at the bottom of the portrait */}
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-40 w-[80%] translate-y-1/3">
-                      <div className="w-full bg-[#F2C686] rounded-[12px] flex items-center justify-center py-2 px-4 shadow-lg">
-                        <p className="flex items-center text-[28px] sm:text-[32px] leading-[1.2] text-[#351E1C] whitespace-nowrap">
+                      <div className="w-full bg-[#F2C686] rounded-[12px] flex items-center justify-center py-2 px-3 sm:px-4 shadow-lg">
+                        <p className="flex items-center text-[24px] sm:text-[28px] md:text-[32px] leading-[1.2] text-[#351E1C] whitespace-nowrap">
                           <span className="font-libre">{teacher.name}</span>
                           <span className="mx-1">&nbsp;</span>
                           <span className="baskervville-regular-italic">{teacher.title}</span>
