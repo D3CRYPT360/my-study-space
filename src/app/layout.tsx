@@ -29,8 +29,11 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'MyStudySpace',
+  title: 'My Study Space',
   description: 'Online Learning Platform for Students',
+  icons: {
+    icon: '/Logos_Logomark - Orange.svg'
+  }
 }
 
 export default function RootLayout({
