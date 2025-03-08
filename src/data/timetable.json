@@ -18,38 +18,38 @@
         "teacher": "Nafla Miss",
         "schedule": [
           {
-            "day": "Monday",
+            "day": "Sunday",
             "time": "1:15PM - 2:05PM"
           },
           {
-            "day": "Saturday",
+            "day": "Tuesday",
             "time": "1:15PM - 2:05PM"
           }
         ]
       },
       "Biology": {
-        "teacher": "Bindu Miss",
+        "teacher": "Biology Miss",
         "schedule": [
           {
-            "day": "Wednesday",
-            "time": "11:15AM - 12:05PM"
+            "day": "Sunday",
+            "time": "2:15PM - 3:05PM"
           },
           {
-            "day": "Thursday",
+            "day": "Tuesday",
             "time": "2:15PM - 3:05PM"
           }
         ]
       },
       "Physics": {
-        "teacher": "Shaheem Sir",
+        "teacher": "Physics Sir",
         "schedule": [
           {
             "day": "Monday",
-            "time": "9:15AM - 10:05AM"
+            "time": "2:15PM - 3:05PM"
           },
           {
-            "day": "Thursday",
-            "time": "1:15PM - 2:05PM"
+            "day": "Wednesday",
+            "time": "2:15PM - 3:05PM"
           }
         ]
       },
@@ -57,11 +57,11 @@
         "teacher": "Iyad Sir",
         "schedule": [
           {
-            "day": "Tuesday",
-            "time": "10:15AM - 11:05AM"
+            "day": "Thursday",
+            "time": "2:15PM - 3:05PM"
           },
           {
-            "day": "Friday",
+            "day": "Saturday",
             "time": "2:15PM - 3:05PM"
           }
         ]
@@ -73,11 +73,11 @@
         "schedule": [
           {
             "day": "Monday",
-            "time": "1:15PM - 2:05PM"
+            "time": "2:15PM - 3:05PM"
           },
           {
             "day": "Saturday",
-            "time": "1:15PM - 2:05PM"
+            "time": "2:15PM - 3:05PM"
           }
         ]
       },
@@ -85,37 +85,37 @@
         "teacher": "Nafla Miss",
         "schedule": [
           {
-            "day": "Monday",
-            "time": "1:15PM - 2:05PM"
+            "day": "Sunday",
+            "time": "2:15PM - 3:05PM"
           },
           {
-            "day": "Saturday",
-            "time": "1:15PM - 2:05PM"
-          }
-        ]
-      },
-      "Biology": {
-        "teacher": "Bindu Miss",
-        "schedule": [
-          {
-            "day": "Wednesday",
-            "time": "11:15AM - 12:05PM"
-          },
-          {
-            "day": "Thursday",
+            "day": "Tuesday",
             "time": "2:15PM - 3:05PM"
           }
         ]
       },
+      "Biology": {
+        "teacher": "Biology Miss",
+        "schedule": [
+          {
+            "day": "Sunday",
+            "time": "1:15PM - 2:05PM"
+          },
+          {
+            "day": "Tuesday",
+            "time": "1:15PM - 2:05PM"
+          }
+        ]
+      },
       "Physics": {
-        "teacher": "Shaheem Sir",
+        "teacher": "Physics Sir",
         "schedule": [
           {
             "day": "Monday",
-            "time": "9:15AM - 10:05AM"
+            "time": "1:15PM - 2:05PM"
           },
           {
-            "day": "Thursday",
+            "day": "Wednesday",
             "time": "1:15PM - 2:05PM"
           }
         ]
@@ -124,12 +124,12 @@
         "teacher": "Iyad Sir",
         "schedule": [
           {
-            "day": "Tuesday",
-            "time": "10:15AM - 11:05AM"
+            "day": "Wednesday",
+            "time": "2:15PM - 3:05PM"
           },
           {
-            "day": "Friday",
-            "time": "2:15PM - 3:05PM"
+            "day": "Saturday",
+            "time": "1:15PM - 2:05PM"
           }
         ]
       }
