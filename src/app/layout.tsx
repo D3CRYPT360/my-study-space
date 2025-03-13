@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Libre_Baskerville, Poppins, Baskervville } from 'next/font/google'
 import { Navbar } from './components/Navbar'
-import Footer from './components/Footer'
+import Footer from './components/Footer/'
 import { MenuProvider } from './context/menu-context'
 
 const libreBaskerville = Libre_Baskerville({
