@@ -312,7 +312,7 @@ export default function Home() {
                   </div>
                   
                   {/* Subject information */}
-                  <div className="w-full bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 py-3 mb-3 mt-6">
+                  <div className="w-full bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 py-3 mb-3 mt-10">
                     <Image
                       src={teacher.subjectIcon}
                       alt={teacher.subject}
