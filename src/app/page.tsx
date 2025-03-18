@@ -304,7 +304,7 @@ export default function Home() {
                       <div className="w-full bg-[#F2C686] rounded-[12px] flex items-center justify-center py-2 px-3 sm:px-4 shadow-lg">
                         <p className="flex items-center text-[24px] sm:text-[28px] md:text-[32px] leading-[1.2] text-[#351E1C] whitespace-nowrap">
                           <span className="font-libre">{teacher.name}</span>
-                          <span className="mx-1">&nbsp;</span>
+                          <span className="mx-0.1">&nbsp;</span>
                           <span className="baskervville-regular-italic">{teacher.title}</span>
                         </p>
                       </div>
@@ -312,7 +312,7 @@ export default function Home() {
                   </div>
                   
                   {/* Subject information */}
-                  <div className="w-full bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 py-3 mb-3 mt-10">
+                  <div className="w-[280px] bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 py-3 mb-3 mt-10">
                     <Image
                       src={teacher.subjectIcon}
                       alt={teacher.subject}

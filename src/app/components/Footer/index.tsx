@@ -3,56 +3,71 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#FBEEDA] px-6 pt-8 pb-4 md:pt-12 md:pb-6 lg:pt-16 lg:pb-8">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start lg:justify-between">
+    <footer className="w-full bg-[#FBEEDA] pt-27 pb-5 md:pt-40 md:pb-6 lg:pt-35 lg:pb-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center md:flex-col md:items-center xl:flex-row xl:items-start xl:justify-between gap-y-6">
+        
         {/* Logo Section */}
-        <div className="mb-6 lg:mb-0">
+        <div className="mb-6 md:mb-8 xl:mb-0">
           <Image
             src="/Logos_Logo 1 - Orange.svg"
             alt="My Study Space"
-            width={250}
-            height={100}
-            className="h-auto"
+            width={400}
+            height={80}
+            className="h-auto w-[250px] sm:w-[300px] md:w-[350px] lg:w-[400px] "
           />
         </div>
-        
+
         {/* Links Section */}
-        <div className="flex flex-wrap justify-center gap-12 lg:gap-32 lg:ml-16">
-          <div className="flex flex-col gap-3 text-center lg:text-left">
-            {/* <Link href="/about-us" className="text-[#F9633B] font-semibold text-[18px]">About Us</Link> */}
-            <Link href="/timetables" className="text-[#F9633B] font-semibold text-[18px]">Timetables</Link>
-            <Link href="/teachers" className="text-[#F9633B] font-semibold text-[18px]">Teachers</Link>
-            {/* <Link href="/faqs" className="text-[#F9633B] font-semibold text-[18px]">FAQs</Link> */}
+        <div className="flex flex-col md:flex-row md:justify-center gap-6 md:gap-12 xl:gap-24 mt-0">
+          {/* First Column */}
+          <div className="flex flex-col  gap-2 text-center md:text-left">
+            <Link href="/timetables" className="text-[#F9633B] font-semibold text-[18px]">
+              Timetables
+            </Link>
+            <Link href="/teachers" className="text-[#F9633B] font-semibold text-[18px]">
+              Teachers
+            </Link>
           </div>
-          
-          <div className="flex flex-col gap-3 text-center lg:text-left">
-            <Link href="" className="text-[#F9633B] font-semibold text-[18px]">Contact Us</Link>
-            <a href="tel:+9607572910" className="text-[#F9633B] text-[18px]">+960 7572910</a>
-            <a href="mailto:info@mystudyspace.mv" className="text-[#F9633B] text-[18px]">info@mystudyspace.mv</a>
+
+          {/* Second Column */}
+          <div className="flex flex-col gap-2 text-center md:text-left">
+            <p className="text-[#F9633B] font-semibold text-[18px]">Contact Us</p>
+            <a href="tel:+9607572910" className="text-[#F9633B] text-[18px]">
+              +960 7572910
+            </a>
+            <a href="mailto:info@mystudyspace.mv" className="text-[#F9633B] text-[18px]">
+              info@mystudyspace.mv
+            </a>
           </div>
         </div>
-        
+
         {/* Social Buttons Section */}
-        <div className="flex flex-col gap-3 mt-6 lg:mt-0">
-          <a 
-            href="tel:7572910" 
-            className="w-[120px] h-[40px] flex items-center justify-center rounded-[15px] border border-[#F9633B] text-[#F9633B] hover:bg-[#F9633B] hover:text-white transition-all duration-300 text-sm font-medium"
+        <div className="flex flex-col gap-3 mt-6 xl:mt-0">
+          <a
+            href="tel:7572910"
+            className="relative group overflow-hidden h-[45px] w-[200px] flex items-center justify-center rounded-[15px] border border-[#F9633B] text-[#F9633B] hover:text-white transition-all duration-300 text-sm font-medium"
           >
-            Call
+            <span className="left-1/2 absolute inset-14 size-5 bg-[#F9633B] transform duration-450 ease-in-out group-hover:size-56 rounded-full -translate-1/2"></span>
+            <span className="px-5 relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">
+              Call Us
+            </span>
           </a>
-          <a 
-            href="https://t.me/mystudyspace_mv" 
-            className="w-[120px] h-[40px] flex items-center justify-center rounded-[15px] border border-[#F9633B] text-[#F9633B] hover:bg-[#F9633B] hover:text-white transition-all duration-300 text-sm font-medium"
+          <a
+            href="https://t.me/mystudyspace_mv"
+            className="relative group overflow-hidden h-[45px] w-[200px] flex items-center justify-center rounded-[15px] border border-[#F9633B] text-[#F9633B] hover:text-white transition-all duration-300 text-sm font-medium"
           >
-            Telegram
+            <span className="left-1/2 absolute inset-14 size-5 bg-[#F9633B] transform duration-450 ease-in-out group-hover:size-56 rounded-full -translate-1/2"></span>
+            <span className="px-5 relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">
+              Telegram
+            </span>
           </a>
         </div>
       </div>
 
       {/* Copyright Section */}
-      <div className="max-w-6xl mx-auto mt-8 lg:mt-12 pt-6 border-t border-[#F9633B]/10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mt-25 pt-6 border-t border-[#F9633B]/10">
         <p className="text-center text-[#F9633B]/70 text-sm font-poppins">
-        © {new Date().getFullYear()} My Study Space. All rights reserved.
+        &copy; {new Date().getFullYear()} My Study Space. All rights reserved.
         </p>
       </div>
     </footer>
