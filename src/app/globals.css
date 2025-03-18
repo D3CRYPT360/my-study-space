@@ -87,3 +87,10 @@ body {
   font-style: italic;
   -webkit-text-stroke: 1.1px;
 }
+
+.baskervville-regular-italic-nb {
+  font-family: var(--font-baskervville-italic), serif;
+  font-weight: 400;
+  font-style: italic;
+  -webkit-text-stroke: 0.6px;
+}
