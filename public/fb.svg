@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="ELEMENTS" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #f9633b;
+      }
+    </style>
+  </defs>
+  <circle class="cls-2" cx="250" cy="250" r="250"/>
+  <path class="cls-1" d="M277.65,409.22v-139.32h46.46l8.84-57.63h-55.3v-37.4c0-15.77,7.72-31.14,32.49-31.14h25.14v-49.06s-22.82-3.89-44.63-3.89c-45.54,0-75.31,27.6-75.31,77.57v43.93h-50.62v57.63h50.62v139.32h62.31Z"/>
+</svg>
