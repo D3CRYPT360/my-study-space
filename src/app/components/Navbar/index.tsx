@@ -39,7 +39,7 @@ export const Navbar = () => {
               isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
             }`}
           >
-            <div className="bg-white/90 backdrop-blur-sm rounded-b-[30px] shadow-lg mt-[70px] md:mt-[106px] px-4 sm:px-6 lg:px-8">
+            <div className="bg-white/90 backdrop-blur-sm rounded-b-[30px] shadow-lg mt-[60px] md:mt-[80px] px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col items-stretch text-center pt-8 pb-10">
                 {navLinks.map((link) => (
                   <Link
@@ -70,7 +70,7 @@ export const Navbar = () => {
 
           {/* Navbar - Above menu */}
           <div 
-            className={`relative z-[999] md:h-[116px] h-[80px] w-full rounded-[30px] transition-all duration-300 ${
+            className={`relative z-[999] md:h-[90px] h-[70px] w-full rounded-[30px] transition-all duration-300 ${
               scrolled ? 'backdrop-blur-md bg-gradient-to-r from-[rgba(244,212,170,0.95)] via-[rgba(255,252,248,0.95)] to-[rgba(225,238,239,0.95)]' : 'bg-gradient-to-r from-[rgba(244,212,170,0.9)] via-[rgba(255,252,248,0.9)] to-[rgba(225,238,239,0.9)]'
             }`}
             style={{

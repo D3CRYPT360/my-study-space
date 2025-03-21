@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useMenu } from './context/menu-context';
 import { useState, useEffect } from 'react';
 import timetableData from '@/data/timetable.json';
-
+import Link from 'next/link';
 
 const grades = ['9', '10'] as const;
 type Grade = typeof grades[number];
@@ -268,9 +268,9 @@ export default function Home() {
                 <span className="font-normal">Our</span>
                 <span className="baskervville-regular-italic">Teachers</span>
               </h2>
-              <a href="#" className="hidden md:block text-right text-[16px] leading-[25px] font-medium font-poppins text-[#F9633B]">
+              <Link href="/teachers" className="hidden md:block text-right text-[16px] leading-[25px] font-medium font-poppins text-[#F9633B] hover:text-[#d94d27] transition-colors">
                 See all Teachers {'>'}
-              </a>
+              </Link>
             </div>
 
             <div className="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
@@ -331,6 +331,13 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Mobile "See all Teachers" link */}
+            <div className="flex justify-center mt-8 md:hidden">
+              <Link href="/teachers" className="text-center text-[16px] leading-[25px] font-medium font-poppins text-[#F9633B] hover:text-[#d94d27] transition-colors">
+                See all Teachers {'>'}
+              </Link>
             </div>
           </div>
         </div>
