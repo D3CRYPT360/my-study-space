@@ -64,6 +64,58 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Connect with us Section */}
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mt-16 text-center">
+        <h3 className="text-center font-semibold text-[20px] leading-[26px] tracking-[0px] text-[#F9633B] opacity-100 font-['Poppins'] mb-6">Connect with us</h3>
+        <div className="flex justify-center items-center gap-8">
+          <a href="viber://chat?number=+9607572910" className="hover:opacity-80 transition-opacity">
+            <Image
+              src="/viber.svg"
+              alt="Viber"
+              width={24}
+              height={24}
+              className="w-7 h-7 md:w-10 md:h-10"
+            />
+          </a>
+          <a href="https://t.me/mystudyspace_mv" className="hover:opacity-80 transition-opacity">
+            <Image
+              src="/tel.svg"
+              alt="Telegram"
+              width={24}
+              height={24}
+              className="w-7 h-7 md:w-10 md:h-10"
+            />
+          </a>
+          <a href="https://www.instagram.com/mystudyspace.mv" className="hover:opacity-80 transition-opacity">
+            <Image
+              src="/insta.svg"
+              alt="Instagram"
+              width={24}
+              height={24}
+              className="w-7 h-7 md:w-10 md:h-10"
+            />
+          </a>
+          <a href="https://www.facebook.com/mystudyspace.mv" className="hover:opacity-80 transition-opacity">
+            <Image
+              src="/fb.svg"
+              alt="Facebook"
+              width={24}
+              height={24}
+              className="w-7 h-7 md:w-10 md:h-10"
+            />
+          </a>
+          <a href="https://www.tiktok.com/@mystudyspace.mv" className="hover:opacity-80 transition-opacity">
+            <Image
+              src="/tiktok.svg"
+              alt="TikTok"
+              width={24}
+              height={24}
+              className="w-7 h-7 md:w-10 md:h-10"
+            />
+          </a>
+        </div>
+      </div>
+
       {/* Copyright Section */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mt-25 pt-6 border-t border-[#F9633B]/10">
         <p className="text-center text-[#F9633B]/70 text-sm font-poppins">
