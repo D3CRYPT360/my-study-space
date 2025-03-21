@@ -17,51 +17,51 @@ const teachers: Teacher[] = [
     name: 'Mahil',
     title: 'Sir',
     subject: 'Mathematics',
-    experience: '4+ Years of Teaching<br />Experience.',
+    experience: '4+ Years of Teaching Experience.',
     image: '/our teachers_mahil.png',
     subjectIcon: '/maths.svg',
     hasBackground: true,
-    description: 'Mahil Sir is a self-taught maths tutor with 4+ years of teaching<br />experience, including previously teaching on a reputed online platform<br />in the Maldives. He uses digital tools to simplify complex topics and has<br />developed innovative methods to boost critical thinking and problem-<br />solving skills. An A-Level graduate with A* grades in both IGCSE and A-<br />Levels, his unorthodox approach has made math easier and more<br />enjoyable for students.'
+    description: 'Mahil Sir is a self-taught maths tutor with 4+ years of teaching experience, including previously teaching on a reputed online platform in the Maldives. He uses digital tools to simplify complex topics and has developed innovative methods to boost critical thinking and problem-solving skills. An A-Level graduate with A* grades in both IGCSE and A-Levels, his unorthodox approach has made math easier and more enjoyable for students.'
   },
   {
     name: 'Nafla',
     title: 'Miss',
     subject: 'Chemistry',
-    experience: '7+ Years of Teaching<br />Experience.',
+    experience: '7+ Years of Teaching Experience.',
     image: '/our teachers_nafla.png',
     subjectIcon: '/chem.svg',
     hasBackground: true,
-    description: "With 7+ years of teaching experience in IGCSE and A-Level Chemistry,<br />Nafla Miss has taught students in Colombo and at a reputed institution<br />in the Maldives, gaining valuable international experience. Before<br />becoming a teacher, she worked as a laboratory technician for 2 years,<br />gaining practical knowledge of chemical handling that enhances her<br />ability to connect theory with real-world applications. Currently<br />pursuing a master's in Taylor's University, Malaysia, she is committed to<br /> providing students with a strong chemistry foundation."
+    description: "With 7+ years of teaching experience in IGCSE and A-Level Chemistry, Nafla Miss has taught students in Colombo and at a reputed institution in the Maldives, gaining valuable international experience. Before becoming a teacher, she worked as a laboratory technician for 2 years, gaining practical knowledge of chemical handling that enhances her ability to connect theory with real-world applications. Currently pursuing a master's in Taylor's University, Malaysia, she is committed to providing students with a strong chemistry foundation."
   },
   {
     name: 'Iyad',
     title: 'Sir',
     subject: 'English',
-    education: 'Bachelor of Honours in<br />International Relations',
+    education: 'Bachelor of Honours in International Relations',
     image: '/our teachers_iyad.png',
     subjectIcon: '/eng.svg',
     hasBackground: true,
-    description: 'Say hi to your friendly English tutor Iyad Sir.<br />Iyad Sir brings 9+ years of IGCSE English teaching experience and has a<br />background in journalism at Avas Online News, and is a published<br />author and poet! With flying colours in 11 O\'Level subjects, National First<br />Place in A\'Level History, and a Bachelor of Honours in International<br />Relations, he combines academic excellence with engaging teaching.<br />His classes are fun, thanks to his witty humour and the fascinating<br />anecdotes he shares ranging from current pop-culture trends to pre-<br />World War I life, making learning both enjoyable and insightful.'
+    description: 'Say hi to your friendly English tutor Iyad Sir. Iyad Sir brings 9+ years of IGCSE English teaching experience and has a background in journalism at Avas Online News, and is a published author and poet! With flying colours in 11 O\'Level subjects, National First Place in A\'Level History, and a Bachelor of Honours in International Relations, he combines academic excellence with engaging teaching. His classes are fun, thanks to his witty humour and the fascinating anecdotes he shares ranging from current pop-culture trends to pre-World War I life, making learning both enjoyable and insightful.'
   },
   {
     name: 'Biology',
     title: 'Miss',
     subject: 'Biology',
-    education: "Master's in Applied Zoology,<br />Bachelor's degree in Chemistry,<br /> Botany, and Zoology, &<br /> Bachelor's in Education",
+    education: "Master's in Applied Zoology, Bachelor's degree in Chemistry, Botany, and Zoology, & Bachelor's in Education",
     image: '/our teachers_bio.png',
     subjectIcon: '/bio.svg',
     hasBackground: false,
-    description: "Miss is a dedicated Biology educator with over 9+ years of experience<br />teaching IGCSE and A-Level Biology. Having taught in India and now at<br />a reputed institution in the Maldives, she brings a wealth of<br />international teaching experience. She holds a Master's in Applied<br />Zoology, along with a Bachelor's degree in Chemistry, Botany, and<br />Zoology, as well as a Bachelor's in Education. With a passion for making<br />complex biological concepts accessible and practical, she ensures her<br />students grasp the subject with clarity and confidence."
+    description: "Miss is a dedicated Biology educator with over 9+ years of experience teaching IGCSE and A-Level Biology. Having taught in India and now at a reputed institution in the Maldives, she brings a wealth of international teaching experience. She holds a Master's in Applied Zoology, along with a Bachelor's degree in Chemistry, Botany, and Zoology, as well as a Bachelor's in Education. With a passion for making complex biological concepts accessible and practical, she ensures her students grasp the subject with clarity and confidence."
   },
   {
     name: 'Physics',
     title: 'Sir',
     subject: 'Physics',
-    education: "Bachelor of Technology in<br />Mechanical Engineering",
+    education: "Bachelor of Technology in Mechanical Engineering",
     image: '/our teachers_phy.png',
     subjectIcon: '/physics.svg',
     hasBackground: false,
-    description: "Sir brings 4+ years of experience in teaching physics for both<br />IGCSE & A-Levels. He is a teacher and visiting lecturer at a reputed<br />institution in the Maldives and has tutored students in both the<br /> Maldives and Sri Lanka. As a mechanical engineer, he gained hands-on<br />expertise while working at Walkers Colombo Shipyard, Sri Lanka,<br />making him an ideal physics teacher. Shahim Sir explains complex<br />physics concepts in a clear and structured way, ensuring students<br />develop a strong and confident understanding of the subject."
+    description: "Sir brings 4+ years of experience in teaching physics for both IGCSE & A-Levels. He is a teacher and visiting lecturer at a reputed institution in the Maldives and has tutored students in both the Maldives and Sri Lanka. As a mechanical engineer, he gained hands-on expertise while working at Walkers Colombo Shipyard, Sri Lanka, making him an ideal physics teacher. Shahim Sir explains complex physics concepts in a clear and structured way, ensuring students develop a strong and confident understanding of the subject."
   }
 ];
 
@@ -131,20 +131,14 @@ export default function Teachers() {
                   </div>
                 </div>
                 {teacher.experience && (
-                  <p className="text-left font-medium text-base sm:text-lg md:text-xl leading-[24px] sm:leading-[26px] md:leading-[30px] font-['Poppins'] tracking-[0px] text-[#351E1C] opacity-100" 
-                     dangerouslySetInnerHTML={{ __html: teacher.experience }}>
-                  </p>
+                  <p className="text-left font-medium text-base sm:text-lg md:text-xl leading-[24px] sm:leading-[26px] md:leading-[30px] font-['Poppins'] tracking-[0px] text-[#351E1C] opacity-100">{teacher.experience}</p>
                 )}
                 {teacher.education && (
-                  <p className="text-left font-medium text-base sm:text-lg md:text-xl leading-[24px] sm:leading-[26px] md:leading-[30px] font-['Poppins'] tracking-[0px] text-[#351E1C] opacity-100"
-                     dangerouslySetInnerHTML={{ __html: teacher.education }}>
-                  </p>
+                  <p className="text-left font-medium text-base sm:text-lg md:text-xl leading-[24px] sm:leading-[26px] md:leading-[30px] font-['Poppins'] tracking-[0px] text-[#351E1C] opacity-100">{teacher.education}</p>
                 )}
               </div>
             </div>
-            <p className="text-left font-medium text-sm sm:text-base leading-[22px] sm:leading-[26px] font-['Poppins'] tracking-[0px] text-[#351E1C] opacity-100"
-               dangerouslySetInnerHTML={{ __html: teacher.description }}>
-            </p>
+            <p className="text-left font-medium text-sm sm:text-base leading-[22px] sm:leading-[26px] font-['Poppins'] tracking-[0px] text-[#351E1C] opacity-100">{teacher.description}</p>
           </div>
         ))}
       </div>
