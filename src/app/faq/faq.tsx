@@ -1,3 +1,4 @@
+ /* eslint react/no-unescaped-entities */
 import React from 'react';
 
 // FAQ data structure
