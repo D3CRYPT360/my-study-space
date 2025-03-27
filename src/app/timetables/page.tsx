@@ -1,11 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { useMenu } from '../context/menu-context';
 import { useState } from 'react';
 
 export default function TimetablePage() {
-  const { isOpen } = useMenu();
   const [selectedGrade, setSelectedGrade] = useState<'gr9' | 'gr10'>('gr9');
 
   return (
