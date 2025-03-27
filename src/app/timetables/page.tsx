@@ -47,9 +47,9 @@ export default function TimetablePage() {
             <Image
               src={`/${selectedGrade}_timetable.jpg`}
               alt={`${selectedGrade === 'gr9' ? 'Grade 9' : 'Grade 10'} Timetable`}
-              width={800}
-              height={533}
-              className="rounded-lg w-full h-auto max-h-[500px] object-contain"
+              width={1100}
+              height={800}
+              className="rounded-lg w-full h-auto object-contain"
               priority
             />
           </div>
