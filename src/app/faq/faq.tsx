@@ -16,7 +16,7 @@ export const faqData: FAQCategory[] = [
         {
           question: "How does My Study Space work?",
           answer: <>
-            At My Study Space, we bring the classroom to your home. Our platform offers an online learning experience that mirrors a traditional school setting, where students interact with their teachers in real-time, just like they would in a physical classroom. <br/> The difference? It’s more convenient, time-saving, engaging, interactive, and affordable. <br/><br/> With My Study Space, students can attend live classes, access lesson materials, complete assignments, and watch recorded lessons—whenever they need. Learning doesn't stop when the class is over. Our platform ensures that your child can revisit past lessons and continue their academic growth at their own pace, all while enjoying the flexibility and comfort of online learning.
+            At My Study Space, we bring the classroom to your home. Our platform offers an online learning experience that mirrors a traditional school setting, where students interact with their teachers in real-time, just like they would in a physical classroom. <br/> The difference? It's more convenient, time-saving, engaging, interactive, and affordable. <br/><br/> With My Study Space, students can attend live classes, access lesson materials, complete assignments, and watch recorded lessons—whenever they need. Learning doesn't stop when the class is over. Our platform ensures that your child can revisit past lessons and continue their academic growth at their own pace, all while enjoying the flexibility and comfort of online learning.
           </>
         },
         {
@@ -74,7 +74,7 @@ export const faqData: FAQCategory[] = [
         Once your account is created and payment is made for the subjects you have selected, you will need to wait for us to verify your account. This process usually takes less than an hour, so be sure to check back within that time. Once your account is verified, you will have full access to classes, lesson recordings, and study materials etc.
           <br/>
           <br/>
-        If you need any help during the registration process, feel free to message us on <b>telegram</b> by clicking <a href="https://t.me/mystudyspacemv" target="_blank" className="text-blue-600 hover:underline">here</a> or give us a call at <b>7572910</b>. We’re happy to assist you!
+        If you need any help during the registration process, feel free to message us on <b>telegram</b> by clicking <a href="https://t.me/mystudyspacemv" target="_blank" className="text-blue-600 hover:underline">here</a> or give us a call at <b>7572910</b>. We're happy to assist you!
           </>
         },
         
@@ -95,7 +95,7 @@ export const faqData: FAQCategory[] = [
             Paying your monthly fee is quick and easy. You can make the payment through your My Study Space account anytime between the <b>1st and 7th of the month</b>.
             <br/>
             <br/>
-            After making the payment, don’t forget to <b>upload the transfer slip</b> to your account. This step is necessary for us to verify your payment. To ensure smooth processing, please note that we are unable to accept payment slips sent through Viber, Telegram, Instagram, Messenger, or any other app. Payments can only be processed once the slip is uploaded from your My Study Space account.
+            After making the payment, don't forget to <b>upload the transfer slip</b> to your account. This step is necessary for us to verify your payment. To ensure smooth processing, please note that we are unable to accept payment slips sent through Viber, Telegram, Instagram, Messenger, or any other app. Payments can only be processed once the slip is uploaded from your My Study Space account.
 
           </>
         },
@@ -128,7 +128,7 @@ export const faqData: FAQCategory[] = [
         {
           question: "How do I join a class?",
           answer: <>
-            Joining a class is simple. Just log in to your My Study Space account using the email and password you registered with. When it’s time for your class, a <b>red "Join" button</b> will appear at the top in the relevant subject. If you don’t see the button, simply refresh the page.
+            Joining a class is simple. Just log in to your My Study Space account using the email and password you registered with. When it's time for your class, a <b>red "Join" button</b> will appear at the top in the relevant subject. If you don't see the button, simply refresh the page.
             <br/>
             <br/>
             To avoid any last-minute issues, please make sure you have <b>Zoom installed</b> before your class begins.
@@ -138,10 +138,10 @@ export const faqData: FAQCategory[] = [
         {
           question: "How do I add more classes?",
           answer: <>
-          If you’d like to take additional subjects, you can easily add them from your account. Simply go to the <b>"Classes"</b> section, where you’ll find a button in the <b>top-right corner "Enroll in more classes"</b> that allows you to add more subjects.
+          If you'd like to take additional subjects, you can easily add them from your account. Simply go to the <b>"Classes"</b> section, where you'll find a button in the <b>top-right corner "Enroll in more classes"</b> that allows you to add more subjects.
             <br/>
             <br/>
-            Once you’ve selected your subjects, proceed with the payment, and you’ll be all set to continue learning. Just make sure to double-check your subject choices before making the payment.
+            Once you've selected your subjects, proceed with the payment, and you'll be all set to continue learning. Just make sure to double-check your subject choices before making the payment.
 
           </>
         },
@@ -218,7 +218,7 @@ export const faqData: FAQCategory[] = [
         {
           question: "What if I miss a live lesson?",
           answer: <>
-          There’s no need to worry! All our live lessons are recorded so that students can revisit them at any time. Each recording also includes a <b>short lesson summary</b>, making it easier to find specific topics without watching the entire session.
+          There's no need to worry! All our live lessons are recorded so that students can revisit them at any time. Each recording also includes a <b>short lesson summary</b>, making it easier to find specific topics without watching the entire session.
           </>
         }
       ]
@@ -239,7 +239,7 @@ For the best experience, we recommend using a <b>laptop, desktop, or tablet</b>,
             When registering, please use a <b>student or parent email address</b> and make sure it's a valid one! If you ever forget your password, the reset link will be sent to this email.
             <br/>
             <br/>
-            Once your account is created and payment is made for the subjects you've chosen, we will <b>verify your account</b> within an hour. Be sure to <b>log in and check back</b> during this time. After verification, you’ll have full access to live classes, lesson recordings, and other learning materials.
+            Once your account is created and payment is made for the subjects you've chosen, we will <b>verify your account</b> within an hour. Be sure to <b>log in and check back</b> during this time. After verification, you'll have full access to live classes, lesson recordings, and other learning materials.
             <br/>
             <br/>
             If you need any help, feel free to reach out to us on <b>Telegram</b> by clicking <a href="https://t.me/mystudyspacemv" className="text-blue-600 hover:underline">here</a> or give us a call at <b>7572910</b>.
@@ -253,10 +253,10 @@ For the best experience, we recommend using a <b>laptop, desktop, or tablet</b>,
           Joining your classes is simple! Just log in to your <b>My Study Space</b> account using the email and password you registered with.
           <br/>
           <br/>
-          Once logged in, you’ll see your <b>class schedule</b> on your dashboard. When it’s time for your lesson, a <b>"Join" button</b> will appear at the top of the relevant subject. This button will turn <b>red</b> once the teacher has started the class.
+          Once logged in, you'll see your <b>class schedule</b> on your dashboard. When it's time for your lesson, a <b>"Join" button</b> will appear at the top of the relevant subject. This button will turn <b>red</b> once the teacher has started the class.
           <br/>
           <br/>
-          If the button doesn’t change color, simply <b>refresh the page</b> and try again.
+          If the button doesn't change color, simply <b>refresh the page</b> and try again.
           </>
         },
         {
@@ -265,7 +265,7 @@ For the best experience, we recommend using a <b>laptop, desktop, or tablet</b>,
           Monthly tuition fees can be paid directly through your <b>My Study Space</b> account between the <b>1st and 7th of each month</b>.
           <br/>
           <br/>
-          Once you’ve made the payment, don’t forget to <b>upload the transfer slip</b> to your account. This step is essential, as payments cannot be processed without the slip.
+          Once you've made the payment, don't forget to <b>upload the transfer slip</b> to your account. This step is essential, as payments cannot be processed without the slip.
           <br/>
           <br/>
           Please note that we <b>do not accept</b> payment slips sent via <b>Viber, Telegram, Instagram, Messenger, or any other app</b>. Payments are only processed once the slip is uploaded through your My Study Space account.
@@ -281,7 +281,7 @@ For the best experience, we recommend using a <b>laptop, desktop, or tablet</b>,
           Missed a class? No problem! You can find all lesson recordings in your <b>My Study Space</b> account.
           <br/>
           <br/>
-          Simply navigate to your classes, select the relevant subject, and scroll down—you’ll see all the recordings neatly listed.
+          Simply navigate to your classes, select the relevant subject, and scroll down—you'll see all the recordings neatly listed.
           <br/>
           <br/>
           Each recording includes a <b>short lesson summary</b> written by the teacher, so you can quickly find the exact part of the lesson you need to review. This makes revision easier and helps new students catch up without having to watch entire lessons.
@@ -291,13 +291,13 @@ For the best experience, we recommend using a <b>laptop, desktop, or tablet</b>,
         {
           question: "How to Add Subjects",
           answer: <>
-          Need to take on more subjects? It’s easy!
+          Need to take on more subjects? It's easy!
           <br/>
           <br/>
-          Head over to the <b>"Classes"</b> section in your My Study Space account. In the <b>top-right corner</b>, you’ll see an option to <b>add subjects</b>.
+          Head over to the <b>"Classes"</b> section in your My Study Space account. In the <b>top-right corner</b>, you'll see an option to <b>add subjects</b>.
           <br/>
           <br/>
-          Once you’ve selected your new subjects, proceed with the payment, and you’ll be all set to continue learning.
+          Once you've selected your new subjects, proceed with the payment, and you'll be all set to continue learning.
           <br/>
           <br/>
           <b>Tip:</b> Please double-check your subject selection before making the payment to avoid any mistakes.
@@ -307,7 +307,7 @@ For the best experience, we recommend using a <b>laptop, desktop, or tablet</b>,
         {
           question: "How to Reset Your Password",
           answer: <>
-          If you ever forget your password, don’t worry! You can reset it in just a few simple steps:
+          If you ever forget your password, don't worry! You can reset it in just a few simple steps:
           <br/>
           <br/>
           <ol>
@@ -317,7 +317,7 @@ For the best experience, we recommend using a <b>laptop, desktop, or tablet</b>,
           </ol>
           <br/>
           <br/>
-          <b>That’s it!</b> You’ll be back to learning in no time.
+          <b>That's it!</b> You'll be back to learning in no time.
 
           </>
         }
@@ -327,15 +327,15 @@ For the best experience, we recommend using a <b>laptop, desktop, or tablet</b>,
         title: "Technical Issues FAQs",
         questions: [
           {
-            question: 'Why doesn’t the "Join" button work on Safari?',
+            question: "Why doesn't the 'Join' button work on Safari?",
             answer: <>
             This issue occurs because <b>pop-ups are disabled</b> on Safari. You can fix it by enabling pop-ups in your Safari settings.
             </>
           },
           {
-            question: 'Why doesn’t the "Join" button work on Chrome (Tablet)?',
+            question: "Why doesn't the 'Join' button work on Chrome (Tablet)?",
             answer: <>
-            If you are using Chrome on a tablet and experience this issue, go to the <b>Zoom page</b>, tap on the <b>three-dot menu</b>, and <b>disable "Desktop Site" mode</b>. This should allow the Zoom app to open properly.
+            If you are using Chrome on a tablet and experience this issue, go to the <b>Zoom page</b>, tap on the <b>three-dot menu</b>, and <b>disable 'Desktop Site' mode</b>. This should allow the Zoom app to open properly.
             </>
           },
           
