@@ -10,6 +10,7 @@ import { buttonStyles } from '@/app/styles/button';
 const navLinks = [
   { href: "/timetables", label: "Timetables" },
   { href: "/teachers", label: "Teachers" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 export const Navbar = () => {

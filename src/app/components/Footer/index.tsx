@@ -27,6 +27,9 @@ const Footer = () => {
             <Link href="/teachers" className="text-[#F9633B] font-semibold text-[18px]">
               Teachers
             </Link>
+            <Link href="/faq" className="text-[#F9633B] font-semibold text-[18px]">
+              FAQ
+            </Link>
           </div>
 
           {/* Second Column */}
