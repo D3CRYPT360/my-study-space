@@ -1,6 +1,7 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 interface MenuContextType {
   isOpen: boolean;
@@ -11,6 +12,12 @@ const MenuContext = createContext<MenuContextType | undefined>(undefined);
 
 export function MenuProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <MenuContext.Provider value={{ isOpen, setIsOpen }}>
