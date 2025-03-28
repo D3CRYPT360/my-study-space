@@ -110,12 +110,6 @@ export const faqData: FAQCategory[] = [
           </>
         },
         {
-          question: "If I register in the middle of the month, do I have to pay the full fee?",
-          answer: <>
-           Not at all! If you join on or after the <b>16th of the month</b>, you will only need to pay <b>70% of the full fee</b> for that month. The following month, you will be required to pay the full amount as usual
-          </>
-        },
-        {
           question: "Do you offer a package for all subjects?",
           answer: <>
             Currently, we do not offer a package for all subjects. Students can select and pay for the subjects they wish to take individually.
