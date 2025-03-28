@@ -151,7 +151,7 @@ export default function Home() {
         }`}>        
           {/* Mobile Banner */}
           <Image 
-            src="/Registration now open - banner_Mobile.jpg" 
+            src="/for just 249_Mobile.jpg" 
             alt="Mobile Banner" 
             width={1400} 
             height={550} 
@@ -161,7 +161,7 @@ export default function Home() {
           
           {/* Desktop Banner */}
           <Image 
-            src="/Registration now open - banner_Desktop.jpg" 
+            src="/for just 249_Desktop.jpg" 
             alt="Desktop Banner" 
             width={1400} 
             height={550} 
