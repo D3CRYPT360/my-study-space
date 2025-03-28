@@ -231,7 +231,7 @@ export const faqData: FAQCategory[] = [
           question: "How to Register for Tuition",
           answer: <>
           
-          Getting started with My Study Space is quick and easy! Simply create an account, just like you would for social media. You can do this by clicking <a href="/registration" className="text-blue-600 hover:underline">here</a>.
+          Getting started with My Study Space is quick and easy! Simply create an account, just like you would for social media. You can do this by clicking <a href="https://app.mystudyspace.mv/register" className="text-blue-600 hover:underline">here</a>.
           <br/>
           <br/>
 For the best experience, we recommend using a <b>laptop, desktop, or tablet</b>, as our platform does not currently support mobile devices.
