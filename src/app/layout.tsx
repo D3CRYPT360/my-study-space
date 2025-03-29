@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description: 'Welcome to My Study Space – your personal online Study Space! Learn from expert tutors across the Maldives with interactive lessons designed for engagement, convenience, and affordability',
     images: [
       {
-        url: '/for just 249_Desktop.jpg',
+        url: '/for just 249_Mobile.jpg',
         width: 1200,
         height: 630,
       },
