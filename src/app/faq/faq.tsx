@@ -57,6 +57,25 @@ export const faqData: FAQCategory[] = [
             answer: <>
               At the moment, our platform is best suited for <b>laptops, desktops, and tablets</b>. Mobile device support will be available soon.
             </>
+        },
+        {
+          question: "Do I Have to Join Classes Using Google Meet or Zoom?",
+          answer: <>
+            Our classes are hosted on Zoom, so you will need to have the Zoom application installed on your device. To ensure a smooth experience, please download Zoom before your first class.
+            <br/>
+            <br/>
+            You can download it from:
+            <br/>
+            <a href="https://zoom.us/download" target="_blank" className="text-blue-600 hover:underline">Zoom Download Page (for Windows and Mac)</a>
+            <br/>
+            <a href="https://itunes.apple.com/us/app/id546505307" target="_blank" className="text-blue-600 hover:underline">App Store (for iOS devices)</a>
+            <br/>
+            <a href="https://play.google.com/store/apps/details?id=us.zoom.videomeetings" target="_blank" className="text-blue-600 hover:underline">Google Play Store (for Android devices)</a>
+            <br/>
+            <br/>
+            Once installed, you’ll be ready to join your classes without any issues!
+
+          </>
         }
       ]
     },
@@ -78,6 +97,12 @@ export const faqData: FAQCategory[] = [
         If you need any help during the registration process, feel free to message us on <b>telegram</b> by clicking <a href="https://t.me/mystudyspacemv" target="_blank" className="text-blue-600 hover:underline">here</a> or give us a call at <b>7572910</b>. We're happy to assist you!
           </>
         },
+        {
+          question: "Is There a Registration Fee?",
+          answer: <>
+          No, there is <b>no registration fee</b>. You can create an account and get started without any additional charges beyond the monthly tuition fee.
+          </>
+        }
         
       ]
     },
@@ -114,6 +139,32 @@ export const faqData: FAQCategory[] = [
           answer: <>
             Currently, we do not offer a package for all subjects. Students can select and pay for the subjects they wish to take individually.
           </>
+        },
+        {
+          question: "Are There Fines for Late Payments?",
+          answer: <>
+            We do not impose any fines for late payments. However, if the monthly fee is not paid on time, the account will be <b>temporarily suspended</b> until the payment is cleared. To avoid any interruptions in accessing classes and learning materials, we recommend making payments within the <b>1st to 7th</b> of each month.
+          </>
+        },
+        {
+          question: "If I Register in the Middle of the Month, Do I Have to Pay the Full Fee?",
+          answer: <>
+            No, you won't have to pay the full monthly fee if you register in the middle of the month. The fee will be adjusted based on the remaining weeks:
+            <br/>
+            <br/>
+            1st - 7th: 100% of the monthly fee
+            <br/>
+            8th - 14th: 80% of the monthly fee
+            <br/>
+            15th - 21st: 60% of the monthly fee
+            <br/>
+            22nd - 28th: 45% of the monthly fee
+            <br/>
+            29th - 31st: 15% of the monthly fee
+            <br/>
+            <br/>
+            We have designed this system to be fair for all students, ensuring that those who join later in the month are not charged the full fee while also considering the availability of class recordings for revision. This way, every student receives a balanced and reasonable fee structure that reflects the classes they have access to.
+          </>
         }
       ]
     },
@@ -138,6 +189,21 @@ export const faqData: FAQCategory[] = [
             <br/>
             Once you've selected your subjects, proceed with the payment, and you'll be all set to continue learning. Just make sure to double-check your subject choices before making the payment.
 
+          </>
+        },
+        {
+          question: "How Are Rescheduled Classes Informed to Students/Parents?",
+          answer: <>
+          
+          If a class is rescheduled, we will announce it directly on <b>My Study Space</b>. You can find these updates in the <b>Announcements</b> section in the navigation bar, as well as in the <b>announcement bar</b> below each class.
+          <br/>
+          <br/>
+To stay updated, we recommend checking the <b>Announcements</b> section <b>daily</b> or <b>right before attending a class</b>. We also encourage parents to regularly check these announcements to stay informed about any schedule changes.
+          <br/>
+          <br/>
+          <b>Please note:</b> We <b>do not</b> announce rescheduled classes on <b>Viber, Telegram, or any other platform</b>, so be sure to check My Study Space for the latest updates.
+
+          
           </>
         },
         {
