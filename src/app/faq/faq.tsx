@@ -59,7 +59,7 @@ export const faqData: FAQCategory[] = [
             </>
         },
         {
-          question: "Do I Have to Join Classes Using Google Meet or Zoom?",
+          question: "Do I have to join classes using google meet or zoom?",
           answer: <>
             Our classes are hosted on Zoom, so you will need to have the Zoom application installed on your device. To ensure a smooth experience, please download Zoom before your first class.
             <br/>
@@ -98,7 +98,7 @@ export const faqData: FAQCategory[] = [
           </>
         },
         {
-          question: "Is There a Registration Fee?",
+          question: "Is there a registration fee?",
           answer: <>
           No, there is <b>no registration fee</b>. You can create an account and get started without any additional charges beyond the monthly tuition fee.
           </>
@@ -141,13 +141,13 @@ export const faqData: FAQCategory[] = [
           </>
         },
         {
-          question: "Are There Fines for Late Payments?",
+          question: "Are there fines for late payments?",
           answer: <>
             We do not impose any fines for late payments. However, if the monthly fee is not paid on time, the account will be <b>temporarily suspended</b> until the payment is cleared. To avoid any interruptions in accessing classes and learning materials, we recommend making payments within the <b>1st to 7th</b> of each month.
           </>
         },
         {
-          question: "If I Register in the Middle of the Month, Do I Have to Pay the Full Fee?",
+          question: "If I register in the middle of the month, do I have to pay the full fee?",
           answer: <>
             No, you won't have to pay the full monthly fee if you register in the middle of the month. The fee will be adjusted based on the remaining weeks:
             <br/>
@@ -192,7 +192,7 @@ export const faqData: FAQCategory[] = [
           </>
         },
         {
-          question: "How Are Rescheduled Classes Informed to Students/Parents?",
+          question: "How are rescheduled classes informed to students/parents?",
           answer: <>
           
           If a class is rescheduled, we will announce it directly on <b>My Study Space</b>. You can find these updates in the <b>Announcements</b> section in the navigation bar, as well as in the <b>announcement bar</b> below each class.
