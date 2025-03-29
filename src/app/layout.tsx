@@ -30,6 +30,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mystudyspace.mv'),
   title: 'My Study Space',
   description: 'Welcome to My Study Space – your personal online Study Space! Learn from expert tutors across the Maldives with interactive lessons designed for engagement, convenience, and affordability',
   icons: {
@@ -38,6 +39,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'My Study Space',
     description: 'Welcome to My Study Space – your personal online Study Space! Learn from expert tutors across the Maldives with interactive lessons designed for engagement, convenience, and affordability',
+    url: 'https://mystudyspace.mv',
+    siteName: 'My Study Space',
+    locale: 'en_US',
+    type: 'website',
     images: [
       {
         url: '/for just 249_Mobile.jpg',
