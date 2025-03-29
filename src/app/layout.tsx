@@ -43,10 +43,16 @@ export const metadata: Metadata = {
         url: '/for just 249_Mobile.jpg',
         width: 1200,
         height: 630,
+        alt: 'My Study Space - Online Learning Platform'
       },
     ],
   },
-      
+  twitter: {
+    card: 'summary_large_image',
+    title: 'My Study Space',
+    description: 'Welcome to My Study Space – your personal online Study Space! Learn from expert tutors across the Maldives',
+    images: ['/for just 249_Mobile.jpg'],
+  }
 }
 
 export default function RootLayout({
