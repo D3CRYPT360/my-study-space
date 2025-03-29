@@ -6,11 +6,11 @@
         "schedule": [
           {
             "day": "Monday",
-            "time": "1:15PM - 2:05PM"
+            "time": "4:20PM - 5:10PM"
           },
           {
-            "day": "Saturday",
-            "time": "1:15PM - 2:05PM"
+            "day": "Wednesday",
+            "time": "4:20PM - 5:10PM"
           }
         ]
       },
@@ -19,11 +19,11 @@
         "schedule": [
           {
             "day": "Sunday",
-            "time": "1:15PM - 2:05PM"
+            "time": "4:00PM - 4:50PM"
           },
           {
-            "day": "Tuesday",
-            "time": "1:15PM - 2:05PM"
+            "day": "Saturday",
+            "time": "4:20PM - 5:10PM"
           }
         ]
       },
@@ -32,11 +32,11 @@
         "schedule": [
           {
             "day": "Sunday",
-            "time": "2:15PM - 3:05PM"
+            "time": "5:00PM - 5:50PM"
           },
           {
             "day": "Tuesday",
-            "time": "2:15PM - 3:05PM"
+            "time": "5:00PM - 5:50PM"
           }
         ]
       },
@@ -45,11 +45,11 @@
         "schedule": [
           {
             "day": "Monday",
-            "time": "2:15PM - 3:05PM"
+            "time": "5:20PM - 6:10PM"
           },
           {
             "day": "Wednesday",
-            "time": "2:15PM - 3:05PM"
+            "time": "5:20PM - 6:10PM"
           }
         ]
       },
@@ -57,12 +57,12 @@
         "teacher": "Iyad Sir",
         "schedule": [
           {
-            "day": "Thursday",
-            "time": "2:15PM - 3:05PM"
+            "day": "Tuesday",
+            "time": "4:00PM - 4:50PM"
           },
           {
             "day": "Saturday",
-            "time": "2:15PM - 3:05PM"
+            "time": "5:20PM - 6:10PM"
           }
         ]
       }
@@ -73,11 +73,11 @@
         "schedule": [
           {
             "day": "Monday",
-            "time": "2:15PM - 3:05PM"
+            "time": "5:20PM - 6:10PM"
           },
           {
-            "day": "Saturday",
-            "time": "2:15PM - 3:05PM"
+            "day": "Wednesday",
+            "time": "5:20PM - 6:10PM"
           }
         ]
       },
@@ -86,11 +86,11 @@
         "schedule": [
           {
             "day": "Sunday",
-            "time": "2:15PM - 3:05PM"
+            "time": "5:00PM - 5:50PM"
           },
           {
-            "day": "Tuesday",
-            "time": "2:15PM - 3:05PM"
+            "day": "Saturday",
+            "time": "5:20PM - 6:10PM"
           }
         ]
       },
@@ -99,11 +99,11 @@
         "schedule": [
           {
             "day": "Sunday",
-            "time": "1:15PM - 2:05PM"
+            "time": "4:00PM - 4:50PM"
           },
           {
             "day": "Tuesday",
-            "time": "1:15PM - 2:05PM"
+            "time": "4:00PM - 4:50PM"
           }
         ]
       },
@@ -112,11 +112,11 @@
         "schedule": [
           {
             "day": "Monday",
-            "time": "1:15PM - 2:05PM"
+            "time": "4:20PM - 5:10PM"
           },
           {
             "day": "Wednesday",
-            "time": "1:15PM - 2:05PM"
+            "time": "4:20PM - 5:10PM"
           }
         ]
       },
@@ -125,11 +125,11 @@
         "schedule": [
           {
             "day": "Wednesday",
-            "time": "2:15PM - 3:05PM"
+            "time": "5:00PM - 5:50PM"
           },
           {
             "day": "Saturday",
-            "time": "1:15PM - 2:05PM"
+            "time": "4:20PM - 5:10PM"
           }
         ]
       }
