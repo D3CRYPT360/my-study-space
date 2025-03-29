@@ -4,14 +4,15 @@ import React, { useState, useRef } from 'react';
 import { useMenu } from '../context/menu-context';
 import { faqData } from './faq';
 
-const FAQAccordion = ({ question, answer, isOpen, onClick }: { 
+const FAQAccordion = ({ question, answer, isOpen, onClick, isLast }: { 
   question: string; 
   answer: string | React.ReactNode; 
   isOpen: boolean;
   onClick: () => void;
+  isLast?: boolean;
 }) => {
   return (
-    <div className="border-b border-gray-300 py-2">
+    <div className={`${!isLast ? 'border-b border-gray-300' : ''} py-2`}>
       <button
         className="flex justify-between items-center w-full text-left text-base md:text-lg font-medium text-[#351E1C] py-1"
         onClick={onClick}
@@ -117,6 +118,7 @@ export default function FAQPage() {
                     answer={faq.answer}
                     isOpen={openQuestions[category.title]?.includes(index) || false}
                     onClick={() => toggleQuestion(category.title, index)}
+                    isLast={index === category.questions.length - 1}
                   />
                 ))}
               </div>
