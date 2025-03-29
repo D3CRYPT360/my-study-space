@@ -31,10 +31,22 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'My Study Space',
-  description: 'Online Learning Platform for Students',
+  description: 'Welcome to My Study Space – your personal online Study Space! Learn from expert tutors across the Maldives with interactive lessons designed for engagement, convenience, and affordability',
   icons: {
     icon: '/Logos_Logomark - Orange.svg'
-  }
+  },
+  openGraph: {
+    title: 'My Study Space',
+    description: 'Welcome to My Study Space – your personal online Study Space! Learn from expert tutors across the Maldives with interactive lessons designed for engagement, convenience, and affordability',
+    images: [
+      {
+        url: '/for just 249_Mobile.jpg',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+      
 }
 
 export default function RootLayout({
