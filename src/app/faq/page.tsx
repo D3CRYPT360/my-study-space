@@ -12,7 +12,7 @@ const FAQAccordion = ({ question, answer, isOpen, onClick, isLast }: {
   isLast?: boolean;
 }) => {
   return (
-    <div className={`${!isLast ? 'border-b border-gray-300' : ''} py-2`}>
+    <div className={`${!isLast ? 'border-b border-gray-300 pb-4' : 'pb-0' } py-2`}>
       <button
         className="flex justify-between items-center w-full text-left text-base md:text-lg font-medium text-[#351E1C] py-1"
         onClick={onClick}
@@ -110,7 +110,7 @@ export default function FAQPage() {
               className="bg-[#FFFCF8] rounded-[30px] p-4 md:p-8 mb-8 scroll-mt-32"
             >
               <h2 className="text-2xl md:text-[32px] font-poppins text-[#351E1C]">{category.title}</h2>
-              <div className="space-y-2 font-poppins">
+              <div className="space-y-2 font-poppins ">
                 {category.questions.map((faq, index) => (
                   <FAQAccordion
                     key={index}
