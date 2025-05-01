@@ -110,7 +110,25 @@ export default function Home() {
   const [selectedSubject, setSelectedSubject] = useState<keyof GradeSubjects>('Mathematics');
   const [expandedSubjects, setExpandedSubjects] = useState<Set<keyof GradeSubjects>>(new Set());
   const [isMobile, setIsMobile] = useState(false);
-
+  const [currentBanner, setCurrentBanner] = useState(1);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [dragStart, setDragStart] = useState<number | null>(null);
+  const [dragEnd, setDragEnd] = useState<number | null>(null);
+  const [banners] = useState([
+    {
+      mobile: "/Algebra crash course wbsite banners_Mobile.jpg",
+      desktop: "/Algebra crash course wbsite banners_Desktop.jpg",
+      alt: "Algebra Crash Course"
+    },
+    {
+      mobile: "/for just 249_Mobile.jpg",
+      desktop: "/for just 249_Desktop.jpg",
+      alt: "For just 249"
+    }
+  ]);
+  
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -124,6 +142,99 @@ export default function Home() {
     
     // Cleanup
     return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
+  // Handle manual banner change
+  const handleBannerChange = (direction: 'next' | 'prev') => {
+    if (isAnimating) return; // Prevent changing during animation
+    
+    setIsAnimating(true);
+    
+    setTimeout(() => {
+      if (direction === 'next') {
+        setCurrentBanner(prev => (prev === banners.length ? 1 : prev + 1));
+      } else {
+        setCurrentBanner(prev => (prev === 1 ? banners.length : prev - 1));
+      }
+      setIsAnimating(false);
+    }, 500);
+  };
+  
+  // Handle touch events for swipe on mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null); // Reset touchEnd
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    
+    if (isLeftSwipe) {
+      handleBannerChange('next');
+    } else if (isRightSwipe) {
+      handleBannerChange('prev');
+    }
+  };
+
+  // Handle mouse events for desktop cursor sliding
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setDragEnd(null); // Reset dragEnd
+    setDragStart(e.clientX);
+  };
+  
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (dragStart !== null) {
+      setDragEnd(e.clientX);
+    }
+  };
+  
+  const handleMouseUp = () => {
+    if (!dragStart || !dragEnd) return;
+    
+    const distance = dragStart - dragEnd;
+    const isLeftDrag = distance > 50;
+    const isRightDrag = distance < -50;
+    
+    if (isLeftDrag) {
+      handleBannerChange('next');
+    } else if (isRightDrag) {
+      handleBannerChange('prev');
+    }
+    
+    // Reset drag values
+    setDragStart(null);
+    setDragEnd(null);
+  };
+
+  // Handle mouse leave to prevent stuck states
+  const handleMouseLeave = () => {
+    setDragStart(null);
+    setDragEnd(null);
+  };
+  
+  // Banner slideshow effect
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      // Start animation sequence
+      setIsAnimating(true);
+      
+      // After animation completes, update the current banner
+      setTimeout(() => {
+        setCurrentBanner(prev => prev === 1 ? 2 : 1);
+        setIsAnimating(false);
+      }, 500); // Match this to animation duration
+      
+    }, 5000); // Change banner every 5 seconds
+    
+    return () => clearInterval(slideInterval);
   }, []);
 
   const toggleSubjectExpansion = (subject: keyof GradeSubjects) => {
@@ -149,25 +260,165 @@ export default function Home() {
             ? 'mt-[400px]' 
             : 'mt-[130px] md:mt-[150pt]'
         }`}>        
-          {/* Mobile Banner */}
-          <Image 
-            src="/for just 249_Mobile.jpg" 
-            alt="Mobile Banner" 
-            width={1400} 
-            height={550} 
-            priority 
-            className="md:hidden block object-cover rounded-[20px] sm:rounded-[30px] w-full h-auto" 
-          />
+          {/* Banner Slideshow */}
+          <div 
+            className="relative overflow-hidden rounded-[20px] sm:rounded-[30px] w-full cursor-grab"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Banner Slideshow Styles */}
+            <style jsx>{`
+              @keyframes slideOutLeft {
+                from { transform: translateX(0); }
+                to { transform: translateX(-100%); }
+              }
+              
+              @keyframes slideInRight {
+                from { transform: translateX(100%); }
+                to { transform: translateX(0); }
+              }
+              
+              .slide-out-left {
+                animation: slideOutLeft 0.5s forwards;
+                z-index: 10;
+              }
+              
+              .slide-in-right {
+                animation: slideInRight 0.5s forwards;
+                z-index: 5;
+              }
+
+              .grabbing {
+                cursor: grabbing;
+              }
+            `}</style>
+            
+            {/* Mobile Banners */}
+            <div className="md:hidden">
+              <div className="relative overflow-hidden">
+                {/* Current active banner */}
+                <div className="relative invisible">
+                  <Image 
+                    src={banners[0].mobile}
+                    alt="Placeholder"
+                    width={1400}
+                    height={550}
+                    className="w-full h-auto object-cover rounded-[20px] sm:rounded-[30px]" 
+                  />
+                </div>
+                
+                {/* Both banners - dynamically positioned */}
+                {banners.map((banner, index) => {
+                  const bannerIndex = index + 1;
+                  const isActive = currentBanner === bannerIndex;
+                  const isNext = currentBanner !== bannerIndex;
+                  
+                  return (
+                    <div 
+                      key={`mobile-banner-${bannerIndex}`}
+                      className={`w-full absolute top-0 left-0 ${
+                        isActive
+                          ? (isAnimating ? 'slide-out-left' : '') 
+                          : (isAnimating ? 'slide-in-right' : 'translate-x-full')
+                      }`}
+                      style={{ 
+                        zIndex: isActive ? 20 : 10,
+                        visibility: (isAnimating || isActive) ? 'visible' : isNext ? 'visible' : 'hidden'
+                      }}
+                    >
+                      <Image 
+                        src={banner.mobile}
+                        alt={banner.alt}
+                        width={1400}
+                        height={550}
+                        priority 
+                        className="w-full h-auto object-cover rounded-[20px] sm:rounded-[30px]" 
+                        draggable="false"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            
+            {/* Desktop Banners */}
+            <div className="hidden md:block">
+              <div className="relative overflow-hidden">
+                {/* Placeholder for height maintenance */}
+                <div className="relative invisible">
+                  <Image 
+                    src={banners[0].desktop}
+                    alt="Placeholder"
+                    width={1400}
+                    height={550}
+                    className="w-full h-auto object-cover rounded-[30px]" 
+                  />
+                </div>
+                
+                {/* Both banners - dynamically positioned */}
+                {banners.map((banner, index) => {
+                  const bannerIndex = index + 1;
+                  const isActive = currentBanner === bannerIndex;
+                  const isNext = currentBanner !== bannerIndex;
+                  
+                  return (
+                    <div 
+                      key={`desktop-banner-${bannerIndex}`}
+                      className={`w-full absolute top-0 left-0 ${
+                        isActive
+                          ? (isAnimating ? 'slide-out-left' : '') 
+                          : (isAnimating ? 'slide-in-right' : 'translate-x-full')
+                      } ${dragStart !== null ? 'grabbing' : ''}`}
+                      style={{ 
+                        zIndex: isActive ? 20 : 10,
+                        visibility: (isAnimating || isActive) ? 'visible' : isNext ? 'visible' : 'hidden'
+                      }}
+                    >
+                      <Image 
+                        src={banner.desktop}
+                        alt={banner.alt}
+                        width={1400}
+                        height={550}
+                        priority 
+                        className="w-full h-auto object-cover rounded-[30px]" 
+                        draggable="false"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            
+            {/* Navigation Dots */}
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-30">
+              {banners.map((_, index) => {
+                const bannerIndex = index + 1;
+                return (
+                  <div 
+                    key={`nav-dot-${bannerIndex}`}
+                    className={`w-3 h-3 rounded-full transition-colors duration-300 cursor-pointer border-[#F9633B] border-[2px] ${currentBanner === bannerIndex ? 'bg-[#F9633B]' : ''}`}
+                    onClick={() => {
+                      if (currentBanner !== bannerIndex && !isAnimating) {
+                        setIsAnimating(true);
+                        setTimeout(() => {
+                          setCurrentBanner(bannerIndex);
+                          setIsAnimating(false);
+                        }, 500);
+                      }
+                    }}
+                  />
+                );
+              })}
+            </div>
+            
+            {/* Navigation Arrows removed for desktop view */}
+          </div>
           
-          {/* Desktop Banner */}
-          <Image 
-            src="/for just 249_Desktop.jpg" 
-            alt="Desktop Banner" 
-            width={1400} 
-            height={550} 
-            priority 
-            className="hidden md:block object-cover rounded-[30px] w-full h-auto mb-" 
-          />
           <div className="bg-[#FFFCF8] rounded-[30px] mt-15">
             <div className={`py-8 transition-all duration-300 ${selectedGrade ? 'min-h-[600px] sm:min-h-[700px] lg:min-h-[501px]' : 'h-auto md:h-[169px]'}`}>          
               <div className="px-4 sm:px-6 lg:px-8">
