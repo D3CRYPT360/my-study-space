@@ -18,12 +18,12 @@
         "teacher": "Nafla Miss",
         "schedule": [
           {
-            "day": "Sunday",
-            "time": "4:00PM - 4:50PM"
+            "day": "Monday",
+            "time": "2:10PM - 3:00PM"
           },
           {
             "day": "Saturday",
-            "time": "4:20PM - 5:10PM"
+            "time": "2:10PM - 3:00PM"
           }
         ]
       },
@@ -62,6 +62,45 @@
           },
           {
             "day": "Saturday",
+            "time": "5:20PM - 6:10PM"
+          }
+        ]
+      },
+      "Business": {
+        "teacher": "Samha Miss",
+        "schedule": [
+          {
+            "day": "Sunday",
+            "time": "4:00PM - 4:50PM"
+          },
+          {
+            "day": "Tuesday",
+            "time": "5:00PM - 5:50PM"
+          }
+        ]
+      },
+      "Accounting": {
+        "teacher": "Adeel Sir",
+        "schedule": [
+          {
+            "day": "Monday",
+            "time": "3:10PM - 4:00PM"
+          },
+          {
+            "day": "Saturday",
+            "time": "4:20PM - 5:10PM"
+          }
+        ]
+      },
+      "Economics": {
+        "teacher": "Imran Sir",
+        "schedule": [
+          {
+            "day": "Monday",
+            "time": "5:20PM - 6:10PM"
+          },
+          {
+            "day": "Wednesday",
             "time": "5:20PM - 6:10PM"
           }
         ]
@@ -85,12 +124,12 @@
         "teacher": "Nafla Miss",
         "schedule": [
           {
-            "day": "Sunday",
-            "time": "5:00PM - 5:50PM"
+            "day": "Monday",
+            "time": "3:10PM - 4:00PM"
           },
           {
             "day": "Saturday",
-            "time": "5:20PM - 6:10PM"
+            "time": "3:10PM - 4:00PM"
           }
         ]
       },
@@ -129,6 +168,45 @@
           },
           {
             "day": "Saturday",
+            "time": "4:20PM - 5:10PM"
+          }
+        ]
+      },
+      "Business": {
+        "teacher": "Samha Miss",
+        "schedule": [
+          {
+            "day": "Sunday",
+            "time": "5:00PM - 5:50PM"
+          },
+          {
+            "day": "Monday",
+            "time": "3:10PM - 4:00PM"
+          }
+        ]
+      },
+      "Accounting": {
+        "teacher": "Adeel Sir",
+        "schedule": [
+          {
+            "day": "Tuesday",
+            "time": "4:00PM - 4:50PM"
+          },
+          {
+            "day": "Saturday",
+            "time": "5:20PM - 6:10PM"
+          }
+        ]
+      },
+      "Economics": {
+        "teacher": "Imran Sir",
+        "schedule": [
+          {
+            "day": "Monday",
+            "time": "4:20PM - 5:10PM"
+          },
+          {
+            "day": "Wednesday",
             "time": "4:20PM - 5:10PM"
           }
         ]

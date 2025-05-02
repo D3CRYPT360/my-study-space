@@ -25,6 +25,9 @@ interface GradeSubjects {
   Biology: SubjectData;
   Physics: SubjectData;
   English: SubjectData;
+  Business: SubjectData;
+  Accounting: SubjectData;
+  Economics: SubjectData;
 }
 
 interface TimetableData {
@@ -45,6 +48,9 @@ const subjects: SubjectButton[] = [
   { name: 'Biology', bgClass: 'bg-[#7945DD]', icon: '/bio.svg' },
   { name: 'Physics', bgClass: 'bg-[#67B2ED]', icon: '/physics.svg' },
   { name: 'English', bgClass: 'bg-[#DB467F]', icon: '/eng.svg' },
+  { name: 'Business', bgClass: 'bg-[#FBB03B]', icon: '/buss.svg' },
+  { name: 'Accounting', bgClass: 'bg-[#E24BDB]', icon: '/acc.svg' },
+  { name: 'Economics', bgClass: 'bg-[#4DCEC8]', icon: '/econ.svg' },
 ];
 
 const teachers = [
