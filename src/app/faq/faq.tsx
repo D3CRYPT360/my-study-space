@@ -401,7 +401,7 @@ export const faqData: FAQCategory[] = [
         question: "How do I add more classes?",
         answer: (
           <>
-            It’s easy!
+            It's easy!
             <br />
             <br />
             • Log in to your My Study Space account using a phone.
@@ -581,45 +581,52 @@ export const faqData: FAQCategory[] = [
         question: "How to Register for Tuition",
         answer: (
           <>
-            Getting started with My Study Space is quick and easy! Simply create
-            an account, just like you would for social media. You can do this by
-            clicking{" "}
+            Registering for <b>My Study Space</b> is quick and easy—just like
+            signing up for your favorite social media apps like Instagram!
+            <br />
+            <br />
+            To get started, simply head over to our{" "}
             <a
-              href="https://app.mystudyspace.mv/register"
+              href="https://app.mystudyspace.mv/auth2CreateProfileUpdate"
+              target="_blank"
+              className="text-blue-600 hover:underline"
+            >
+              registration portal
+            </a>
+            , and create you account.
+            <br />
+            <br />
+            You can use <b>any device</b> to register (phone, tablet, or
+            laptop), but <b>please note</b> that classes can currently only be
+            joined from <b>laptops or tablets</b>, as our platform is not yet
+            supported on phones for class viewing.
+            <br />
+            <br />
+            When registering, make sure to use a{" "}
+            <b>valid student or parent email address</b>. This is important
+            because it will be used for password recovery in case you ever
+            forget your login details.
+            <br />
+            <br />
+            After you've completed registration and paid for the subjects you've
+            selected, your account will go through a short{" "}
+            <b>verification process</b>. This usually takes{" "}
+            <b>less than an hour</b>, so please check back within that time.
+            Once verified, you'll gain full access to your classes, lesson
+            recordings, worksheets, and all other learning resources.
+            <br />
+            <br />
+            If you need any assistance during the registration process, don't
+            hesitate to reach out! You can{" "}
+            <b>message us on Telegram by clicking</b>{" "}
+            <a
+              href="https://t.me/mystudyspacemv"
+              target="_blank"
               className="text-blue-600 hover:underline"
             >
               here
             </a>
-            .
-            <br />
-            <br />
-            For the best experience, we recommend using a{" "}
-            <b>laptop, desktop, or tablet</b>, as our platform does not
-            currently support mobile devices.
-            <br />
-            <br />
-            When registering, please use a{" "}
-            <b>student or parent email address</b> and make sure it's a valid
-            one! If you ever forget your password, the reset link will be sent
-            to this email.
-            <br />
-            <br />
-            Once your account is created and payment is made for the subjects
-            you've chosen, we will <b>verify your account</b> within an hour. Be
-            sure to <b>log in and check back</b> during this time. After
-            verification, you'll have full access to live classes, lesson
-            recordings, and other learning materials.
-            <br />
-            <br />
-            If you need any help, feel free to reach out to us on{" "}
-            <b>Telegram</b> by clicking{" "}
-            <a
-              href="https://t.me/mystudyspacemv"
-              className="text-blue-600 hover:underline"
-            >
-              here
-            </a>{" "}
-            or give us a call at <b>7572910</b>.
+            , or give us a call at <b>7572910</b> — we're always happy to help!
           </>
         ),
       },
@@ -649,24 +656,26 @@ export const faqData: FAQCategory[] = [
         question: "How to Pay Fees",
         answer: (
           <>
-            Monthly tuition fees can be paid directly through your{" "}
-            <b>My Study Space</b> account between the{" "}
-            <b>1st and 7th of each month</b>.
+            You can pay directly from your My Study Space account using your
+            phone, tablet, or laptop.
             <br />
             <br />
-            Once you've made the payment, don't forget to{" "}
-            <b>upload the transfer slip</b> to your account. This step is
-            essential, as payments cannot be processed without the slip.
+            1. Log in with the same email and password used during registration.
+            <br />
+            2. Click on <b>"Continue to Payment"</b>.
+            <br />
+            3. Reselect your subjects or add new ones.
+            <br />
+            4. Upload your payment slip after the transfer.
             <br />
             <br />
-            Please note that we <b>do not accept</b> payment slips sent via{" "}
-            <b>Viber, Telegram, Instagram, Messenger, or any other app</b>.
-            Payments are only processed once the slip is uploaded through your
-            My Study Space account.
+            <b>Note:</b> If you've already made payment for the month, it will
+            show “Enroll in More Classes” instead of the payment option.
             <br />
             <br />
-            To avoid account suspension on the <b>8th</b>, please ensure your
-            payment slip is uploaded before the deadline.
+            <b>Important:</b> We only accept payment slips uploaded through the
+            My Study Space platform. We <b>cannot</b> process slips sent through
+            Viber, Telegram, Instagram, Messenger, or any other apps.
           </>
         ),
       },
@@ -693,20 +702,20 @@ export const faqData: FAQCategory[] = [
         question: "How to Add Subjects",
         answer: (
           <>
-            Need to take on more subjects? It's easy!
+            It's easy!
             <br />
             <br />
-            Head over to the <b>"Classes"</b> section in your My Study Space
-            account. In the <b>top-right corner</b>, you'll see an option to{" "}
-            <b>add subjects</b>.
+            • Log in to your My Study Space account using a phone.
+            <br />• If you've already made the monthly payment, you'll see a
+            button labeled “<b>Enroll in More Classes.</b>”
+            <br />
+            • From there, you can select additional subjects and upload the
+            payment slip.
             <br />
             <br />
-            Once you've selected your new subjects, proceed with the payment,
-            and you'll be all set to continue learning.
-            <br />
-            <br />
-            <b>Tip:</b> Please double-check your subject selection before making
-            the payment to avoid any mistakes.
+            While you can do this from any device,{" "}
+            <b>using a phone might be more</b> convenient since it allows you to
+            upload your slip directly from your gallery.
           </>
         ),
       },
