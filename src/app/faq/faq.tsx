@@ -81,9 +81,9 @@ export const faqData: FAQCategory[] = [
         question: "What devices can I use to join classes?",
         answer: (
           <>
-            At the moment, our platform is best suited for{" "}
-            <b>laptops, desktops, and tablets</b>. Mobile device support will be
-            available soon.
+            Our platform currently works best on laptops, desktops, and tablets.
+            Mobile support will be available by the start of the 2nd term of the
+            2025 academic year.
           </>
         ),
       },
@@ -123,8 +123,53 @@ export const faqData: FAQCategory[] = [
             </a>
             <br />
             <br />
-            Once installed, you’ll be ready to join your classes without any
+            Once installed, you'll be ready to join your classes without any
             issues!
+          </>
+        ),
+      },
+      {
+        question: "Can I join in the middle of the month?",
+        answer: (
+          <>
+            Yes, you can! If you join in the middle of the month, you'll{" "}
+            <b>only be charged for the remaining classes</b>, depending on which
+            week you join. This applies to all courses, including the Algebra
+            Crash Course. Lesson recordings are available to help you catch up
+            comfortably at your own pace.
+          </>
+        ),
+      },
+      {
+        question:
+          "Can I join the Algebra Crash Course in the middle of the month?",
+        answer: (
+          <>
+            Absolutely! The <b>Algebra Crash Course</b>, taught exclusively by{" "}
+            <b>Mahil Sir</b>, is designed to build a strong foundation in
+            algebra before moving on to more advanced topics.
+            <br />
+            <br />
+            You can join at any time during the course period (which runs for
+            two months). If you're joining late, don't worry — you'll be able to{" "}
+            <b>catch up easily</b> using the <b>lesson recordings</b>, and
+            you'll <b>only be charged for the remaining classes</b>, not the
+            full month.
+          </>
+        ),
+      },
+      {
+        question: "What are the fees?",
+        answer: (
+          <>
+            <ul>
+              <li>
+                • <b>Grades 9 & 10</b>: MVR 299 per subject per month
+              </li>
+              <li>
+                • <b>Algebra Crash Course</b>: MVR 349 per month
+              </li>
+            </ul>
           </>
         ),
       },
@@ -137,44 +182,52 @@ export const faqData: FAQCategory[] = [
         question: "How do I register?",
         answer: (
           <>
-            Registering for My Study Space is simple! Just create an account on
-            our platform, similar to signing up for social media apps such as
-            Instagram. You can create your account via the{" "}
+            Registering for <b>My Study Space</b> is quick and easy—just like
+            signing up for your favorite social media apps like Instagram!
+            <br />
+            <br />
+            To get started, simply head over to our{" "}
             <a
-              href="https://app.mystudyspace.mv/register"
+              href="https://app.mystudyspace.mv/auth2CreateProfileUpdate"
               target="_blank"
               className="text-blue-600 hover:underline"
             >
-              Registration Portal
+              registration portal
             </a>
-            .
+            , and create you account.
             <br />
             <br />
-            To have the best experience, we recommend using a{" "}
-            <b>laptop, desktop, or tablet</b> since our platform does not
-            currently support mobile devices. When signing up, please use a{" "}
-            <b>valid student or parent email</b>, as this will be required if
-            you ever need to reset your password.
+            You can use <b>any device</b> to register (phone, tablet, or
+            laptop), but <b>please note</b> that classes can currently only be
+            joined from <b>laptops or tablets</b>, as our platform is not yet
+            supported on phones for class viewing.
             <br />
             <br />
-            Once your account is created and payment is made for the subjects
-            you have selected, you will need to wait for us to verify your
-            account. This process usually takes less than an hour, so be sure to
-            check back within that time. Once your account is verified, you will
-            have full access to classes, lesson recordings, and study materials
-            etc.
+            When registering, make sure to use a{" "}
+            <b>valid student or parent email address</b>. This is important
+            because it will be used for password recovery in case you ever
+            forget your login details.
             <br />
             <br />
-            If you need any help during the registration process, feel free to
-            message us on <b>telegram</b> by clicking{" "}
+            After you've completed registration and paid for the subjects you've
+            selected, your account will go through a short{" "}
+            <b>verification process</b>. This usually takes{" "}
+            <b>less than an hour</b>, so please check back within that time.
+            Once verified, you'll gain full access to your classes, lesson
+            recordings, worksheets, and all other learning resources.
+            <br />
+            <br />
+            If you need any assistance during the registration process, don't
+            hesitate to reach out! You can{" "}
+            <b>message us on Telegram by clicking</b>{" "}
             <a
               href="https://t.me/mystudyspacemv"
               target="_blank"
               className="text-blue-600 hover:underline"
             >
               here
-            </a>{" "}
-            or give us a call at <b>7572910</b>. We're happy to assist you!
+            </a>
+            , or give us a call at <b>7572910</b> — we're always happy to help!
           </>
         ),
       },
@@ -197,8 +250,14 @@ export const faqData: FAQCategory[] = [
         question: "What are the fees?",
         answer: (
           <>
-            For <b>Grades 9 & 10</b>, the monthly fee per subject is{" "}
-            <b>MVR 299</b>.
+            <ul>
+              <li>
+                • <b>Grades 9 & 10</b>: MVR 299 per subject per month
+              </li>
+              <li>
+                • <b>Algebra Crash Course</b>: MVR 349 per month
+              </li>
+            </ul>
           </>
         ),
       },
@@ -206,36 +265,26 @@ export const faqData: FAQCategory[] = [
         question: "How do I pay the monthly fee?",
         answer: (
           <>
-            Paying your monthly fee is quick and easy. You can make the payment
-            through your My Study Space account anytime between the{" "}
-            <b>1st and 7th of the month</b>.
+            You can pay directly from your My Study Space account using your
+            phone, tablet, or laptop.
             <br />
             <br />
-            After making the payment, don't forget to{" "}
-            <b>upload the transfer slip</b> to your account. This step is
-            necessary for us to verify your payment. To ensure smooth
-            processing, please note that we are unable to accept payment slips
-            sent through Viber, Telegram, Instagram, Messenger, or any other
-            app. Payments can only be processed once the slip is uploaded from
-            your My Study Space account.
+            1. Log in with the same email and password used during registration.
+            <br />
+            2. Click on <b>"Continue to Payment"</b>.
+            <br />
+            3. Reselect your subjects or add new ones.
+            <br />
+            4. Upload your payment slip after the transfer.
             <br />
             <br />
-            <br />
-            For students who were enrolled{" "}
-            <b>March month (2025) free classes</b> for My Study Space Tuition
-            Service, follow these steps to complete your class payment:
+            <b>Note:</b> If you've already made payment for the month, it will
+            show “Enroll in More Classes” instead of the payment option.
             <br />
             <br />
-            1. Upon logging in, you will see "Continue to Class Selection" at
-            the top of the page—click on it.
-            <br />
-            2. Reselect your subjects and double-check your selection.
-            <br />
-            3. Proceed to payment and upload the payment slip.
-            <br />
-            <br />
-            Make sure to complete the payment before the 7th to avoid automatic
-            suspension on the 8th.
+            <b>Important:</b> We only accept payment slips uploaded through the
+            My Study Space platform. We <b>cannot</b> process slips sent through
+            Viber, Telegram, Instagram, Messenger, or any other apps.
           </>
         ),
       },
@@ -313,6 +362,18 @@ export const faqData: FAQCategory[] = [
     title: "Class & Lesson FAQs",
     questions: [
       {
+        question: "Can I join in the middle of the month?",
+        answer: (
+          <>
+            Yes, you can! If you join in the middle of the month, you'll{" "}
+            <b>only be charged for the remaining classes</b>, depending on which
+            week you join. This applies to all courses, including the Algebra
+            Crash Course. Lesson recordings are available to help you catch up
+            comfortably at your own pace.
+          </>
+        ),
+      },
+      {
         question: "How do I join a class?",
         answer: (
           <>
@@ -340,16 +401,20 @@ export const faqData: FAQCategory[] = [
         question: "How do I add more classes?",
         answer: (
           <>
-            If you'd like to take additional subjects, you can easily add them
-            from your account. Simply go to the <b>"Classes"</b> section, where
-            you'll find a button in the{" "}
-            <b>top-right corner "Enroll in more classes"</b> that allows you to
-            add more subjects.
+            It’s easy!
             <br />
             <br />
-            Once you've selected your subjects, proceed with the payment, and
-            you'll be all set to continue learning. Just make sure to
-            double-check your subject choices before making the payment.
+            • Log in to your My Study Space account using a phone.
+            <br />• If you've already made the monthly payment, you'll see a
+            button labeled “<b>Enroll in More Classes.</b>”
+            <br />
+            • From there, you can select additional subjects and upload the
+            payment slip.
+            <br />
+            <br />
+            While you can do this from any device,{" "}
+            <b>using a phone might be more</b> convenient since it allows you to
+            upload your slip directly from your gallery.
           </>
         ),
       },
