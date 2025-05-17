@@ -173,6 +173,18 @@ export const faqData: FAQCategory[] = [
           </>
         ),
       },
+      {
+        question: "Are classes held during holidays?",
+        answer: (
+          <>
+            No, regular classes are <b>not held</b> during public holidays or
+            school term breaks. However, special classes like the{" "}
+            <b>Algebra Crash Course</b> may take place during term breaks. We
+            believe holidays are a good time for both students and teachers to
+            refresh before resuming lessons.
+          </>
+        ),
+      },
     ],
   },
   {
