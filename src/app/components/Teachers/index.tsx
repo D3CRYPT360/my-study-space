@@ -100,20 +100,20 @@ export default function Teachers() {
                     />
                   </>
                 ) : (
-                  <div className="flex items-center justify-center w-full h-full">
+                  <div className="flex items-end justify-center w-full h-full">
                     <Image
                       src={teacher.image}
                       alt={`${teacher.name} ${teacher.title}`}
                       width={165}
                       height={165}
-                      className="w-auto h-auto max-w-full max-h-full rounded-[20px]"
+                      className="w-auto h-[175px] max-w-full max-h-full rounded-[20px]"
                       priority
                     />
                   </div>
                 )}
               </div>
               <div className="flex-grow">
-                <div className="flex items-center gap-5 mb-2 mt-10">
+                <div className="flex items-center  gap-5 mb-2 mt-10">
                   <h2 className="text-[#351E1C] font-['Libre_Baskerville'] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] leading-tight">
                     <span className="font-libre">{teacher.name}</span>
                     <span className="mx-0.1">&nbsp;</span>
