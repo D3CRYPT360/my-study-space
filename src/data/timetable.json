@@ -18,12 +18,12 @@
         "teacher": "Nafla Miss",
         "schedule": [
           {
-            "day": "Monday",
-            "time": "2:10PM - 3:00PM"
+            "day": "Tuesday",
+            "time": "4:00PM - 4:50PM"
           },
           {
-            "day": "Saturday",
-            "time": "2:10PM - 3:00PM"
+            "day": "Thursday",
+            "time": "7:00PM - 7:50PM"
           }
         ]
       },
@@ -58,11 +58,11 @@
         "schedule": [
           {
             "day": "Tuesday",
-            "time": "4:00PM - 4:50PM"
+            "time": "7:00PM - 7:50PM"
           },
           {
             "day": "Saturday",
-            "time": "5:20PM - 6:10PM"
+            "time": "7:00PM - 7:50PM"
           }
         ]
       },
@@ -70,11 +70,11 @@
         "teacher": "Samha Miss",
         "schedule": [
           {
-            "day": "Sunday",
+            "day": "Thursday",
             "time": "4:00PM - 4:50PM"
           },
           {
-            "day": "Tuesday",
+            "day": "Saturday",
             "time": "5:00PM - 5:50PM"
           }
         ]
@@ -84,11 +84,11 @@
         "schedule": [
           {
             "day": "Monday",
-            "time": "3:10PM - 4:00PM"
+            "time": "8:00PM - 8:50PM"
           },
           {
             "day": "Saturday",
-            "time": "4:20PM - 5:10PM"
+            "time": "4:00PM - 4:50PM"
           }
         ]
       },
@@ -96,12 +96,12 @@
         "teacher": "Imran Sir",
         "schedule": [
           {
-            "day": "Monday",
-            "time": "5:20PM - 6:10PM"
+            "day": "Thursday",
+            "time": "5:00PM - 5:50PM"
           },
           {
             "day": "Wednesday",
-            "time": "5:20PM - 6:10PM"
+            "time": "3:00PM - 3:50PM"
           }
         ]
       }
@@ -124,12 +124,12 @@
         "teacher": "Nafla Miss",
         "schedule": [
           {
-            "day": "Monday",
-            "time": "3:10PM - 4:00PM"
+            "day": "Tuesday",
+            "time": "5:00PM - 5:50PM"
           },
           {
-            "day": "Saturday",
-            "time": "3:10PM - 4:00PM"
+            "day": "Thursday",
+            "time": "3:00PM - 3:50PM"
           }
         ]
       },
@@ -163,12 +163,12 @@
         "teacher": "Iyad Sir",
         "schedule": [
           {
-            "day": "Wednesday",
-            "time": "5:00PM - 5:50PM"
+            "day": "Tuesday",
+            "time": "7:00PM - 7:50PM"
           },
           {
             "day": "Saturday",
-            "time": "4:20PM - 5:10PM"
+            "time": "7:00PM - 7:50PM"
           }
         ]
       },
@@ -176,12 +176,12 @@
         "teacher": "Samha Miss",
         "schedule": [
           {
-            "day": "Sunday",
-            "time": "5:00PM - 5:50PM"
+            "day": "Thursday",
+            "time": "4:00PM - 4:50PM"
           },
           {
-            "day": "Monday",
-            "time": "3:10PM - 4:00PM"
+            "day": "Saturday",
+            "time": "5:00PM - 5:50PM"
           }
         ]
       },
@@ -189,12 +189,12 @@
         "teacher": "Adeel Sir",
         "schedule": [
           {
-            "day": "Tuesday",
-            "time": "4:00PM - 4:50PM"
+            "day": "Monday",
+            "time": "8:00PM - 8:50PM"
           },
           {
             "day": "Saturday",
-            "time": "5:20PM - 6:10PM"
+            "time": "4:00PM - 4:50PM"
           }
         ]
       },
@@ -202,12 +202,12 @@
         "teacher": "Imran Sir",
         "schedule": [
           {
-            "day": "Monday",
-            "time": "4:20PM - 5:10PM"
+            "day": "Thursday",
+            "time": "5:00PM - 5:50PM"
           },
           {
-            "day": "Wednesday",
-            "time": "4:20PM - 5:10PM"
+            "day": "Saturday",
+            "time": "3:00PM - 3:50PM"
           }
         ]
       }
