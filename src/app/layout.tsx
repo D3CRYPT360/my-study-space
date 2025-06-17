@@ -4,6 +4,8 @@ import { Libre_Baskerville, Poppins, Baskervville } from 'next/font/google'
 import { Navbar } from './components/Navbar'
 import Footer from './components/Footer/'
 import { MenuProvider } from './context/menu-context'
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
@@ -71,6 +73,8 @@ export default function RootLayout({
         <MenuProvider>
           <Navbar />
           {children}
+          <Analytics />
+          <SpeedInsights />
           <Footer />
         </MenuProvider>
       </body>
