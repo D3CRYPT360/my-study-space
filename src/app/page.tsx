@@ -2,9 +2,16 @@
 
 import Image from "next/image";
 import { useMenu } from "./context/menu-context";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import timetableData from "@/data/timetable.json";
 import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const grades = ["9", "10"] as const;
 type Grade = (typeof grades)[number];
@@ -36,22 +43,25 @@ interface TimetableData {
   };
 }
 
-interface SubjectButton {
-  name: keyof GradeSubjects;
-  bgClass: string;
-  icon: string;
-}
-
-const subjects: SubjectButton[] = [
-  { name: "Mathematics", bgClass: "bg-[#22b573]", icon: "/maths.svg" },
-  { name: "Chemistry", bgClass: "bg-[#F9633B]", icon: "/chem.svg" },
-  { name: "Biology", bgClass: "bg-[#7945DD]", icon: "/bio.svg" },
-  { name: "Physics", bgClass: "bg-[#67B2ED]", icon: "/physics.svg" },
-  { name: "English", bgClass: "bg-[#DB467F]", icon: "/eng.svg" },
-  { name: "Business", bgClass: "bg-[#FBB03B]", icon: "/Buss.svg" },
-  { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/Acc.svg" },
-  { name: "Economics", bgClass: "bg-[#4DCEC8]", icon: "/Econ.svg" },
+const banners = [
+  {
+    mobile: "/term - mobile.jpg",
+    desktop: "/term - web.jpg",
+    alt: "Term Exam Prep Just for 249",
+  },
+  {
+    mobile: "/Algebra crash course wbsite banners_Mobile.jpg",
+    desktop: "/Algebra crash course wbsite banners_Desktop.jpg",
+    alt: "Algebra Crash Course",
+  },
+  {
+    mobile: "/for just 249_Mobile.jpg",
+    desktop: "/for just 249_Desktop.jpg",
+    alt: "For just 249",
+  },
 ];
+
+
 
 const teachers = [
   {
@@ -61,7 +71,6 @@ const teachers = [
     experience: "4+ Years of Teaching ",
     image: "/our teachers_mahil.png",
     subjectIcon: "/maths.svg",
-    subjectBg: "bg-[#E1EEEF]",
   },
   {
     name: "Nafla",
@@ -70,7 +79,6 @@ const teachers = [
     experience: "7+ Years of Teaching",
     image: "/our teachers_nafla.png",
     subjectIcon: "/chem.svg",
-    subjectBg: "bg-[#E1EEEF]",
   },
   {
     name: "Iyad",
@@ -79,39 +87,113 @@ const teachers = [
     experience: "9+ Years of Teaching",
     image: "/our teachers_iyad.png",
     subjectIcon: "/eng.svg",
-    subjectBg: "bg-[#E1EEEF]",
   },
 ];
 
-const Schedule = ({
-  grade,
-  subject,
-}: {
-  grade: Grade;
-  subject: keyof GradeSubjects;
-}) => {
+const Schedule = ({ grade, subject }: { grade: Grade; subject: keyof GradeSubjects }) => {
   const subjectData = (timetableData as TimetableData).grades[grade]?.[subject];
-
-  if (!subjectData) {
-    return null;
-  }
+  if (!subjectData) return null;
 
   return (
-    <div
-      key={`${grade}-${subject}`}
-      className="w-full text-[#351E1C] opacity-0 transition-opacity duration-700"
-      style={{ animation: "fadeIn 0.7s ease-in-out forwards 0.1s" }}
-    >
+    <div className="w-full text-[#351E1C]">
       {subjectData.schedule.map((slot, index) => (
-        <div key={index} className="mb-6">
-          <h3 className="font-medium mb-2">{slot.day}</h3>
-          <p className="whitespace-nowrap">{slot.time}</p>
+        <div key={index} className="mb-4">
+          <h3 className="font-medium mb-1">{slot.day}</h3>
+          <p>{slot.time}</p>
         </div>
       ))}
-      <div className="mt-6">
-        <h3 className="font-medium mb-2">Teacher:</h3>
-        <p className="whitespace-nowrap">{subjectData.teacher}</p>
+      <div className="mt-4">
+        <h3 className="font-medium mb-1">Teacher:</h3>
+        <p>{subjectData.teacher}</p>
       </div>
+    </div>
+  );
+};
+
+const BannerCarousel = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [api, setApi] = useState<any>(null);
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 1024);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  // Handle auto-scroll and slide change events
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on("select", onSelect);
+
+    // Auto-scroll functionality
+    const autoplay = setInterval(() => {
+      if (api) {
+        const nextIndex = (api.selectedScrollSnap() + 1) % banners.length;
+        api.scrollTo(nextIndex);
+      }
+    }, 3000); // Change slide every 3 seconds
+
+    // Cleanup function
+    return () => {
+      api.off("select", onSelect);
+      clearInterval(autoplay);
+    };
+  }, [api]);
+
+  return (
+    <div className="w-full max-w-[1400px] mx-auto">
+      <Carousel 
+        setApi={setApi}
+        opts={{ 
+          loop: true,
+        }} 
+        className="relative rounded-[30px] overflow-hidden"
+      >
+        <CarouselContent>
+          {banners.map((banner, index) => (
+            <CarouselItem key={index}>
+              <Image
+                src={isMobile ? banner.mobile : banner.desktop}
+                alt={banner.alt}
+                width={1400}
+                height={550}
+                priority={index === 0}
+                className="w-full h-auto object-cover rounded-[30px]"
+                draggable={true}
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        
+        {/* Dots indicator */}
+        <div className="absolute bottom-6 left-0 right-0">
+          <div className="flex justify-center gap-3">
+            {banners.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={`w-3 h-3 rounded-full transition-all border-[#F9633B] duration-300 flex items-center justify-center outline-none ${
+                  current === index 
+                    ? 'bg-[#F9633B] scale-125' 
+                    : 'border-2 border-[#F9633B] bg-transparent hover:bg-[#F9633B]/20 focus:outline-none focus:ring-0'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              >
+                <span className="sr-only">Slide {index + 1}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </Carousel>
     </div>
   );
 };
@@ -119,347 +201,64 @@ const Schedule = ({
 export default function Home() {
   const { isOpen } = useMenu();
   const [selectedGrade, setSelectedGrade] = useState<Grade | null>(null);
-  const [selectedSubject, setSelectedSubject] =
-    useState<keyof GradeSubjects>("Mathematics");
-  const [expandedSubjects, setExpandedSubjects] = useState<
-    Set<keyof GradeSubjects>
-  >(new Set());
+  type SubjectKey = keyof GradeSubjects;
+  const [selectedSubject, setSelectedSubject] = useState<SubjectKey>("Mathematics");
+  const [expandedSubjects, setExpandedSubjects] = useState<Record<string, boolean>>({});
   const [isMobile, setIsMobile] = useState(false);
-  const [currentBanner, setCurrentBanner] = useState(1);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [dragStart, setDragStart] = useState<number | null>(null);
-  const [dragEnd, setDragEnd] = useState<number | null>(null);
-  const [banners] = useState([
-    {
-      mobile: "/Algebra crash course wbsite banners_Mobile.jpg",
-      desktop: "/Algebra crash course wbsite banners_Desktop.jpg",
-      alt: "Algebra Crash Course",
-    },
-    {
-      mobile: "/for just 249_Mobile.jpg",
-      desktop: "/for just 249_Desktop.jpg",
-      alt: "For just 249",
-    },
-  ]);
 
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
-
-    // Initial check
+    
+    // Set initial value
     checkIfMobile();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", checkIfMobile);
-
+    
+    // Add event listener
+    window.addEventListener('resize', checkIfMobile);
+    
     // Cleanup
-    return () => window.removeEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  // Handle manual banner change
-  const handleBannerChange = (direction: "next" | "prev") => {
-    if (isAnimating) return; // Prevent changing during animation
-
-    setIsAnimating(true);
-
-    setTimeout(() => {
-      if (direction === "next") {
-        setCurrentBanner((prev) => (prev === banners.length ? 1 : prev + 1));
-      } else {
-        setCurrentBanner((prev) => (prev === 1 ? banners.length : prev - 1));
-      }
-      setIsAnimating(false);
-    }, 500);
+  const isSubjectExpanded = (subject: string) => {
+    return !!expandedSubjects[subject];
   };
 
-  // Handle touch events for swipe on mobile
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null); // Reset touchEnd
-    setTouchStart(e.targetTouches[0].clientX);
+  const toggleSubject = (subject: string) => {
+    setExpandedSubjects(prev => ({
+      ...prev,
+      [subject]: !prev[subject]
+    }));
   };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe) {
-      handleBannerChange("next");
-    } else if (isRightSwipe) {
-      handleBannerChange("prev");
+  
+  const handleSubjectClick = (subject: SubjectKey) => {
+    if (isMobile) {
+      toggleSubject(subject);
     }
-  };
-
-  // Handle mouse events for desktop cursor sliding
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setDragEnd(null); // Reset dragEnd
-    setDragStart(e.clientX);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (dragStart !== null) {
-      setDragEnd(e.clientX);
-    }
-  };
-
-  const handleMouseUp = () => {
-    if (!dragStart || !dragEnd) return;
-
-    const distance = dragStart - dragEnd;
-    const isLeftDrag = distance > 50;
-    const isRightDrag = distance < -50;
-
-    if (isLeftDrag) {
-      handleBannerChange("next");
-    } else if (isRightDrag) {
-      handleBannerChange("prev");
-    }
-
-    // Reset drag values
-    setDragStart(null);
-    setDragEnd(null);
-  };
-
-  // Handle mouse leave to prevent stuck states
-  const handleMouseLeave = () => {
-    setDragStart(null);
-    setDragEnd(null);
-  };
-
-  // Banner slideshow effect
-  useEffect(() => {
-    const slideInterval = setInterval(() => {
-      // Start animation sequence
-      setIsAnimating(true);
-
-      // After animation completes, update the current banner
-      setTimeout(() => {
-        setCurrentBanner((prev) => (prev === 1 ? 2 : 1));
-        setIsAnimating(false);
-      }, 500); // Match this to animation duration
-    }, 5000); // Change banner every 5 seconds
-
-    return () => clearInterval(slideInterval);
-  }, []);
-
-  const toggleSubjectExpansion = (subject: keyof GradeSubjects) => {
-    const newExpandedSubjects = new Set(expandedSubjects);
-    if (newExpandedSubjects.has(subject)) {
-      newExpandedSubjects.delete(subject);
-    } else {
-      newExpandedSubjects.add(subject);
-    }
-    setExpandedSubjects(newExpandedSubjects);
     setSelectedSubject(subject);
   };
 
-  const isSubjectExpanded = (subject: keyof GradeSubjects) => {
-    return expandedSubjects.has(subject);
-  };
+  const subjects: Array<{
+    name: SubjectKey;
+    bgClass: string;
+    icon: string;
+  }> = [
+    { name: "Mathematics", bgClass: "bg-[#22b573]", icon: "/maths.svg" },
+    { name: "Chemistry", bgClass: "bg-[#F9633B]", icon: "/chem.svg" },
+    { name: "Biology", bgClass: "bg-[#7945DD]", icon: "/bio.svg" },
+    { name: "Physics", bgClass: "bg-[#67B2ED]", icon: "/physics.svg" },
+    { name: "English", bgClass: "bg-[#DB467F]", icon: "/eng.svg" },
+    { name: "Business", bgClass: "bg-[#FBB03B]", icon: "/Buss.svg" },
+    { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/Acc.svg" },
+    { name: "Economics", bgClass: "bg-[#4DCEC8]", icon: "/Econ.svg" },
+  ];
 
   return (
     <main className="min-h-screen">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className={`relative transition-all duration-300 ${
-            isOpen ? "mt-[400px]" : "mt-[130px] md:mt-[150pt]"
-          }`}
-        >
-          {/* Banner Slideshow */}
-          <div
-            className="relative overflow-hidden rounded-[20px] sm:rounded-[30px] w-full cursor-grab"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-          >
-            {/* Banner Slideshow Styles */}
-            <style jsx>{`
-              @keyframes slideOutLeft {
-                from {
-                  transform: translateX(0);
-                }
-                to {
-                  transform: translateX(-100%);
-                }
-              }
-
-              @keyframes slideInRight {
-                from {
-                  transform: translateX(100%);
-                }
-                to {
-                  transform: translateX(0);
-                }
-              }
-
-              .slide-out-left {
-                animation: slideOutLeft 0.5s forwards;
-                z-index: 10;
-              }
-
-              .slide-in-right {
-                animation: slideInRight 0.5s forwards;
-                z-index: 5;
-              }
-
-              .grabbing {
-                cursor: grabbing;
-              }
-            `}</style>
-
-            {/* Mobile Banners */}
-            <div className="md:hidden">
-              <div className="relative overflow-hidden">
-                {/* Current active banner */}
-                <div className="relative invisible">
-                  <Image
-                    src={banners[0].mobile}
-                    alt="Placeholder"
-                    width={1400}
-                    height={550}
-                    className="w-full h-auto object-cover rounded-[20px] sm:rounded-[30px]"
-                  />
-                </div>
-
-                {/* Both banners - dynamically positioned */}
-                {banners.map((banner, index) => {
-                  const bannerIndex = index + 1;
-                  const isActive = currentBanner === bannerIndex;
-                  const isNext = currentBanner !== bannerIndex;
-
-                  return (
-                    <div
-                      key={`mobile-banner-${bannerIndex}`}
-                      className={`w-full absolute top-0 left-0 ${
-                        isActive
-                          ? isAnimating
-                            ? "slide-out-left"
-                            : ""
-                          : isAnimating
-                          ? "slide-in-right"
-                          : "translate-x-full"
-                      }`}
-                      style={{
-                        zIndex: isActive ? 20 : 10,
-                        visibility:
-                          isAnimating || isActive
-                            ? "visible"
-                            : isNext
-                            ? "visible"
-                            : "hidden",
-                      }}
-                    >
-                      <Image
-                        src={banner.mobile}
-                        alt={banner.alt}
-                        width={1400}
-                        height={550}
-                        priority
-                        className="w-full h-auto object-cover rounded-[20px] sm:rounded-[30px]"
-                        draggable="false"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Desktop Banners */}
-            <div className="hidden md:block">
-              <div className="relative overflow-hidden">
-                {/* Placeholder for height maintenance */}
-                <div className="relative invisible">
-                  <Image
-                    src={banners[0].desktop}
-                    alt="Placeholder"
-                    width={1400}
-                    height={550}
-                    className="w-full h-auto object-cover rounded-[30px]"
-                  />
-                </div>
-
-                {/* Both banners - dynamically positioned */}
-                {banners.map((banner, index) => {
-                  const bannerIndex = index + 1;
-                  const isActive = currentBanner === bannerIndex;
-                  const isNext = currentBanner !== bannerIndex;
-
-                  return (
-                    <div
-                      key={`desktop-banner-${bannerIndex}`}
-                      className={`w-full absolute top-0 left-0 ${
-                        isActive
-                          ? isAnimating
-                            ? "slide-out-left"
-                            : ""
-                          : isAnimating
-                          ? "slide-in-right"
-                          : "translate-x-full"
-                      } ${dragStart !== null ? "grabbing" : ""}`}
-                      style={{
-                        zIndex: isActive ? 20 : 10,
-                        visibility:
-                          isAnimating || isActive
-                            ? "visible"
-                            : isNext
-                            ? "visible"
-                            : "hidden",
-                      }}
-                    >
-                      <Image
-                        src={banner.desktop}
-                        alt={banner.alt}
-                        width={1400}
-                        height={550}
-                        priority
-                        className="w-full h-auto object-cover rounded-[30px]"
-                        draggable="false"
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Navigation Dots */}
-            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-30">
-              {banners.map((_, index) => {
-                const bannerIndex = index + 1;
-                return (
-                  <div
-                    key={`nav-dot-${bannerIndex}`}
-                    className={`w-3 h-3 rounded-full transition-colors duration-300 cursor-pointer border-[#F9633B] border-[2px] ${
-                      currentBanner === bannerIndex ? "bg-[#F9633B]" : ""
-                    }`}
-                    onClick={() => {
-                      if (currentBanner !== bannerIndex && !isAnimating) {
-                        setIsAnimating(true);
-                        setTimeout(() => {
-                          setCurrentBanner(bannerIndex);
-                          setIsAnimating(false);
-                        }, 500);
-                      }
-                    }}
-                  />
-                );
-              })}
-            </div>
-
-            {/* Navigation Arrows removed for desktop view */}
-          </div>
+        <div className={`relative transition-all duration-300 ${isOpen ? "mt-[400px]" : "mt-[130px] md:mt-[150pt]"}`}>
+          <BannerCarousel />
 
           <div className="bg-[#FFFCF8] rounded-[30px] mt-15">
             <div
@@ -481,7 +280,7 @@ export default function Home() {
                         onClick={() => {
                           setSelectedGrade(grade);
                           setSelectedSubject("Mathematics");
-                          setExpandedSubjects(new Set());
+                          setExpandedSubjects({});
                         }}
                         className={`relative overflow-hidden group cursor-pointer px-4 py-1 font-medium text-base leading-[25px] font-['Poppins'] rounded-[15px] border transition-colors ${
                           selectedGrade === grade
@@ -507,29 +306,10 @@ export default function Home() {
                       {subjects.map(({ name, bgClass, icon }) => (
                         <div key={name} className="flex flex-col">
                           <button
-                            onClick={() => {
-                              if (isMobile) {
-                                // For mobile, toggle dropdown
-                                toggleSubjectExpansion(name);
-                              } else {
-                                // For desktop, just select the subject
-                                setSelectedSubject(name);
-                              }
-                            }}
-                            className={`flex items-center justify-between px-6 
-                              ${
-                                isSubjectExpanded(name)
-                                  ? "rounded-t-[12px] rounded-b-none"
-                                  : "rounded-[12px]"
-                              } 
-                              transition-colors w-full lg:w-[316px] h-[73px] 
-                              ${
-                                isMobile
-                                  ? "bg-[#E1EEEF]"
-                                  : selectedSubject === name
-                                  ? bgClass
-                                  : "bg-[#E1EEEF]"
-                              }`}
+                            onClick={() => handleSubjectClick(name)}
+                            className={`flex items-center justify-between w-full p-4 text-left rounded-[12px] transition-colors ${
+                              selectedSubject === name ? bgClass : 'bg-[#E1EEEF]'
+                            }`}
                           >
                             <div className="flex items-center gap-5">
                               <div
@@ -620,21 +400,16 @@ export default function Home() {
               </h2>
               <Link
                 href="/teachers"
-                className="hidden md:block text-right text-[16px] leading-[25px] font-medium font-poppins text-[#F9633B] hover:text-[#d94d27] transition-colors"
+                className="hidden md:block text-[16px] leading-[25px] font-medium text-[#F9633B] hover:text-[#d94d27]"
               >
-                See all Teachers {">"}
+                See all Teachers {" > "}
               </Link>
             </div>
 
-            <div className="mt-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
               {teachers.map((teacher) => (
-                <div
-                  key={teacher.name}
-                  className="relative flex flex-col items-center w-full max-w-[280px] sm:max-w-[320px] md:max-w-[350px]"
-                >
-                  {/* Teacher container with portrait and background */}
+                <div key={teacher.name} className="flex flex-col items-center w-full max-w-[350px]">
                   <div className="relative w-full">
-                    {/* Background container */}
                     <div
                       className="w-full rounded-[50px] absolute top-[25%] left-0"
                       style={{
@@ -645,8 +420,6 @@ export default function Home() {
                         height: "75%",
                       }}
                     />
-
-                    {/* Teacher portrait */}
                     <Image
                       src={teacher.image}
                       alt={`${teacher.name} ${teacher.title}`}
@@ -654,50 +427,32 @@ export default function Home() {
                       height={400}
                       className="w-full h-auto object-cover rounded-[50px] relative z-10"
                     />
-
-                    {/* Name tag positioned at the bottom of the portrait */}
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-40 w-[80%] translate-y-1/3">
-                      <div className="w-full bg-[#F2C686] rounded-[12px] flex items-center justify-center py-2 px-3 sm:px-4 shadow-lg">
-                        <p className="flex items-center text-[24px] sm:text-[28px] md:text-[32px] leading-[1.2] text-[#351E1C] whitespace-nowrap">
+                      <div className="bg-[#F2C686] rounded-[12px] flex items-center justify-center py-2 px-4 shadow-lg">
+                        <p className="text-[28px] md:text-[32px] text-[#351E1C] whitespace-nowrap">
                           <span className="font-libre">{teacher.name}</span>
-                          <span className="mx-0.1">&nbsp;</span>
-                          <span className="baskervville-regular-italic">
-                            {teacher.title}
-                          </span>
+                          <span className="ml-1 italic">{teacher.title}</span>
                         </p>
                       </div>
                     </div>
                   </div>
-
-                  {/* Subject information */}
-                  <div className="w-[280px] bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 py-3 mb-3 mt-10">
-                    <Image
-                      src={teacher.subjectIcon}
-                      alt={teacher.subject}
-                      width={40}
-                      height={40}
-                    />
-                    <span className="text-[#351E1C] text-[24px] font-medium font-poppins">
-                      {teacher.subject}
-                    </span>
+                  <div className="w-full bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 py-3 mt-10">
+                    <Image src={teacher.subjectIcon} alt={teacher.subject} width={40} height={40} />
+                    <span className="text-[#351E1C] text-[24px] font-medium">{teacher.subject}</span>
                   </div>
-
-                  {/* Experience information */}
-                  <div className="text-center text-[#351E1C] text-[16px] font-medium font-poppins">
-                    {teacher.experience} <br />
-                    Experience.
+                  <div className="text-center text-[#351E1C] text-[16px] font-medium mt-3">
+                    {teacher.experience} <br /> Experience.
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Mobile "See all Teachers" link */}
             <div className="flex justify-center mt-8 md:hidden">
               <Link
                 href="/teachers"
-                className="text-center text-[16px] leading-[25px] font-medium font-poppins text-[#F9633B] hover:text-[#d94d27] transition-colors"
+                className="text-center text-[16px] font-medium text-[#F9633B] hover:text-[#d94d27]"
               >
-                See all Teachers {">"}
+                See all Teachers {" > "}
               </Link>
             </div>
           </div>
