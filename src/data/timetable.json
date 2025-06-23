@@ -100,7 +100,7 @@
             "time": "5:00PM - 5:50PM"
           },
           {
-            "day": "Wednesday",
+            "day": "Saturday",
             "time": "3:00PM - 3:50PM"
           }
         ]
@@ -177,11 +177,11 @@
         "schedule": [
           {
             "day": "Thursday",
-            "time": "4:00PM - 4:50PM"
+            "time": "5:00PM - 5:50PM"
           },
           {
             "day": "Saturday",
-            "time": "5:00PM - 5:50PM"
+            "time": "4:00PM - 4:50PM"
           }
         ]
       },
@@ -189,12 +189,12 @@
         "teacher": "Adeel Sir",
         "schedule": [
           {
-            "day": "Monday",
-            "time": "8:00PM - 8:50PM"
+            "day": "Thursday",
+            "time": "4:00PM - 4:50PM"
           },
           {
             "day": "Saturday",
-            "time": "4:00PM - 4:50PM"
+            "time": "5:00PM - 5:50PM"
           }
         ]
       },
@@ -202,11 +202,11 @@
         "teacher": "Imran Sir",
         "schedule": [
           {
-            "day": "Thursday",
-            "time": "5:00PM - 5:50PM"
+            "day": "Sunday",
+            "time": "3:00PM - 3:50PM"
           },
           {
-            "day": "Saturday",
+            "day": "Wednesday",
             "time": "3:00PM - 3:50PM"
           }
         ]

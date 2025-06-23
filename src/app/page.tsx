@@ -203,7 +203,7 @@ export default function Home() {
   const [selectedGrade, setSelectedGrade] = useState<Grade | null>(null);
   type SubjectKey = keyof GradeSubjects;
   const [selectedSubject, setSelectedSubject] = useState<SubjectKey>("Mathematics");
-  const [expandedSubjects, setExpandedSubjects] = useState<Record<string, boolean>>({});
+  const [expandedSubjects, setExpandedSubjects] = useState<Set<keyof GradeSubjects>>(new Set());
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -221,22 +221,19 @@ export default function Home() {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  const isSubjectExpanded = (subject: string) => {
-    return !!expandedSubjects[subject];
+  const toggleSubjectExpansion = (subject: keyof GradeSubjects) => {
+    const newExpandedSubjects = new Set(expandedSubjects);
+    if (newExpandedSubjects.has(subject)) {
+      newExpandedSubjects.delete(subject);
+    } else {
+      newExpandedSubjects.add(subject);
+    }
+    setExpandedSubjects(newExpandedSubjects);
+    setSelectedSubject(subject);
   };
 
-  const toggleSubject = (subject: string) => {
-    setExpandedSubjects(prev => ({
-      ...prev,
-      [subject]: !prev[subject]
-    }));
-  };
-  
-  const handleSubjectClick = (subject: SubjectKey) => {
-    if (isMobile) {
-      toggleSubject(subject);
-    }
-    setSelectedSubject(subject);
+  const isSubjectExpanded = (subject: keyof GradeSubjects) => {
+    return expandedSubjects.has(subject);
   };
 
   const subjects: Array<{
@@ -280,7 +277,7 @@ export default function Home() {
                         onClick={() => {
                           setSelectedGrade(grade);
                           setSelectedSubject("Mathematics");
-                          setExpandedSubjects({});
+                          setExpandedSubjects(new Set());
                         }}
                         className={`relative overflow-hidden group cursor-pointer px-4 py-1 font-medium text-base leading-[25px] font-['Poppins'] rounded-[15px] border transition-colors ${
                           selectedGrade === grade
@@ -306,10 +303,29 @@ export default function Home() {
                       {subjects.map(({ name, bgClass, icon }) => (
                         <div key={name} className="flex flex-col">
                           <button
-                            onClick={() => handleSubjectClick(name)}
-                            className={`flex items-center justify-between w-full p-4 text-left rounded-[12px] transition-colors ${
-                              selectedSubject === name ? bgClass : 'bg-[#E1EEEF]'
-                            }`}
+                            onClick={() => {
+                              if (isMobile) {
+                                // For mobile, toggle dropdown
+                                toggleSubjectExpansion(name);
+                              } else {
+                                // For desktop, just select the subject
+                                setSelectedSubject(name);
+                              }
+                            }}
+                            className={`flex items-center justify-between px-6 
+                              ${
+                                isSubjectExpanded(name)
+                                  ? "rounded-t-[12px] rounded-b-none"
+                                  : "rounded-[12px]"
+                              } 
+                              transition-colors w-full lg:w-[316px] h-[73px] 
+                              ${
+                                isMobile
+                                  ? "bg-[#E1EEEF]"
+                                  : selectedSubject === name
+                                  ? bgClass
+                                  : "bg-[#E1EEEF]"
+                              }`}
                           >
                             <div className="flex items-center gap-5">
                               <div
