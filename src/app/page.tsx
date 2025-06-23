@@ -3,7 +3,13 @@
 import Image from "next/image";
 import { useMenu } from "./context/menu-context";
 import { useState, useEffect, useCallback } from "react";
-import timetableData from "@/data/timetable.json";
+import { 
+  getTimetableData, 
+  getSubjectsForGrade, 
+  getGrades, 
+  type Grade, 
+  type GradeSubjects 
+} from "@/data/timetable";
 import Link from "next/link";
 import {
   Carousel,
@@ -13,35 +19,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const grades = ["9", "10"] as const;
-type Grade = (typeof grades)[number];
-
-interface TimeSlot {
-  day: string;
-  time: string;
-}
-
-interface SubjectData {
-  teacher: string;
-  schedule: TimeSlot[];
-}
-
-interface GradeSubjects {
-  Mathematics: SubjectData;
-  Chemistry: SubjectData;
-  Biology: SubjectData;
-  Physics: SubjectData;
-  English: SubjectData;
-  Business: SubjectData;
-  Accounting: SubjectData;
-  Economics: SubjectData;
-}
-
-interface TimetableData {
-  grades: {
-    [key in Grade]: GradeSubjects;
-  };
-}
+const grades = getGrades();
 
 const banners = [
   {
@@ -91,7 +69,7 @@ const teachers = [
 ];
 
 const Schedule = ({ grade, subject }: { grade: Grade; subject: keyof GradeSubjects }) => {
-  const subjectData = (timetableData as TimetableData).grades[grade]?.[subject];
+  const subjectData = getTimetableData(grade, subject);
   if (!subjectData) return null;
 
   return (
