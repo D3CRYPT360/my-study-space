@@ -23,8 +23,8 @@ const grades = getGrades();
 
 const banners = [
   {
-    mobile: "for just 249_Mobile.jpg",
-    desktop: "for just 249_Desktop.jpg",
+    mobile: "/for just 249_Mobile.jpg",
+    desktop: "/for just 249_Desktop.jpg",
     alt: "For just 249",
   },
 ];
@@ -216,9 +216,9 @@ export default function Home() {
     { name: "Biology", bgClass: "bg-[#7945DD]", icon: "/bio.svg" },
     { name: "Physics", bgClass: "bg-[#67B2ED]", icon: "/physics.svg" },
     { name: "English", bgClass: "bg-[#DB467F]", icon: "/eng.svg" },
-    { name: "Business", bgClass: "bg-[#FBB03B]", icon: "/buss.svg" },
-    { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/acc.svg" },
-    { name: "Economics", bgClass: "bg-[#4DCEC8]", icon: "/econ.svg" },
+    { name: "Business", bgClass: "bg-[#FBB03B]", icon: "/Buss.svg" },
+    { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/Acc.svg" },
+    { name: "Economics", bgClass: "bg-[#4DCEC8]", icon: "/Econ.svg" },
   ];
 
   return (
