@@ -23,18 +23,8 @@ const grades = getGrades();
 
 const banners = [
   {
-    mobile: "/term - mobile.jpg",
-    desktop: "/term - web.jpg",
-    alt: "Term Exam Prep Just for 249",
-  },
-  {
-    mobile: "/Algebra crash course wbsite banners_Mobile.jpg",
-    desktop: "/Algebra crash course wbsite banners_Desktop.jpg",
-    alt: "Algebra Crash Course",
-  },
-  {
-    mobile: "/for just 249_Mobile.jpg",
-    desktop: "/for just 249_Desktop.jpg",
+    mobile: "/banners/for just 249_Mobile.jpg",
+    desktop: "/banners/for just 249_Desktop.jpg",
     alt: "For just 249",
   },
 ];
@@ -153,24 +143,26 @@ const BannerCarousel = () => {
         </CarouselContent>
         
         {/* Dots indicator */}
-        <div className="absolute bottom-6 left-0 right-0">
-          <div className="flex justify-center gap-3">
-            {banners.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => api?.scrollTo(index)}
-                className={`w-3 h-3 rounded-full transition-all border-[#F9633B] duration-300 flex items-center justify-center outline-none ${
-                  current === index 
-                    ? 'bg-[#F9633B] scale-125' 
-                    : 'border-2 border-[#F9633B] bg-transparent hover:bg-[#F9633B]/20 focus:outline-none focus:ring-0'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              >
-                <span className="sr-only">Slide {index + 1}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+        {banners.length > 1 && (
+  <div className="absolute bottom-6 left-0 right-0">
+    <div className="flex justify-center gap-3">
+      {banners.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => api?.scrollTo(index)}
+          className={`w-3 h-3 rounded-full transition-all border-[#F9633B] duration-300 flex items-center justify-center outline-none ${
+            current === index 
+              ? 'bg-[#F9633B] scale-125' 
+              : 'border-2 border-[#F9633B] bg-transparent hover:bg-[#F9633B]/20 focus:outline-none focus:ring-0'
+          }`}
+          aria-label={`Go to slide ${index + 1}`}
+        >
+          <span className="sr-only">Slide {index + 1}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+)}
       </Carousel>
     </div>
   );
@@ -224,9 +216,9 @@ export default function Home() {
     { name: "Biology", bgClass: "bg-[#7945DD]", icon: "/bio.svg" },
     { name: "Physics", bgClass: "bg-[#67B2ED]", icon: "/physics.svg" },
     { name: "English", bgClass: "bg-[#DB467F]", icon: "/eng.svg" },
-    { name: "Business", bgClass: "bg-[#FBB03B]", icon: "/Buss.svg" },
-    { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/Acc.svg" },
-    { name: "Economics", bgClass: "bg-[#4DCEC8]", icon: "/Econ.svg" },
+    { name: "Business", bgClass: "bg-[#FBB03B]", icon: "/buss.svg" },
+    { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/acc.svg" },
+    { name: "Economics", bgClass: "bg-[#4DCEC8]", icon: "/econ.svg" },
   ];
 
   return (

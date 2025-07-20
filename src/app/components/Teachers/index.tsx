@@ -62,7 +62,17 @@ const teachers: Teacher[] = [
     subjectIcon: '/physics.svg',
     hasBackground: false,
     description: "Sir brings 4+ years of experience in teaching physics for both IGCSE & A-Levels. He is a teacher and visiting lecturer at a reputed institution in the Maldives and has tutored students in both the Maldives and Sri Lanka. As a mechanical engineer, he gained hands-on expertise while working at Walkers Colombo Shipyard, Sri Lanka, making him an ideal physics teacher. Shahim Sir explains complex physics concepts in a clear and structured way, ensuring students develop a strong and confident understanding of the subject."
-  }
+  },
+  {
+    name: 'Adeel',
+    title: 'Sir',
+    subject: 'Accounting',
+    education: 'Masters in Education',
+    image: '/our teachers_adeel.png',
+    subjectIcon: '/Acc.svg',
+    hasBackground: true,
+    description: 'With over 15+ years of experience teaching GCE, IGCSE, and A-Level Accounting, Adeel Sir brings a wealth of expertise and leadership to the classroom. He holds a Master of Education in Leadership and Management from Maldives National University and a Postgraduate Diploma in Teaching from Villa College. Throughout his career, he has served as an Accounts teacher, Leading Teacher, and Deputy Principal at Kaafu Atoll School, and has also held the position of Principal in two schools. His deep academic background, combined with extensive leadership experience, allows him to guide students with clarity and confidence in mastering accounting concepts.'
+  },
 ];
 
 export default function Teachers() {
