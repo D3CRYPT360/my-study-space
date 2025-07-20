@@ -23,8 +23,8 @@ const grades = getGrades();
 
 const banners = [
   {
-    mobile: "/banners/for just 249_Mobile.jpg",
-    desktop: "/banners/for just 249_Desktop.jpg",
+    mobile: "for just 249_Mobile.jpg",
+    desktop: "for just 249_Desktop.jpg",
     alt: "For just 249",
   },
 ];
