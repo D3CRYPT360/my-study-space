@@ -16,9 +16,7 @@ export interface GradeSubjects {
   Biology: SubjectData;
   Physics: SubjectData;
   English: SubjectData;
-  Business: SubjectData;
   Accounting: SubjectData;
-  Economics: SubjectData;
 }
 
 export interface TimetableData {
@@ -95,19 +93,6 @@ const timetableData: TimetableData = {
           }
         ]
       },
-      "Business": {
-        "teacher": "Samha Miss",
-        "schedule": [
-          {
-            "day": "Thursday",
-            "time": "4:00PM - 4:50PM"
-          },
-          {
-            "day": "Saturday",
-            "time": "5:00PM - 5:50PM"
-          }
-        ]
-      },
       "Accounting": {
         "teacher": "Adeel Sir",
         "schedule": [
@@ -118,19 +103,6 @@ const timetableData: TimetableData = {
           {
             "day": "Saturday",
             "time": "4:00PM - 4:50PM"
-          }
-        ]
-      },
-      "Economics": {
-        "teacher": "Imran Sir",
-        "schedule": [
-          {
-            "day": "Thursday",
-            "time": "5:00PM - 5:50PM"
-          },
-          {
-            "day": "Saturday",
-            "time": "3:00PM - 3:50PM"
           }
         ]
       }
@@ -201,19 +173,6 @@ const timetableData: TimetableData = {
           }
         ]
       },
-      "Business": {
-        "teacher": "Samha Miss",
-        "schedule": [
-          {
-            "day": "Thursday",
-            "time": "5:00PM - 5:50PM"
-          },
-          {
-            "day": "Saturday",
-            "time": "4:00PM - 4:50PM"
-          }
-        ]
-      },
       "Accounting": {
         "teacher": "Adeel Sir",
         "schedule": [
@@ -227,19 +186,6 @@ const timetableData: TimetableData = {
           }
         ]
       },
-      "Economics": {
-        "teacher": "Imran Sir",
-        "schedule": [
-          {
-            "day": "Thursday",
-            "time": "6:00PM - 6:50PM"
-          },
-          {
-            "day": "Saturday",
-            "time": "6:00PM - 6:50PM"
-          }
-        ]
-      }
     }
   }
 };

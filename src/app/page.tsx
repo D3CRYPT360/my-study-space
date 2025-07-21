@@ -216,9 +216,7 @@ export default function Home() {
     { name: "Biology", bgClass: "bg-[#7945DD]", icon: "/bio.svg" },
     { name: "Physics", bgClass: "bg-[#67B2ED]", icon: "/physics.svg" },
     { name: "English", bgClass: "bg-[#DB467F]", icon: "/eng.svg" },
-    { name: "Business", bgClass: "bg-[#FBB03B]", icon: "/Buss.svg" },
     { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/Acc.svg" },
-    { name: "Economics", bgClass: "bg-[#4DCEC8]", icon: "/Econ.svg" },
   ];
 
   return (
@@ -417,7 +415,7 @@ export default function Home() {
                       <div className="bg-[#F2C686] rounded-[12px] flex items-center justify-center py-2 px-4 shadow-lg">
                         <p className="text-[28px] md:text-[32px] text-[#351E1C] whitespace-nowrap">
                           <span className="font-libre">{teacher.name}</span>
-                          <span className="ml-1 italic">{teacher.title}</span>
+                          <span className="ml-1 baskervville-regular-italic">{teacher.title}</span>
                         </p>
                       </div>
                     </div>

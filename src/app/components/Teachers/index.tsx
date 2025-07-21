@@ -27,7 +27,7 @@ const teachers: Teacher[] = [
     name: 'Nafla',
     title: 'Miss',
     subject: 'Chemistry',
-    experience: '7+ Years of Teaching Experience.',
+    experience: 'Bachelors of Chemistry',
     image: '/our teachers_nafla.png',
     subjectIcon: '/chem.svg',
     hasBackground: true,
