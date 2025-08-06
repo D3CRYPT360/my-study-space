@@ -50,7 +50,7 @@ const timetableData: TimetableData = {
           },
           {
             "day": "Thursday",
-            "time": "7:00PM - 7:50PM"
+            "time": "4:00PM - 4:50PM"
           }
         ]
       },
@@ -130,7 +130,7 @@ const timetableData: TimetableData = {
           },
           {
             "day": "Thursday",
-            "time": "3:00PM - 3:50PM"
+            "time": "5:00PM - 5:50PM"
           }
         ]
       },

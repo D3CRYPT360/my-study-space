@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 export default function TimetablePage() {
-  const [selectedGrade, setSelectedGrade] = useState<'gr9' | 'gr10'>('gr9');
+  const [selectedGrade, setSelectedGrade] = useState<'gr8' | 'gr9' | 'gr10'>('gr8');
 
   return (
     <div>
@@ -13,38 +13,30 @@ export default function TimetablePage() {
           <h1 className="text-[30px] font-['Libre_Baskerville'] mb-4">Timetables</h1>
           
           <div className="flex gap-4 mb-6">
-            <button
-              onClick={() => setSelectedGrade('gr9')}
-              className={`relative overflow-hidden group h-[45px] px-10 rounded-[15px] text-sm font-medium border-2 border-[#F9633B] ${
-                selectedGrade === 'gr9'
-                  ? 'bg-[#F9633B] text-white'
-                  : 'bg-white text-[#F9633B] hover:text-white'
-              }`}
-            >
-              <span className={`absolute inset-12 size-2 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full left-1/2 -translate-1/2 ${
-                selectedGrade === 'gr9' ? 'size-56' : ''
-              }`}></span>
-              <span className="relative z-10 transition-all duration-300 group-hover:scale-110">Grade 9</span>
-            </button>
-            <button
-              onClick={() => setSelectedGrade('gr10')}
-              className={`relative overflow-hidden group h-[45px] px-10 rounded-[15px] text-sm font-medium border-2 border-[#F9633B] ${
-                selectedGrade === 'gr10'
-                  ? 'bg-[#F9633B] text-white'
-                  : 'bg-white text-[#F9633B] hover:text-white'
-              }`}
-            >
-              <span className={`absolute inset-12 size-2 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full left-1/2 -translate-1/2 ${
-                selectedGrade === 'gr10' ? 'size-56' : ''
-              }`}></span>
-              <span className="relative z-10 transition-all duration-300 group-hover:scale-110">Grade 10</span>
-            </button>
+            {['gr8', 'gr9', 'gr10'].map((grade) => (
+              <button
+                key={grade}
+                onClick={() => setSelectedGrade(grade as 'gr8' | 'gr9' | 'gr10')}
+                className={`relative overflow-hidden group h-[45px] px-10 rounded-[15px] text-sm font-medium border-2 border-[#F9633B] ${
+                  selectedGrade === grade
+                    ? 'bg-[#F9633B] text-white'
+                    : 'bg-white text-[#F9633B] hover:text-white'
+                }`}
+              >
+                <span className={`absolute inset-12 size-2 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full left-1/2 -translate-1/2 ${
+                  selectedGrade === grade ? 'size-56' : ''
+                }`}></span>
+                <span className="relative z-10 transition-all duration-300 group-hover:scale-110">
+                  {grade === 'gr8' ? 'Grade 8' : grade === 'gr9' ? 'Grade 9' : 'Grade 10'}
+                </span>
+              </button>
+            ))}
           </div>
 
           <div className="relative w-full h-auto mb-6">
             <Image
               src={`/${selectedGrade}_timetable.jpg`}
-              alt={`${selectedGrade === 'gr9' ? 'Grade 9' : 'Grade 10'} Timetable`}
+              alt={`${selectedGrade === 'gr8' ? 'Grade 8' : selectedGrade === 'gr9' ? 'Grade 9' : 'Grade 10'} Timetable`}
               width={1100}
               height={800}
               className="rounded-lg w-full h-auto object-contain"
