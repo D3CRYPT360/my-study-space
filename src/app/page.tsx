@@ -2,21 +2,18 @@
 
 import Image from "next/image";
 import { useMenu } from "./context/menu-context";
-import { useState, useEffect, useCallback } from "react";
-import { 
-  getTimetableData, 
-  getSubjectsForGrade, 
-  getGrades, 
-  type Grade, 
-  type GradeSubjects 
+import { useState, useEffect } from "react";
+import {
+  getTimetableData,
+  getGrades,
+  type Grade,
+  type GradeSubjects,
 } from "@/data/timetable";
 import Link from "next/link";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 const grades = getGrades();
@@ -28,8 +25,6 @@ const banners = [
     alt: "For just 249",
   },
 ];
-
-
 
 const teachers = [
   {
@@ -58,7 +53,54 @@ const teachers = [
   },
 ];
 
-const Schedule = ({ grade, subject }: { grade: Grade; subject: keyof GradeSubjects }) => {
+// -------------------- SUBJECT FILTER SETTINGS --------------------
+type SubjectKey = keyof GradeSubjects;
+
+const gradeSubjectsMap: Record<Grade, SubjectKey[]> = {
+  8: ["Mathematics", "Dhivehi", "Islam", "Business", "English", "Science"],
+  9: [
+    "Mathematics",
+    "Chemistry",
+    "Biology",
+    "Physics",
+    "English",
+    "Accounting",
+  ],
+  10: [
+    "Mathematics",
+    "Chemistry",
+    "Biology",
+    "Physics",
+    "English",
+    "Accounting",
+  ],
+};
+
+const allSubjects: Array<{
+  name: SubjectKey;
+  bgClass: string;
+  icon: string;
+}> = [
+  { name: "Mathematics", bgClass: "bg-[#22b573]", icon: "/maths.svg" },
+  { name: "Chemistry", bgClass: "bg-[#F9633B]", icon: "/chem.svg" },
+  { name: "Biology", bgClass: "bg-[#7945DD]", icon: "/bio.svg" },
+  { name: "Physics", bgClass: "bg-[#67B2ED]", icon: "/physics.svg" },
+  { name: "English", bgClass: "bg-[#DB467F]", icon: "/eng.svg" },
+  { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/Acc.svg" },
+  { name: "Dhivehi", bgClass: "bg-[#F2C686]", icon: "/dhiv.svg" },
+  { name: "Islam", bgClass: "bg-[#F9633B]", icon: "/islam.svg" },
+  { name: "Science", bgClass: "bg-[#22b573]", icon: "/Science.svg" },
+  { name: "Business", bgClass: "bg-[#7945DD]", icon: "/Buss.svg" },
+];
+
+// -------------------- COMPONENTS --------------------
+const Schedule = ({
+  grade,
+  subject,
+}: {
+  grade: Grade;
+  subject: SubjectKey;
+}) => {
   const subjectData = getTimetableData(grade, subject);
   if (!subjectData) return null;
 
@@ -80,8 +122,6 @@ const Schedule = ({ grade, subject }: { grade: Grade; subject: keyof GradeSubjec
 
 const BannerCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [api, setApi] = useState<any>(null);
-  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const update = () => setIsMobile(window.innerWidth < 1024);
@@ -90,40 +130,12 @@ const BannerCarousel = () => {
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  // Handle auto-scroll and slide change events
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    const onSelect = () => {
-      setCurrent(api.selectedScrollSnap());
-    };
-
-    api.on("select", onSelect);
-
-    // Auto-scroll functionality
-    const autoplay = setInterval(() => {
-      if (api) {
-        const nextIndex = (api.selectedScrollSnap() + 1) % banners.length;
-        api.scrollTo(nextIndex);
-      }
-    }, 3000); // Change slide every 3 seconds
-
-    // Cleanup function
-    return () => {
-      api.off("select", onSelect);
-      clearInterval(autoplay);
-    };
-  }, [api]);
-
   return (
     <div className="w-full max-w-[1400px] mx-auto">
-      <Carousel 
-        setApi={setApi}
-        opts={{ 
+      <Carousel
+        opts={{
           loop: true,
-        }} 
+        }}
         className="relative rounded-[30px] overflow-hidden"
       >
         <CarouselContent>
@@ -141,90 +153,62 @@ const BannerCarousel = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        
-        {/* Dots indicator */}
-        {banners.length > 1 && (
-  <div className="absolute bottom-6 left-0 right-0">
-    <div className="flex justify-center gap-3">
-      {banners.map((_, index) => (
-        <button
-          key={index}
-          onClick={() => api?.scrollTo(index)}
-          className={`w-3 h-3 rounded-full transition-all border-[#F9633B] duration-300 flex items-center justify-center outline-none ${
-            current === index 
-              ? 'bg-[#F9633B] scale-125' 
-              : 'border-2 border-[#F9633B] bg-transparent hover:bg-[#F9633B]/20 focus:outline-none focus:ring-0'
-          }`}
-          aria-label={`Go to slide ${index + 1}`}
-        >
-          <span className="sr-only">Slide {index + 1}</span>
-        </button>
-      ))}
-    </div>
-  </div>
-)}
       </Carousel>
     </div>
   );
 };
 
+// -------------------- MAIN --------------------
 export default function Home() {
   const { isOpen } = useMenu();
   const [selectedGrade, setSelectedGrade] = useState<Grade | null>(null);
-  type SubjectKey = keyof GradeSubjects;
-  const [selectedSubject, setSelectedSubject] = useState<SubjectKey>("Mathematics");
-  const [expandedSubjects, setExpandedSubjects] = useState<Set<keyof GradeSubjects>>(new Set());
+  const [selectedSubject, setSelectedSubject] =
+    useState<SubjectKey>("Mathematics");
+  const [expandedSubjects, setExpandedSubjects] = useState<Set<SubjectKey>>(
+    new Set()
+  );
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-    
-    // Set initial value
+    const checkIfMobile = () => setIsMobile(window.innerWidth < 1024);
     checkIfMobile();
-    
-    // Add event listener
-    window.addEventListener('resize', checkIfMobile);
-    
-    // Cleanup
-    return () => window.removeEventListener('resize', checkIfMobile);
+    window.addEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
-  const toggleSubjectExpansion = (subject: keyof GradeSubjects) => {
-    const newExpandedSubjects = new Set(expandedSubjects);
-    if (newExpandedSubjects.has(subject)) {
-      newExpandedSubjects.delete(subject);
+  const toggleSubjectExpansion = (subject: SubjectKey) => {
+    const newExpanded = new Set(expandedSubjects);
+    if (newExpanded.has(subject)) {
+      newExpanded.delete(subject);
     } else {
-      newExpandedSubjects.add(subject);
+      newExpanded.add(subject);
     }
-    setExpandedSubjects(newExpandedSubjects);
+    setExpandedSubjects(newExpanded);
     setSelectedSubject(subject);
   };
 
-  const isSubjectExpanded = (subject: keyof GradeSubjects) => {
-    return expandedSubjects.has(subject);
-  };
+  const isSubjectExpanded = (subject: SubjectKey) =>
+    expandedSubjects.has(subject);
 
-  const subjects: Array<{
-    name: SubjectKey;
-    bgClass: string;
-    icon: string;
-  }> = [
-    { name: "Mathematics", bgClass: "bg-[#22b573]", icon: "/maths.svg" },
-    { name: "Chemistry", bgClass: "bg-[#F9633B]", icon: "/chem.svg" },
-    { name: "Biology", bgClass: "bg-[#7945DD]", icon: "/bio.svg" },
-    { name: "Physics", bgClass: "bg-[#67B2ED]", icon: "/physics.svg" },
-    { name: "English", bgClass: "bg-[#DB467F]", icon: "/eng.svg" },
-    { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/Acc.svg" },
-  ];
+  // Filter subjects based on selected grade
+  const filteredSubjects =
+    selectedGrade !== null
+      ? allSubjects.filter((s) =>
+          gradeSubjectsMap[selectedGrade].includes(s.name)
+        )
+      : [];
 
   return (
     <main className="min-h-screen">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`relative transition-all duration-300 ${isOpen ? "mt-[400px]" : "mt-[130px] md:mt-[150pt]"}`}>
+        <div
+          className={`relative transition-all duration-300 ${
+            isOpen ? "mt-[400px]" : "mt-[130px] md:mt-[150pt]"
+          }`}
+        >
           <BannerCarousel />
 
+          {/* Subjects Section */}
           <div className="bg-[#FFFCF8] rounded-[30px] mt-15">
             <div
               className={`py-8 transition-all duration-300 ${
@@ -244,7 +228,9 @@ export default function Home() {
                         key={grade}
                         onClick={() => {
                           setSelectedGrade(grade);
-                          setSelectedSubject("Mathematics");
+                          setSelectedSubject(
+                            gradeSubjectsMap[grade][0] // default first subject
+                          );
                           setExpandedSubjects(new Set());
                         }}
                         className={`relative overflow-hidden group cursor-pointer px-4 py-1 font-medium text-base leading-[25px] font-['Poppins'] rounded-[15px] border transition-colors ${
@@ -253,8 +239,7 @@ export default function Home() {
                             : "text-[#F9633B] border-[#F9633B]"
                         } ml-2 sm:ml-[20px] md:mt-[30px] first:ml-0 sm:first:ml-[20px]`}
                       >
-                        <span className="left-1/2 absolute inset-12 size-5 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full -translate-1/2"></span>
-                        <span className="px-5 relative z-10 transition-all duration-300 group-hover:text-white group-hover:scale-110">
+                        <span className="px-5 relative z-10">
                           Grade {grade}
                         </span>
                       </button>
@@ -268,15 +253,13 @@ export default function Home() {
                       className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-8"
                       style={{ width: "auto" }}
                     >
-                      {subjects.map(({ name, bgClass, icon }) => (
+                      {filteredSubjects.map(({ name, bgClass, icon }) => (
                         <div key={name} className="flex flex-col">
                           <button
                             onClick={() => {
                               if (isMobile) {
-                                // For mobile, toggle dropdown
                                 toggleSubjectExpansion(name);
                               } else {
-                                // For desktop, just select the subject
                                 setSelectedSubject(name);
                               }
                             }}
@@ -308,11 +291,10 @@ export default function Home() {
                                   alt={name}
                                   width={45}
                                   height={45}
-                                  className="w-[40px] h-[40px] md:w-[60px] md:h-[60px]"
                                 />
                               </div>
                               <span
-                                className={`text-[20px] md:text-[30px] leading-[22px] md:leading-[26px] font-medium text-left
+                                className={`text-[20px] md:text-[30px] font-medium
                                 ${
                                   !isMobile && selectedSubject === name
                                     ? "text-white"
@@ -323,12 +305,10 @@ export default function Home() {
                               </span>
                             </div>
 
-                            {/* Dropdown arrow for mobile only */}
-                            <div className="lg:hidden">
+                            {isMobile && (
                               <svg
                                 width="24"
                                 height="24"
-                                viewBox="0 0 24 24"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                                 className={`transition-transform duration-300 ${
@@ -343,10 +323,9 @@ export default function Home() {
                                   strokeLinejoin="round"
                                 />
                               </svg>
-                            </div>
+                            )}
                           </button>
 
-                          {/* Mobile dropdown content */}
                           {isSubjectExpanded(name) && (
                             <div className="lg:hidden w-full bg-[#E1EEEF] rounded-b-[12px] p-6">
                               {selectedGrade && (
@@ -362,7 +341,6 @@ export default function Home() {
                     </div>
 
                     <div className="hidden lg:block w-[2px] h-[270px] bg-[#E1EEEF]" />
-
                     <div className="hidden lg:block w-full lg:w-1/4 px-4 lg:px-0 mt-8 lg:mt-0">
                       <Schedule
                         grade={selectedGrade}
@@ -375,16 +353,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Our Teachers Section */}
+          {/* Teachers Section */}
           <div className="mt-15 w-full bg-[#FFFCF8] rounded-[30px] px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex justify-between items-center pt-4">
-              <h2 className="flex font-libre text-[40px] md:text-[60px] leading-[50px] md:leading-[74px] text-[#351E1C]">
+              <h2 className="flex font-libre text-[40px] md:text-[60px] text-[#351E1C]">
                 <span className="font-normal">Our</span>
                 <span className="baskervville-regular-italic">Teachers</span>
               </h2>
               <Link
                 href="/teachers"
-                className="hidden md:block text-[16px] leading-[25px] font-medium text-[#F9633B] hover:text-[#d94d27]"
+                className="hidden md:block text-[16px] font-medium text-[#F9633B]"
               >
                 See all Teachers {" > "}
               </Link>
@@ -392,37 +370,27 @@ export default function Home() {
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
               {teachers.map((teacher) => (
-                <div key={teacher.name} className="flex flex-col items-center w-full max-w-[350px]">
-                  <div className="relative w-full">
-                    <div
-                      className="w-full rounded-[50px] absolute top-[25%] left-0"
-                      style={{
-                        backgroundImage: 'url("/our teachers_background.png")',
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                        height: "75%",
-                      }}
-                    />
-                    <Image
-                      src={teacher.image}
-                      alt={`${teacher.name} ${teacher.title}`}
-                      width={350}
-                      height={400}
-                      className="w-full h-auto object-cover rounded-[50px] relative z-10"
-                    />
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-40 w-[80%] translate-y-1/3">
-                      <div className="bg-[#F2C686] rounded-[12px] flex items-center justify-center py-2 px-4 shadow-lg">
-                        <p className="text-[28px] md:text-[32px] text-[#351E1C] whitespace-nowrap">
-                          <span className="font-libre">{teacher.name}</span>
-                          <span className="ml-1 baskervville-regular-italic">{teacher.title}</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                <div
+                  key={teacher.name}
+                  className="flex flex-col items-center w-full max-w-[350px]"
+                >
+                  <Image
+                    src={teacher.image}
+                    alt={`${teacher.name} ${teacher.title}`}
+                    width={350}
+                    height={400}
+                    className="w-full h-auto object-cover rounded-[50px]"
+                  />
                   <div className="w-full bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 py-3 mt-10">
-                    <Image src={teacher.subjectIcon} alt={teacher.subject} width={40} height={40} />
-                    <span className="text-[#351E1C] text-[24px] font-medium">{teacher.subject}</span>
+                    <Image
+                      src={teacher.subjectIcon}
+                      alt={teacher.subject}
+                      width={40}
+                      height={40}
+                    />
+                    <span className="text-[#351E1C] text-[24px] font-medium">
+                      {teacher.subject}
+                    </span>
                   </div>
                   <div className="text-center text-[#351E1C] text-[16px] font-medium mt-3">
                     {teacher.experience} <br /> Experience.
@@ -434,7 +402,7 @@ export default function Home() {
             <div className="flex justify-center mt-8 md:hidden">
               <Link
                 href="/teachers"
-                className="text-center text-[16px] font-medium text-[#F9633B] hover:text-[#d94d27]"
+                className="text-center text-[16px] font-medium text-[#F9633B]"
               >
                 See all Teachers {" > "}
               </Link>

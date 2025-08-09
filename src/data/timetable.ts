@@ -1,4 +1,4 @@
-export type Grade = '9' | '10';
+export type Grade = "8" | "9" | "10";
 
 export interface TimeSlot {
   day: string;
@@ -11,12 +11,16 @@ export interface SubjectData {
 }
 
 export interface GradeSubjects {
-  Mathematics: SubjectData;
-  Chemistry: SubjectData;
-  Biology: SubjectData;
-  Physics: SubjectData;
-  English: SubjectData;
-  Accounting: SubjectData;
+  Mathematics?: SubjectData;
+  Chemistry?: SubjectData;
+  Biology?: SubjectData;
+  Physics?: SubjectData;
+  English?: SubjectData;
+  Accounting?: SubjectData;
+  Dhivehi?: SubjectData;
+  Islam?: SubjectData;
+  Science?: SubjectData;
+  Business?: SubjectData;
 }
 
 export interface TimetableData {
@@ -27,175 +31,260 @@ export interface TimetableData {
 
 const timetableData: TimetableData = {
   grades: {
+    "8": {
+      Mathematics: {
+        teacher: "Mahil Sir",
+        schedule: [
+          {
+            day: "Sunday",
+            time: "7:00PM - 7:50PM",
+          },
+          {
+            day: "Wednesday",
+            time: "7:00PM - 7:50PM",
+          },
+        ],
+      },
+      Science: {
+        teacher: "Amaany Miss",
+        schedule: [
+          {
+            day: "Sunday",
+            time: "5:20PM - 6:10PM",
+          },
+          {
+            day: "Wednesday",
+            time: "5:20PM - 6:10PM",
+          },
+        ],
+      },
+      English: {
+        teacher: "Iyad Sir",
+        schedule: [
+          {
+            day: "Tuesday",
+            time: "7:00PM - 7:50PM",
+          },
+          {
+            day: "Saturday",
+            time: "7:00PM - 7:50PM",
+          },
+        ],
+      },
+      Dhivehi: {
+        teacher: "Shauka Miss",
+        schedule: [
+          {
+            day: "Sunday",
+            time: "4:20PM - 5:10PM",
+          },
+          {
+            day: "Tuesday",
+            time: "4:20PM - 5:10PM",
+          },
+        ],
+      },
+      Islam: {
+        teacher: "Asif Sir",
+        schedule: [
+          {
+            day: "Monday",
+            time: "2:30PM - 3:20PM",
+          },
+          {
+            day: "Wednesday",
+            time: "2:30PM - 3:20PM",
+          },
+        ],
+      },
+      Business: {
+        teacher: "Imran Sir",
+        schedule: [
+          {
+            day: "Tuesday",
+            time: "3:00PM - 3:50PM",
+          },
+          {
+            day: "Thursday",
+            time: "3:00PM - 3:50PM",
+          },
+        ],
+      },
+    },
     "9": {
-      "Mathematics": {
-        "teacher": "Mahil Sir",
-        "schedule": [
+      Mathematics: {
+        teacher: "Mahil Sir",
+        schedule: [
           {
-            "day": "Monday",
-            "time": "4:20PM - 5:10PM"
+            day: "Monday",
+            time: "4:20PM - 5:10PM",
           },
           {
-            "day": "Wednesday",
-            "time": "4:20PM - 5:10PM"
-          }
-        ]
+            day: "Wednesday",
+            time: "4:20PM - 5:10PM",
+          },
+        ],
       },
-      "Chemistry": {
-        "teacher": "Nafla Miss",
-        "schedule": [
+      Chemistry: {
+        teacher: "Nafla Miss",
+        schedule: [
           {
-            "day": "Tuesday",
-            "time": "4:00PM - 4:50PM"
+            day: "Tuesday",
+            time: "4:00PM - 4:50PM",
           },
           {
-            "day": "Thursday",
-            "time": "4:00PM - 4:50PM"
-          }
-        ]
+            day: "Thursday",
+            time: "4:00PM - 4:50PM",
+          },
+        ],
       },
-      "Biology": {
-        "teacher": "Biology Miss",
-        "schedule": [
+      Biology: {
+        teacher: "Biology Miss",
+        schedule: [
           {
-            "day": "Sunday",
-            "time": "5:00PM - 5:50PM"
+            day: "Sunday",
+            time: "5:00PM - 5:50PM",
           },
           {
-            "day": "Tuesday",
-            "time": "5:00PM - 5:50PM"
-          }
-        ]
+            day: "Tuesday",
+            time: "5:00PM - 5:50PM",
+          },
+        ],
       },
-      "Physics": {
-        "teacher": "Physics Sir",
-        "schedule": [
+      Physics: {
+        teacher: "Physics Sir",
+        schedule: [
           {
-            "day": "Monday",
-            "time": "5:20PM - 6:10PM"
+            day: "Monday",
+            time: "5:20PM - 6:10PM",
           },
           {
-            "day": "Wednesday",
-            "time": "5:20PM - 6:10PM"
-          }
-        ]
+            day: "Wednesday",
+            time: "5:20PM - 6:10PM",
+          },
+        ],
       },
-      "English": {
-        "teacher": "Iyad Sir",
-        "schedule": [
+      English: {
+        teacher: "Iyad Sir",
+        schedule: [
           {
-            "day": "Tuesday",
-            "time": "7:00PM - 7:50PM"
+            day: "Tuesday",
+            time: "7:00PM - 7:50PM",
           },
           {
-            "day": "Saturday",
-            "time": "7:00PM - 7:50PM"
-          }
-        ]
+            day: "Saturday",
+            time: "7:00PM - 7:50PM",
+          },
+        ],
       },
-      "Accounting": {
-        "teacher": "Adeel Sir",
-        "schedule": [
+      Accounting: {
+        teacher: "Adeel Sir",
+        schedule: [
           {
-            "day": "Monday",
-            "time": "8:00PM - 8:50PM"
+            day: "Monday",
+            time: "8:00PM - 8:50PM",
           },
           {
-            "day": "Saturday",
-            "time": "4:00PM - 4:50PM"
-          }
-        ]
-      }
+            day: "Saturday",
+            time: "4:00PM - 4:50PM",
+          },
+        ],
+      },
     },
     "10": {
-      "Mathematics": {
-        "teacher": "Mahil Sir",
-        "schedule": [
+      Mathematics: {
+        teacher: "Mahil Sir",
+        schedule: [
           {
-            "day": "Monday",
-            "time": "5:20PM - 6:10PM"
+            day: "Monday",
+            time: "5:20PM - 6:10PM",
           },
           {
-            "day": "Wednesday",
-            "time": "5:20PM - 6:10PM"
-          }
-        ]
+            day: "Wednesday",
+            time: "5:20PM - 6:10PM",
+          },
+        ],
       },
-      "Chemistry": {
-        "teacher": "Nafla Miss",
-        "schedule": [
+      Chemistry: {
+        teacher: "Nafla Miss",
+        schedule: [
           {
-            "day": "Tuesday",
-            "time": "5:00PM - 5:50PM"
+            day: "Tuesday",
+            time: "5:00PM - 5:50PM",
           },
           {
-            "day": "Thursday",
-            "time": "5:00PM - 5:50PM"
-          }
-        ]
+            day: "Thursday",
+            time: "5:00PM - 5:50PM",
+          },
+        ],
       },
-      "Biology": {
-        "teacher": "Biology Miss",
-        "schedule": [
+      Biology: {
+        teacher: "Biology Miss",
+        schedule: [
           {
-            "day": "Sunday",
-            "time": "4:00PM - 4:50PM"
+            day: "Sunday",
+            time: "4:00PM - 4:50PM",
           },
           {
-            "day": "Tuesday",
-            "time": "4:00PM - 4:50PM"
-          }
-        ]
+            day: "Tuesday",
+            time: "4:00PM - 4:50PM",
+          },
+        ],
       },
-      "Physics": {
-        "teacher": "Physics Sir",
-        "schedule": [
+      Physics: {
+        teacher: "Physics Sir",
+        schedule: [
           {
-            "day": "Monday",
-            "time": "4:20PM - 5:10PM"
+            day: "Monday",
+            time: "4:20PM - 5:10PM",
           },
           {
-            "day": "Wednesday",
-            "time": "4:20PM - 5:10PM"
-          }
-        ]
+            day: "Wednesday",
+            time: "4:20PM - 5:10PM",
+          },
+        ],
       },
-      "English": {
-        "teacher": "Iyad Sir",
-        "schedule": [
+      English: {
+        teacher: "Iyad Sir",
+        schedule: [
           {
-            "day": "Tuesday",
-            "time": "7:00PM - 7:50PM"
+            day: "Tuesday",
+            time: "7:00PM - 7:50PM",
           },
           {
-            "day": "Saturday",
-            "time": "7:00PM - 7:50PM"
-          }
-        ]
+            day: "Saturday",
+            time: "7:00PM - 7:50PM",
+          },
+        ],
       },
-      "Accounting": {
-        "teacher": "Adeel Sir",
-        "schedule": [
+      Accounting: {
+        teacher: "Adeel Sir",
+        schedule: [
           {
-            "day": "Thursday",
-            "time": "4:00PM - 4:50PM"
+            day: "Thursday",
+            time: "4:00PM - 4:50PM",
           },
           {
-            "day": "Saturday",
-            "time": "5:00PM - 5:50PM"
-          }
-        ]
+            day: "Saturday",
+            time: "5:00PM - 5:50PM",
+          },
+        ],
       },
-    }
-  }
+    },
+  },
 };
 
-export function getTimetableData(grade: Grade, subject: keyof GradeSubjects): SubjectData | null {
+export function getTimetableData(
+  grade: Grade,
+  subject: keyof GradeSubjects
+): SubjectData | null {
   return timetableData.grades[grade]?.[subject] || null;
 }
 
 export function getSubjectsForGrade(grade: Grade): (keyof GradeSubjects)[] {
-  return Object.keys(timetableData.grades[grade] || {}) as (keyof GradeSubjects)[];
+  return Object.keys(
+    timetableData.grades[grade] || {}
+  ) as (keyof GradeSubjects)[];
 }
 
 export function getGrades(): Grade[] {
