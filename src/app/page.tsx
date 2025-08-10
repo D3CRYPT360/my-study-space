@@ -239,9 +239,10 @@ export default function Home() {
                             : "text-[#F9633B] border-[#F9633B]"
                         } ml-2 sm:ml-[20px] md:mt-[30px] first:ml-0 sm:first:ml-[20px]`}
                       >
-                        <span className="px-5 relative z-10">
+                        <span className="whitespace-nowrap px-3 sm:px-5 text-sm sm:text-base relative z-10">
                           Grade {grade}
                         </span>
+
                       </button>
                     ))}
                   </div>
