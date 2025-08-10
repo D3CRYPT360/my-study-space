@@ -57,7 +57,7 @@ const teachers = [
 type SubjectKey = keyof GradeSubjects;
 
 const gradeSubjectsMap: Record<Grade, SubjectKey[]> = {
-  8: ["Mathematics", "Dhivehi", "Islam", "Business", "English", "Science"],
+  8: ["Dhivehi", "Islam", "Business", "Science", "English"],
   9: [
     "Mathematics",
     "Chemistry",
@@ -239,10 +239,9 @@ export default function Home() {
                             : "text-[#F9633B] border-[#F9633B]"
                         } ml-2 sm:ml-[20px] md:mt-[30px] first:ml-0 sm:first:ml-[20px]`}
                       >
-                        <span className="whitespace-nowrap px-3 sm:px-5 text-sm sm:text-base relative z-10">
+                        <span className="px-5 relative z-10">
                           Grade {grade}
                         </span>
-
                       </button>
                     ))}
                   </div>
@@ -354,16 +353,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Teachers Section */}
+          {/* Our Teachers Section */}
           <div className="mt-15 w-full bg-[#FFFCF8] rounded-[30px] px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex justify-between items-center pt-4">
-              <h2 className="flex font-libre text-[40px] md:text-[60px] text-[#351E1C]">
+              <h2 className="flex font-libre text-[40px] md:text-[60px] leading-[50px] md:leading-[74px] text-[#351E1C]">
                 <span className="font-normal">Our</span>
                 <span className="baskervville-regular-italic">Teachers</span>
               </h2>
               <Link
                 href="/teachers"
-                className="hidden md:block text-[16px] font-medium text-[#F9633B]"
+                className="hidden md:block text-[16px] leading-[25px] font-medium text-[#F9633B] hover:text-[#d94d27]"
               >
                 See all Teachers {" > "}
               </Link>
@@ -375,13 +374,35 @@ export default function Home() {
                   key={teacher.name}
                   className="flex flex-col items-center w-full max-w-[350px]"
                 >
-                  <Image
-                    src={teacher.image}
-                    alt={`${teacher.name} ${teacher.title}`}
-                    width={350}
-                    height={400}
-                    className="w-full h-auto object-cover rounded-[50px]"
-                  />
+                  <div className="relative w-full">
+                    <div
+                      className="w-full rounded-[50px] absolute top-[25%] left-0"
+                      style={{
+                        backgroundImage: 'url("/our teachers_background.png")',
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        height: "75%",
+                      }}
+                    />
+                    <Image
+                      src={teacher.image}
+                      alt={`${teacher.name} ${teacher.title}`}
+                      width={350}
+                      height={400}
+                      className="w-full h-auto object-cover rounded-[50px] relative z-10"
+                    />
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-40 w-[80%] translate-y-1/3">
+                      <div className="bg-[#F2C686] rounded-[12px] flex items-center justify-center py-2 px-4 shadow-lg">
+                        <p className="text-[28px] md:text-[32px] text-[#351E1C] whitespace-nowrap">
+                          <span className="font-libre">{teacher.name}</span>
+                          <span className="ml-1 baskervville-regular-italic">
+                            {teacher.title}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <div className="w-full bg-[#E1EEEF] rounded-[12px] flex items-center justify-center gap-3 py-3 mt-10">
                     <Image
                       src={teacher.subjectIcon}
@@ -403,7 +424,7 @@ export default function Home() {
             <div className="flex justify-center mt-8 md:hidden">
               <Link
                 href="/teachers"
-                className="text-center text-[16px] font-medium text-[#F9633B]"
+                className="text-center text-[16px] font-medium text-[#F9633B] hover:text-[#d94d27]"
               >
                 See all Teachers {" > "}
               </Link>
