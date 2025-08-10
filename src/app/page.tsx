@@ -87,10 +87,10 @@ const allSubjects: Array<{
   { name: "Physics", bgClass: "bg-[#67B2ED]", icon: "/physics.svg" },
   { name: "English", bgClass: "bg-[#DB467F]", icon: "/eng.svg" },
   { name: "Accounting", bgClass: "bg-[#E24BDB]", icon: "/Acc.svg" },
-  { name: "Dhivehi", bgClass: "bg-[#F2C686]", icon: "/dhiv.svg" },
-  { name: "Islam", bgClass: "bg-[#F9633B]", icon: "/islam.svg" },
-  { name: "Science", bgClass: "bg-[#22b573]", icon: "/Science.svg" },
-  { name: "Business", bgClass: "bg-[#7945DD]", icon: "/Buss.svg" },
+  { name: "Dhivehi", bgClass: "bg-[#DB467F]", icon: "/dhiv.svg" },
+  { name: "Islam", bgClass: "bg-[#8CC63F]", icon: "/islam.svg" },
+  { name: "Science", bgClass: "bg-[#F27622]", icon: "/Science.svg" },
+  { name: "Business", bgClass: "bg-[#FBB03B]", icon: "/Buss.svg" },
 ];
 
 // -------------------- COMPONENTS --------------------
@@ -239,7 +239,7 @@ export default function Home() {
                             : "text-[#F9633B] border-[#F9633B]"
                         } ml-2 sm:ml-[20px] md:mt-[30px] first:ml-0 sm:first:ml-[20px]`}
                       >
-                        <span className="px-5 relative z-10">
+                        <span className="whitespace-nowrap px-3 sm:px-5 text-sm sm:text-base relative z-10">
                           Grade {grade}
                         </span>
                       </button>
