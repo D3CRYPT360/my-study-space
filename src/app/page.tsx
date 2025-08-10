@@ -240,7 +240,7 @@ export default function Home() {
                         } ml-2 sm:ml-[20px] md:mt-[30px] first:ml-0 sm:first:ml-[20px]`}
                       >
                         <span className="whitespace-nowrap px-3 sm:px-5 text-sm sm:text-base relative z-10">
-                          Grade {grade}
+                          Gr. {grade}
                         </span>
                       </button>
                     ))}

@@ -1,33 +1,45 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useState } from 'react';
+import Image from "next/image";
+import { useState } from "react";
 
 export default function TimetablePage() {
-  const [selectedGrade, setSelectedGrade] = useState<'gr8' | 'gr9' | 'gr10'>('gr8');
+  const [selectedGrade, setSelectedGrade] = useState<"gr8" | "gr9" | "gr10">(
+    "gr8"
+  );
 
   return (
     <div>
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mt-[150px] md:mt-[200px] mb-10">
         <div className="bg-[#FFFCF8] rounded-[30px] p-4 sm:p-6">
-          <h1 className="text-[30px] font-['Libre_Baskerville'] mb-4">Timetables</h1>
-          
+          <h1 className="text-[30px] font-['Libre_Baskerville'] mb-4">
+            Timetables
+          </h1>
+
           <div className="flex gap-4 mb-6">
-            {['gr8', 'gr9', 'gr10'].map((grade) => (
+            {["gr8", "gr9", "gr10"].map((grade) => (
               <button
                 key={grade}
-                onClick={() => setSelectedGrade(grade as 'gr8' | 'gr9' | 'gr10')}
+                onClick={() =>
+                  setSelectedGrade(grade as "gr8" | "gr9" | "gr10")
+                }
                 className={`relative overflow-hidden group h-[45px] px-10 rounded-[15px] text-sm font-medium border-2 border-[#F9633B] ${
                   selectedGrade === grade
-                    ? 'bg-[#F9633B] text-white'
-                    : 'bg-white text-[#F9633B] hover:text-white'
+                    ? "bg-[#F9633B] text-white"
+                    : "bg-white text-[#F9633B] hover:text-white"
                 }`}
               >
-                <span className={`absolute inset-12 size-2 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full left-1/2 -translate-1/2 ${
-                  selectedGrade === grade ? 'size-56' : ''
-                }`}></span>
+                <span
+                  className={`absolute inset-12 size-2 bg-[#F9633B] transform duration-500 ease-in-out group-hover:size-56 rounded-full left-1/2 -translate-1/2 ${
+                    selectedGrade === grade ? "size-56" : ""
+                  }`}
+                ></span>
                 <span className="relative z-10 transition-all duration-300 group-hover:scale-110">
-                  {grade === 'gr8' ? 'Grade 8' : grade === 'gr9' ? 'Grade 9' : 'Grade 10'}
+                  {grade === "gr8"
+                    ? "Grade 8"
+                    : grade === "gr9"
+                    ? "Grade 9"
+                    : "Grade 10"}
                 </span>
               </button>
             ))}
@@ -36,7 +48,13 @@ export default function TimetablePage() {
           <div className="relative w-full h-auto mb-6">
             <Image
               src={`/${selectedGrade}_timetable.jpg`}
-              alt={`${selectedGrade === 'gr8' ? 'Grade 8' : selectedGrade === 'gr9' ? 'Grade 9' : 'Grade 10'} Timetable`}
+              alt={`${
+                selectedGrade === "gr8"
+                  ? "Grade 8"
+                  : selectedGrade === "gr9"
+                  ? "Grade 9"
+                  : "Grade 10"
+              } Timetable`}
               width={1100}
               height={800}
               className="rounded-lg w-full h-auto object-contain"
