@@ -73,6 +73,38 @@ const teachers: Teacher[] = [
     hasBackground: true,
     description: 'With over 15+ years of experience teaching GCE, IGCSE, and A-Level Accounting, Adeel Sir brings a wealth of expertise and leadership to the classroom. He holds a Master of Education in Leadership and Management from Maldives National University and a Postgraduate Diploma in Teaching from Villa College. Throughout his career, he has served as an Accounts teacher, Leading Teacher, and Deputy Principal at Kaafu Atoll School, and has also held the position of Principal in two schools. His deep academic background, combined with extensive leadership experience, allows him to guide students with clarity and confidence in mastering accounting concepts.'
   },
+  {
+    name: "Imran",
+    title: "Sir",
+    subject: "Business",
+    education: "B.Ed in Business Studies and BBM",
+    image: '/Imran.png',
+    subjectIcon: 'Buss.svg',
+    hasBackground: true,
+    description: 'With 6+ years of teaching experience, Imran Sir is known for breaking down complex business concepts into simple, easy-to-understand ideas. With a strong background in both teaching and leading within the business industry as a business consultant, he brings real-world insight into every lesson. His use of interactive discussions and engaging multimedia tools makes learning both enjoyable and impactful, helping students approach their exams with clarity and confidence.'
+  },
+  {
+  name: 'Amaany',
+  title: 'Miss',
+  subject: "Science",
+  education: "3+ years of teaching experience",
+  image: '/Amaany.png',
+  subjectIcon: 'Science.svg',
+  hasBackground: true,
+  description: "With over three years of experience teaching Science and Biology, Amaany Miss has a gift for making challenging concepts clear, approachable, and engaging for young learners. She is dedicated to helping students build a strong foundation in these subjects, ensuring they not only understand the material but also develop a genuine interest in it. Her teaching style is interactive and student-centered, creating a fun, supportive classroom environment where learners feel confident to ask questions, explore ideas, and enjoy the process of discovery."
+  },
+  {
+    name: "Asif",
+    title: "Sir",
+    subject: "Islam",
+    education: "Masters of Teaching Islam",
+    image: '/Asif.png',
+    subjectIcon: 'islam.svg',
+    hasBackground: true,
+    description: "An accomplished educator with a Master’s in Teaching and with more than decade of teaching experience, Asif Sir delivers online Islamic Studies classes that are both thorough and comprehensive. His approach ensures students receive guidance at every step, building strong and reliable foundations that prepare them for more advanced lessons. By incorporating real-life scenarios and practical examples, he makes Islamic concepts clear, relatable, and easier to understand, helping students connect deeply with their learning."
+
+  }
+  
 ];
 
 export default function Teachers() {
