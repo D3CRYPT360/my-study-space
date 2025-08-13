@@ -57,7 +57,7 @@ const teachers = [
 type SubjectKey = keyof GradeSubjects;
 
 const gradeSubjectsMap: Record<Grade, SubjectKey[]> = {
-  8: ["Dhivehi", "Islam", "Business", "Science", "English"],
+  8: ["Mathematics", "Dhivehi", "Islam", "Business", "Science", "English"],
   9: [
     "Mathematics",
     "Chemistry",
