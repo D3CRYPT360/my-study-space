@@ -37,7 +37,7 @@ const timetableData: TimetableData = {
         schedule: [
           {
             day: "Sunday",
-            time: "7:00PM - 7:50PM",
+            time: "8:00PM - 8:50PM",
           },
           {
             day: "Wednesday",
