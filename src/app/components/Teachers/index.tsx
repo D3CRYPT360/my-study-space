@@ -17,7 +17,7 @@ const teachers: Teacher[] = [
     name: 'Mahil',
     title: 'Sir',
     subject: 'Mathematics',
-    experience: '4+ Years of Teaching Experience.',
+    experience: '4+ Years of Teaching Experience',
     image: '/our teachers_mahil.png',
     subjectIcon: '/maths.svg',
     hasBackground: true,
@@ -87,7 +87,7 @@ const teachers: Teacher[] = [
   name: 'Amaany',
   title: 'Miss',
   subject: "Science",
-  education: "3+ years of teaching experience",
+  education: "3+ years of teaching Experience",
   image: '/Amaany.png',
   subjectIcon: 'Science.svg',
   hasBackground: true,
@@ -103,7 +103,17 @@ const teachers: Teacher[] = [
     hasBackground: true,
     description: "An accomplished educator with a Master’s in Teaching and with more than decade of teaching experience, Asif Sir delivers online Islamic Studies classes that are both thorough and comprehensive. His approach ensures students receive guidance at every step, building strong and reliable foundations that prepare them for more advanced lessons. By incorporating real-life scenarios and practical examples, he makes Islamic concepts clear, relatable, and easier to understand, helping students connect deeply with their learning."
 
-  }
+  },
+  {
+    name: 'Shauka',
+    title: 'Miss',
+    subject: "Dhivehi",
+    education: "3+ years of teaching Experience",
+    image: '/Dhiv.png',
+    subjectIcon: 'dhiv.svg',
+    hasBackground: false,
+    description: "Shauka miss is a self-taught educator with over three years of tutoring experience, passionate about helping students understand even the most complex topics with ease. She strives to make Dhivehi lessons more engaging and enjoyable through creative teaching methods and interactive activities that keep students actively involved. Her approach focuses on simplifying concepts, building confidence, and helping students improve day by day, making learning both effective and enjoyable."
+}
   
 ];
 
