@@ -84,19 +84,6 @@ const timetableData: TimetableData = {
           },
         ],
       },
-      Islam: {
-        teacher: "Asif Sir",
-        schedule: [
-          {
-            day: "Monday",
-            time: "2:30PM - 3:20PM",
-          },
-          {
-            day: "Wednesday",
-            time: "2:30PM - 3:20PM",
-          },
-        ],
-      },
       Business: {
         teacher: "Imran Sir",
         schedule: [
@@ -129,12 +116,12 @@ const timetableData: TimetableData = {
         teacher: "Nafla Miss",
         schedule: [
           {
-            day: "Tuesday",
-            time: "4:00PM - 4:50PM",
+            day: "Wednesday",
+            time: "3:00PM - 3:50PM",
           },
           {
-            day: "Thursday",
-            time: "4:00PM - 4:50PM",
+            day: "Saturday",
+            time: "5:00PM - 5:50PM",
           },
         ],
       },

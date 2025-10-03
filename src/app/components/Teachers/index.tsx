@@ -94,17 +94,6 @@ const teachers: Teacher[] = [
   description: "With over three years of experience teaching Science and Biology, Amaany Miss has a gift for making challenging concepts clear, approachable, and engaging for young learners. She is dedicated to helping students build a strong foundation in these subjects, ensuring they not only understand the material but also develop a genuine interest in it. Her teaching style is interactive and student-centered, creating a fun, supportive classroom environment where learners feel confident to ask questions, explore ideas, and enjoy the process of discovery."
   },
   {
-    name: "Asif",
-    title: "Sir",
-    subject: "Islam",
-    education: "Masters of Teaching Islam",
-    image: '/Asif.png',
-    subjectIcon: 'islam.svg',
-    hasBackground: true,
-    description: "An accomplished educator with a Master’s in Teaching and with more than decade of teaching experience, Asif Sir delivers online Islamic Studies classes that are both thorough and comprehensive. His approach ensures students receive guidance at every step, building strong and reliable foundations that prepare them for more advanced lessons. By incorporating real-life scenarios and practical examples, he makes Islamic concepts clear, relatable, and easier to understand, helping students connect deeply with their learning."
-
-  },
-  {
     name: 'Shauka',
     title: 'Miss',
     subject: "Dhivehi",
