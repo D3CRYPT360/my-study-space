@@ -196,12 +196,12 @@ const timetableData: TimetableData = {
         teacher: "Nafla Miss",
         schedule: [
           {
-            day: "Tuesday",
-            time: "5:00PM - 5:50PM",
+            day: "Wednesday",
+            time: "7:10PM - 8:00PM",
           },
           {
-            day: "Thursday",
-            time: "5:00PM - 5:50PM",
+            day: "Saturday",
+            time: "4:00PM - 4:50PM",
           },
         ],
       },
